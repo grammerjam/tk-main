@@ -1,0 +1,17 @@
+.container {
+    display: grid;
+    grid: 150px / auto auto;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px;
+} 
+
+.square {
+    border: 3px solid black;
+    height: 150px;
+    width: 150px;
+}
+
+body > .dt {
+    text-align: center;
+}
