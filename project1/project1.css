@@ -1,0 +1,29 @@
+.container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+} 
+
+.square {
+    border: 3px solid black;
+    height: 350px;
+    width: 350px;
+    margin: 2em
+}
+
+@media (min-width: 40em) {
+    .container {
+    display: grid;
+    grid: 350px / auto auto;
+    gap: 2em;
+    justify-content: center;
+    margin: 2em;
+    }
+
+    .square {
+        border: 3px solid black;
+        height: 350px;
+        width: 350px;
+        margin: 0em
+    }
+}
