@@ -1,18 +1,29 @@
 .container {
-    display: grid;
-    grid: 350px / auto auto;
-    gap: 20px;
+    display:flex;
+    flex-direction: column;
     justify-content: center;
-    margin: 5px;
-
 } 
 
 .square {
     border: 3px solid black;
     height: 350px;
     width: 350px;
+    margin: 2em
 }
 
-body > .dt {
-    text-align: center;
+@media (min-width: 40em) {
+    .container {
+    display: grid;
+    grid: 350px / auto auto;
+    gap: 2em;
+    justify-content: center;
+    margin: 2em;
+    }
+
+    .square {
+        border: 3px solid black;
+        height: 350px;
+        width: 350px;
+        margin: 0em
+    }
 }
