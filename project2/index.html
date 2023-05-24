@@ -5,23 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/7bf5f6c30b.js" crossorigin="anonymous"></script>
     <title>Project2 - EasyBank</title>
 </head>
+
+<!-- <script type="text/javascript">
+    function changeFarbarVisibility(){
+        var farBar = document.getElementsByClassName("fa fa-bars")
+        var closeButton = document.getElementsByClassName("close-button")
+
+        if (farBar.aria-hidden == true){
+            farBar.aria-hidden = false;
+            closeButton.aria-hidden = true;
+        }
+        else {
+            farBar.aria-hidden = true;
+            closeButton.aria-hidden = false;
+        }
+    }
+</script> -->
+
 <body>
     <nav class="navbar">
-        <div class="brand-title">easybank</div>
-            
-        <div class="navbar-links">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Careers</a></li>
-            </ul>
-            <div class="toggle-btn">
-                <i class="fa-light fa-bars" style="color: #9597a5;"></i>
+        <div class="companyTitleLogo">
+            <img src="./grammerhub_design_easybank_landing/our_images/monsterlair.png" alt="Monster Logo" id="logoimg" class="logoimg"/>
+            <div class="brand-title">easybank</div>
+        </div>
+        <div class="toggle-btn">
+            <i class="fa fa-bars"></i>
+        </div>
+        <button class="close-button" aria-label="Close Nav" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="navbar-body-bg">
+            <div class="navbar-body">
+                <div class="navbar-links">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>

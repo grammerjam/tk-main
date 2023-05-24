@@ -12,13 +12,41 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    color: #9597a5
+    color: #9597a5;
+}
+
+.companyTitleLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 .brand-title {
     color: black;
     font-size: 1.3rem;
-    margin: .5rem
+}
+
+.logoimg {
+    width: 2em;
+    height: 2em;
+    margin-left: 1em;
+}
+
+.navbar-body-bg {
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(to bottom, #2d314d, rgba(255, 255, 255, 0.593));
+    width: 100%;
+}
+
+.navbar-body {
+    width: 70%;
+    margin: 2em auto 0 auto;
+    margin-left: auto;
+    display: flex;
+    border-radius: 1em;
+    /* border: 0.025em solid black; */
+    background-color: white;
 }
 
 .navbar-links ul {
@@ -29,43 +57,41 @@ body {
 
 .navbar-links li {
     list-style: none;
-    border-bottom: green;
+    border-bottom: 0.025em solid #2d314d; /*Might not be necessary to have. Remove li:hover if we remove this line. */
+}
+
+.navbar-links li:hover {
+    list-style: none;
+    border: none;
 }
 
 .navbar-links li a {
     text-decoration: none;
+    margin: 0.025em auto 0.025em auto;
     padding: 1rem;
-    color: #9597a5;
+    color: #2d314d;
     display: block;
-    
 }
 
 .navbar-links li a:hover {
-    color: black;
-    border:mediumspringgreen; /*not working. also, needs to be gradient in color palette*/
+    margin: 0 auto 0 auto;
+    border-width: 0.025em;
+    border-style: solid;
+    border-image:linear-gradient(to right, #33d35e, #2AB6D9) 1;
 }
 
-/* .toggle-button {
+.toggle-btn {
     position: absolute;
-    top: .75rem;
     right: 1rem;
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px
+    top: 0.40rem;
+    font-size: 48px;
+    color: black;
 }
-
-.toggle-button .bar {
-    height: 2px;
-    width: 100%;
-    background-color: #9597a5;
-    border-radius: 10px;
-} */
 
 .navbar .toggle_btn {
+    border: 0.025em solid black;
     color: #9597a5;
-    font-size: 1.5 rem;
+    font-size: 1.5rem;
 }
 
 @media (max-width: 800px) {
@@ -73,6 +99,31 @@ body {
         display: flex;
     }
 
+    .brand-title {
+        color: #2d314d;
+        font-size: 1.3rem;
+        font-weight: bold;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0.75em 0.75em;
+    }
+
+    .navbar-body-bg {
+        margin-left: auto;
+        margin-right: auto;
+        background: linear-gradient(to bottom, #2d314d, rgba(255, 255, 255, 0.593));
+        width: 100%;
+    }
+    
+    .navbar-body {
+        width: 70%;
+        margin: 2em auto 0 auto;
+        margin-left: auto;
+        display: flex;
+        border-radius: 1em;
+        /* border: 0.025em solid black; */
+        background-color: white;
+    }
+    
     .navbar-links {
         /* display: none; */
         width: 100%;
@@ -85,6 +136,10 @@ body {
 
     .navbar-links li {
         text-align: center;
+    }
+
+    .navbar-links li a {
+        color: #2d314d;
     }
 
     .navbar {
