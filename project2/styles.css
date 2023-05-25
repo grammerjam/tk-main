@@ -80,6 +80,12 @@ body {
     border-image:linear-gradient(to right, #33d35e, #2AB6D9) 1;
 }
 
+.toggle-btn::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .toggle-btn {
     position: absolute;
     right: 1rem;
