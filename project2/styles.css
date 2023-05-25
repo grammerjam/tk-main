@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -37,12 +37,12 @@ header {
 .brand-title {
     color: black;
     font-size: 1.3rem;
+    font-weight: bold;
 }
 
 .logoimg {
     width: 2em;
     height: 2em;
-    margin-left: 1em;
 }
 nav.menuBar{
     display: flex;
@@ -129,7 +129,7 @@ nav.menuBar ul .liBg li a:hover {
     position: absolute;
     height: 900px;
     width: 686px;
-    overflow: hidden;
+    /* overflow: hidden; */
     /* margin: -6rem -24rem 0 0; */
 }
 
@@ -224,6 +224,19 @@ nav.menuBar ul .liBg li a:hover {
     justify-content: space-between;
 }
 
+.footer-logo {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    gap: .25rem
+}
+
+.footer-logo .brand-title {
+    color: white;
+    font-size: 1.3rem;
+    /* align-items: center; */
+}
+
 .footer-links {
     margin: 0rem 3rem 0rem 0rem;
 }
@@ -254,7 +267,7 @@ nav.menuBar ul .liBg li a:hover {
     nav.menuBar #navicon {
         position: absolute;
         right: 1rem;
-        top: 0.40rem;
+        top: 0.1rem;
         font-size: 48px;
         color: black;
         display: inline;
@@ -271,6 +284,7 @@ nav.menuBar ul .liBg li a:hover {
     nav.menuBar ul {
         display: none;
         text-align: center;
+        position: relative;
         width: 100%;
         margin: 0rem -4rem 0rem -4rem;
     }
@@ -320,43 +334,19 @@ nav.menuBar ul .liBg li a:hover {
     
     a#navicon:focus+ul, nav.menuBar ul:focus {
         display:block;
-
         position:absolute;
         z-index: 1;
-        background: linear-gradient(to bottom, rgba(81, 83, 94, .5), rgba(255, 255, 255, 0));
+        background: linear-gradient(to bottom, rgba(47, 51, 74, 0.75), rgba(255, 255, 255, 0));
         width:100%;
     }
-
-    .toggle-button {
-        display: flex;
-    }
     
-    .toggle-btn::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-    
-    #navicon {
-        position: absolute;
-        right: 1rem;
-        top: 0.40rem;
-        font-size: 48px;
-        color: black;
-    }    
-
     header {
-        display: flex;
-        flex-direction: column;
+        display: block;
+        /* flex-direction: column; */
         align-items: flex-start;
         padding: 0rem 4rem 0rem 4rem;
         z-index: 1;
         background-color: white;
-
-    }
-
-    .main-content {
-        overflow: hidden;
     }
 
     .invite-request1 {
@@ -372,10 +362,9 @@ nav.menuBar ul .liBg li a:hover {
     
     .generation-text {
         display: block;
-        flex-direction: column;
-        margin: 1rem auto 3rem auto;
-        align-items: start;
-        width: 90%;
+        margin: 1rem 0rem 3rem 0rem;
+        text-align: center;
+        width: 100%;
         order: 2;
     }
 
@@ -385,7 +374,7 @@ nav.menuBar ul .liBg li a:hover {
     }
 
     .generation-img{
-        margin: -6rem 0 4rem 0;
+        margin: -8rem 0 0rem 0;
         order: 1;
         z-index: -1;
         display: flex;
@@ -393,9 +382,9 @@ nav.menuBar ul .liBg li a:hover {
         justify-content: center;
     }
 
-    .bg-image-container {
+    /* .bg-image-container {
         z-index: -1
-    }
+    } */
 
     .bg-pieces {
         display: flex;
@@ -403,25 +392,23 @@ nav.menuBar ul .liBg li a:hover {
         z-index: -1;
         position: absolute;
         align-items: center;
-        /* justify-content: center; */
+        justify-content: center;
         width: 100%;
+        height: auto;
         overflow: hidden;
-        /* max-height: 100%; */
-
-        /* gap: 0rem; */
     }
 
     .green-plus {
-        width: 120%;
-        margin: -6rem 0 0 0rem;
+        width: 150%;
+        margin: 0rem 0 0 4rem;
         /* overflow: hidden; */
 
     }
 
     .dark-plus {
-        width: 120%;
+        width: 150%;
         position: relative;
-        margin: -18rem 0 6rem 0rem;
+        margin: -24rem 0 9rem 6rem;
         z-index: -2;
         /* overflow: hidden; */
     }
@@ -436,11 +423,12 @@ nav.menuBar ul .liBg li a:hover {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 15rem
+        max-width: 30%;
+        overflow: visible;
     }
 
     .phone-stack .phones {
-        height: 100%;
+        /* height: 100%; */
         width: auto;
     }
     
@@ -452,19 +440,19 @@ nav.menuBar ul .liBg li a:hover {
 
     .why-choose-items {
         display: block;
-        margin: 0 auto 0 auto;
-        width: 90%;
-        text-align: center;
+        justify-content: center;
     }    
 
     .why-choose {
         background-color: #f5f5f5;
         display: block;
-        padding: 4rem;
+        padding: 1rem;
+        justify-content: center;
         text-align: center;
     }
 
     .why-choose h2 {
+        margin: .5rem 0 2rem 0;
         display: block;
         color: #2d314d;
         font-size: 3em;
@@ -472,36 +460,30 @@ nav.menuBar ul .liBg li a:hover {
 
     .why-choose p {
         display: block;
+        margin: 0 4rem 0rem 4rem;
     }
 
     .choose-item {
-        display: block;
-        margin: 3em auto 3em auto;
+        margin: 2em 0rem 2em 0rem;
+        width: 100%;
         text-align: center;
-        width: 80%;
     }
 
-    .choose-item img {
-        display: block;
-        margin: 1rem auto 1rem auto;
-    }
+
 
     .choose-item h4 {
-        display: block;
+        margin: .5rem 0 .5rem 0 ;
         color: #2d314d;
     }
 
-    .choose-item p {
-        display: block;
-    }
-
     .latest-articles {
-        margin: 1em auto 1em auto;
+        margin: 2rem 4rem 1em 4rem;
+        text-align: center;
     }
     
     .article-container {
         display: block;
-    
+        text-align: left;
     }
 
     .article {
