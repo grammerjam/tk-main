@@ -10,18 +10,35 @@
     <title>Project2 - EasyBank</title>
 </head>
 
+<script>
+    function changeIcon(anchor) {
+        var nav = document.getElementById("liBg");
+        var icon = anchor.querySelector("i");
+
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
+
+        if (icon.classList.contains('fa-bars')){
+            nav.style.display = "none";
+        }
+        else {
+            nav.style.display = "block";
+        }
+    }
+</script>
+
 <body>
     <header>
         <div class="companyTitleLogo">
             <img src="./grammerhub_design_easybank_landing/our_images/monsterlair.png" alt="Monster Logo" id="logoimg" class="logoimg"/>
             <div class="brand-title">easybank</div>
         </div>
-        <nav class="menuBar">
-            <a href="#" id="navicon">
+        <nav class="menuBar" id="menuBar">
+            <a href="#" id="navicon" onclick="changeIcon(this)">
                 <i class="fa fa-bars"></i>
             </a>
             <ul>
-                <div class="liBg">
+                <div class="liBg" id="liBg">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
@@ -30,6 +47,7 @@
                 </div>
             </ul>
         </nav>
+        <img src="grammerhub_design_easybank_landing/design/com/request invite.png" class="invite-request1" alt="request invite">
     </header>
     <div class="main-content">
         <div class="next-generation">
@@ -41,15 +59,26 @@
                 </p>
                 <img src="./grammerhub_design_easybank_landing/design/com/request invite.png" class="invite-img" alt="request-invite-button">
             </div>
-            <div class="generation-img">
-                <img src="./grammerhub_design_easybank_landing/images/phones/Group 7 Copy.png" alt="image-of-phone">
+            <div class="bg-image-container">
+                <div class="generation-img">
+                    <div class="bg-pieces">
+                        <img src="./grammerhub_design_easybank_landing/design/com/Path 6 Copy.png" class="green-plus" alt="green plus">
+                        <img src="./grammerhub_design_easybank_landing/design/com/Path 6.png" class="dark-plus" alt="dark plus">
+                    </div>
+                    <img src="./grammerhub_design_easybank_landing/images/phones/Group 7.png" class='phone' alt="phone1">
+                    <div class="phone-stack">
+                        <img src="./grammerhub_design_easybank_landing/images/phones/Group 7 Copy 3.png" class='phones' alt="phone2">
+                        <img src="./grammerhub_design_easybank_landing/images/phones/Group 7 Copy 2.png"  class='phones' alt="phone3">
+                    </div>
+                    <img src="./grammerhub_design_easybank_landing/images/phones/Group 7 Copy.png" class='phone' alt="image-of-phone">
+                </div>
             </div>
         </div>
         <div class="why-choose">
             <h2>Why choose Easybank?</h2>
-            <p>Are you tired of juggling multiple accounts
-                and<br>struggling to keep track of your finances?
-                Look no<br>further than Easybank!
+            <p>
+                We leverage Open Banking to turn your bank account 
+                into your financial hub. Control your finances like never before.
             </p>
             <div class="why-choose-items">
                 <div class="choose-item">
@@ -154,5 +183,6 @@
         </footer>
     </div>
     <div class="start-date">Start Date Time: 05/23/23 1230ET</div>
+    <div class="start-date">End Date Time: TBD</div>
 </body>
 </html>
