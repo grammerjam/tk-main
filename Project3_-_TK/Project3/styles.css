@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+}
+
+.background {
+    background-image: url("images/bg-main-mobile.png");
+    background-size: cover;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-display-container {
+    background-color: aqua;
+}
+
+.card-form-container {
+    background-color: white;
+    margin: 15rem 0 0 0;
+}
+
+form {
+    display: grid;
+    margin: 6rem 2rem 5rem 2rem;
+    justify-content: center;
+    gap: 1rem
+}
+
+
