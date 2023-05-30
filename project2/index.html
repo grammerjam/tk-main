@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/7bf5f6c30b.js" crossorigin="anonymous"></script>
+    <title>Project2 - EasyBank</title>
+</head>
+
+<script>
+    function changeIcon(anchor) {
+        var nav = document.getElementById("liBg");
+        var icon = anchor.querySelector("i");
+
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
+
+        if (icon.classList.contains('fa-bars')){
+            nav.style.display = "none";
+        }
+        else {
+            nav.style.display = "block";
+        }
+    }
+</script>
+
+<body>
+    <header>
+        <div class="companyTitleLogo">
+            <img src="./grammerhub_design_easybank_landing/our_images/monsterlair.png" alt="Monster Logo" id="logoimg" class="logoimg"/>
+            <div class="brand-title">easybank</div>
+        </div>
+        <nav class="menuBar" id="menuBar">
+            <a href="#" id="navicon" onclick="changeIcon(this)">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul>
+                <div class="liBg" id="liBg">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                </div>
+            </ul>
+        </nav>
+        <img src="grammerhub_design_easybank_landing/design/com/request invite.png" class="invite-request1" alt="request invite">
+    </header>
+    <div class="main-content">
+        <div class="next-generation">
+            <div class="generation-text">
+                <h1>Next generation digital banking</h1>
+                <p>
+                    Are you tired of juggling multiple accounts and struggling
+                    to keep track of your finances? Look no further than Easybank.
+                </p>
+                <img src="./grammerhub_design_easybank_landing/design/com/request invite.png" class="invite-img" alt="request-invite-button">
+            </div>
+            <div class="bg-image-container">
+                <div class="generation-img">
+                    <div class="bg-pieces">
+                        <img src="./grammerhub_design_easybank_landing/design/com/Path 6 Copy.png" class="green-plus" alt="green plus">
+                        <img src="./grammerhub_design_easybank_landing/design/com/Path 6.png" class="dark-plus" alt="dark plus">
+                    </div>
+                    <img src="./grammerhub_design_easybank_landing/images/phones/Group 7.png" class='phone' alt="phone1">
+                    <div class="phone-stack">
+                        <img src="./grammerhub_design_easybank_landing/images/phones/Group 7 Copy 3.png" class='phones' alt="phone2">
+                        <img src="./grammerhub_design_easybank_landing/images/phones/Group 7 Copy 2.png"  class='phones' alt="phone3">
+                    </div>
+                    <img src="./grammerhub_design_easybank_landing/images/phones/Group 7 Copy.png" class='phone' alt="image-of-phone">
+                </div>
+            </div>
+        </div>
+        <div class="why-choose">
+            <h2>Why choose Easybank?</h2>
+            <p>
+                We leverage Open Banking to turn your bank account 
+                into your financial hub. Control your finances like never before.
+            </p>
+            <div class="why-choose-items">
+                <div class="choose-item">
+                    <img src="./grammerhub_design_easybank_landing/design/com/Group 23.png" alt="">
+                    <h4>Online Banking</h4>
+                    <p>Banking is cool.</p>
+                </div>
+                <div class="choose-item">
+                    <img src="./grammerhub_design_easybank_landing/design/com/Group 22.png" alt="">
+
+                    <h4>Simple Budgeting</h4>
+                    <p>Easybank empowers you to save more effectively. Our intuitive
+                        tools help you set savings goals, track your progress, and automate your finances.
+                    </p>
+                </div>
+                <div class="choose-item">
+                    <img src="./grammerhub_design_easybank_landing/design/com/Group 21.png" alt="">
+
+                    <h4>Fast Onboarding</h4>
+                    <p>We don't do branches. Open your account in minutes online and 
+                        start taking control of your finances</p>
+                </div>
+                <div class="choose-item">
+                    <img src="./grammerhub_design_easybank_landing/design/com/Group 20.png" alt="">
+
+                    <h4>Open API</h4>
+                    <p>Manage your savings, investments,pension, and much more from one
+                    account. Tracking your money has never been easier</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="latest-articles">
+            <h2>Latest Articles</h2>
+            <div class="article-container">
+                <div class="article">
+                    <img src="./grammerhub_design_easybank_landing/our_images/monkey-selfie.jpg" class="article-img" alt="monkey-selfie">
+                    <div class="article-text">
+                        <p>By Jacob Bailey</p>
+                        <h3>Monkey takes selfie. People freak out</h3>
+                        <p>Look at that crazy monkey! I'm offended...</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="grammerhub_design_easybank_landing/our_images/naruto.avif" class="article-img" alt="naruto-on-fire">
+                    <div class="article-text">
+                        <p>By Jonathan Dameus</p>
+                        <h3>Naruto goes Super Saiyan</h3>
+                        <p>Oh wait, my bad. Wrong show...</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="grammerhub_design_easybank_landing/our_images/Weird_Al_Yankovic_profile.jpg" class="article-img" alt="weird-al">
+                    <div class="article-text">
+                        <p>By Allan Tito</p>
+                        <h3>Weird Al tired of being called 'weird'</h3>
+                        <p>Now he's just Al...</p>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="grammerhub_design_easybank_landing/our_images/spike-bebop.avif" class="article-img" alt="spike-cowboy-bebop">
+                    <div class="article-text">
+                        <p>By Spanky McGehee</p>
+                        <h3>Local space cowboy shoots some stuff</h3>
+                        <p>Everything done got shot...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-link-section">
+                    <div class="footer-links">
+                        <h4 class="footer-logo">
+                            <img src="./grammerhub_design_easybank_landing/our_images/monsterlair.png" alt="Monster Logo" id="logoimg" class="logoimg"/>
+                            <div class="brand-title">easybank</div>
+                        </h4>
+                        <div class="socials">
+                            <i class="fa-brands fa-square-facebook"></i>
+                            <i class="fa-brands fa-youtube"></i>
+                            <i class="fa-brands fa-twitter"></i>
+                            <i class="fa-brands fa-pinterest"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <p>About us</p>
+                        <p>Contact</p>
+                        <p>Blog</p>
+                    </div>
+                    <div class="footer-links">
+                        <p>Careers</p>
+                        <p>Support</p>
+                        <p>Privacy Policy</p>
+                    </div>
+                </div>
+                <div class="copy-image">
+                    <img src="./grammerhub_design_easybank_landing/design/com/request invite.png" class="invite-img" alt="request-invite-button">
+                    <p>&copy; Easybank. All Rights Reserved</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="start-date">Start Date Time: 05/23/23 1230ET</div>
+    <div class="start-date">End Date Time: TBD</div>
+</body>
+</html>
