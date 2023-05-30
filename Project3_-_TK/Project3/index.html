@@ -52,7 +52,6 @@
             <input type="text" id="number" pattern="[0-9]{16}" value="e.g. 1234 5678 9123 0000"
             onkeyup="document.getElementById('number-output').innerHTML = this.value" required>
             <div id="c-number" class="error-message"></div>
-
           </div>
           <div class="exp-field">
             <label for="exp">EXP. DATE (MM/YY)</label>
@@ -68,6 +67,20 @@
             <input type="text" id="cvc" pattern="[0-9]{3}" maxlength="3" value="e.g. 123"
             onkeyup="document.getElementById('cvc-output').innerHTML = this.value"required>
             <div id="c-cvc" class="error-message"></div>
+            <input type="text" id="number" pattern="[0-9]+" placeholder="e.g. 1234 5678 9123 0000"
+            onkeyup="document.getElementById('number-output').innerHTML = this.value">
+          </div>
+          <div class="exp-field">
+            <label for="exp">EXP. DATE (MM/YY)</label>
+            <input type="text" id="exp-m" pattern="[0-9]+" maxlength="2" placeholder="MM"
+            onkeyup="document.getElementById('exp-m-output').innerHTML = this.value">
+            <input type="text" id="exp-y" pattern="[0-9]+" maxlength="2" placeholder="YY"
+            onkeyup="document.getElementById('exp-y-output').innerHTML = this.value">
+          </div>
+          <div class="cvc-field">
+            <label for="cvc">CVC</label>
+            <input type="text" id="cvc" pattern="[0-9]+" maxlength="3" placeholder="e.g. 123"
+            onkeyup="document.getElementById('cvc-output').innerHTML = this.value">
           </div>
           <button class="confirm" type="submit">Confirm</button>
         </form>
