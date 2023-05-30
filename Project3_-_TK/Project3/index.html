@@ -38,19 +38,19 @@
           </div>
           <div class="number-field">
             <label for="number">CARD NUMBER</label>
-            <input type="text" id="number" placeholder="e.g. 1234 5678 9123 0000"
+            <input type="text" id="number" pattern="[0-9]+" placeholder="e.g. 1234 5678 9123 0000"
             onkeyup="document.getElementById('number-output').innerHTML = this.value">
           </div>
           <div class="exp-field">
             <label for="exp">EXP. DATE (MM/YY)</label>
-            <input type="text" id="exp-m" placeholder="MM"
+            <input type="text" id="exp-m" pattern="[0-9]+" maxlength="2" placeholder="MM"
             onkeyup="document.getElementById('exp-m-output').innerHTML = this.value">
-            <input type="text" id="exp-y" placeholder="YY"
+            <input type="text" id="exp-y" pattern="[0-9]+" maxlength="2" placeholder="YY"
             onkeyup="document.getElementById('exp-y-output').innerHTML = this.value">
           </div>
           <div class="cvc-field">
             <label for="cvc">CVC</label>
-            <input type="text" id="cvc" placeholder="e.g. 123"
+            <input type="text" id="cvc" pattern="[0-9]+" maxlength="3" placeholder="e.g. 123"
             onkeyup="document.getElementById('cvc-output').innerHTML = this.value">
           </div>
         </form>
