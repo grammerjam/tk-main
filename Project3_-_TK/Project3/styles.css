@@ -229,8 +229,7 @@ label {
         border-radius: 100%;
         margin-left: 1rem;
     }
-    
-    
+        
     .card-back {
         background-image: url('images/bg-card-back.png');
         background-size: cover;
@@ -243,8 +242,6 @@ label {
         border-radius: .6rem;
         align-content: center;
     }
-    
-    
     
     .cvc-display {
         margin: 1.8rem 0.4rem 0 0;
@@ -315,7 +312,7 @@ label {
         ) 1 100%;
     
     }
-    
+
     button {
         border-radius: .4rem;
         padding: .6rem;
@@ -329,6 +326,7 @@ label {
     .error-message {
         color: hsl(0, 100%, 66%);
     }
+
     .err {
         border: 1px solid #de0000;
     }
