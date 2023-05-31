@@ -58,14 +58,14 @@ button  {
 .exp-m-display {
     grid-area: exp-m;
     height: 1rem;
-    width: 2em;
+    width: 1.5em;
     margin-left: auto;
 }
 
 .exp-y-display {
     grid-area: exp-y;
     height: 1rem;
-    width: 2em;
+    width: 1.5em;
 }
 
 .logo {
