@@ -1,11 +1,18 @@
 body {
     margin: 0;
+    font-size: 18px;
+}
+
+button  {
+    border-radius: .4rem;
+    padding: .6rem;
+    background-color: hsl(278, 68%, 11%);
+    color: white;
 }
 
 .background {
     background-image: url("images/bg-main-mobile.png");
     background-size: cover;
-    height: 31.6em;
 }
 
 .page-container {
@@ -14,7 +21,6 @@ body {
 }
 
 .card-display-container {
-<<<<<<< HEAD
     color: white;
     align-items: center;
 }
@@ -42,23 +48,17 @@ body {
     grid-area: name;
     height: 1rem;
 }
-
 .number-display {
     grid-area: number;
     height: 1rem;
 }
-
 .exp-m-display {
     grid-area: exp-m;
     height: 1rem;
-    width: 1.5em;
-    margin-left: auto;
 }
-
 .exp-y-display {
     grid-area: exp-y;
     height: 1rem;
-    width: 1.5em;
 }
 
 .logo {
@@ -104,67 +104,25 @@ body {
     margin: 1.8rem 0.4rem 0 0;
     float: right;
     font-size: 1rem;
-=======
-    background-color: aqua;
->>>>>>> parent of 42df3e6 (Merge pull request #2 from grammerjam/update)
 }
 
 .card-form-container {
     background-color: white;
-    margin: 0 0 1em 0;
-    height: 31.6em;
-    width: 50em;
-    position: absolute;
-    right: 0;
-    float: right;
-    display: block;
+    margin: 15rem 0 0 0;
 }
 
 form {
-    margin: 5rem auto 5rem auto;
+    display: grid;
+    margin: 6rem 2rem 5rem 2rem;
     justify-content: center;
-    gap: 1rem;
-    width: 20em;
+    gap: 1rem
 }
 
-label {
-    color: hsl(278, 66%, 36%);
-    display: block;
-}
-
-<<<<<<< HEAD
 input {
     border-radius: .3rem;
     padding: .4rem;
     border-color: hsl(270, 3%, 87%);
     border-style: solid;
-    width: 25em;
-    margin: 1em auto 1em auto;
-}
-
-.exp-field {
-    display: inline-block;
-}
-
-.exp-field > input {
-    border-radius: .3rem;
-    padding: .4rem;
-    border-color: hsl(270, 3%, 87%);
-    border-style: solid;
-    width: 5em;
-}
-
-.cvc-field {
-    display: inline-block;
-    margin-left: 1em;
-}
-
-.cvc-field > input {
-    border-radius: .3rem;
-    padding: .4rem;
-    border-color: hsl(270, 3%, 87%);
-    border-style: solid;
-    width: 5em;
 }
 
 input:active {
@@ -174,10 +132,8 @@ input:active {
 
 }
 
-button {
-    display: block;
-    margin: 1em auto 1em auto;
-    width: 26em;
+label {
+    color: hsl(278, 66%, 36%)
 }
 
 .error-message {
@@ -185,151 +141,4 @@ button {
 }
 .err {
     border: 1px solid #de0000;
-}
-=======
->>>>>>> parent of 42df3e6 (Merge pull request #2 from grammerjam/update)
-
-@media (max-width: 375px) {
-    body {
-        margin: 0;
-        font-size: 18px;
-    }
-    
-    button  {
-        border-radius: .4rem;
-        padding: .6rem;
-        background-color: hsl(278, 68%, 11%);
-        color: white;
-    }
-    
-    .background {
-        background-image: url("images/bg-main-mobile.png");
-        background-size: cover;
-    }
-    .page-container {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .card-display-container {
-        color: white;
-        align-items: center;
-    }
-    
-    /* .front-img {
-        float: bottom;
-    } */
-    .card-front {
-        background-image: url('images/bg-card-front.png');
-        background-size: cover;
-        z-index: 1;
-        height: 7rem; 
-        width: 14rem;
-        position: fixed;
-        padding: 1rem;
-        margin: 7rem 3rem 0rem 1rem;
-        border-radius: .6rem;
-        display: grid;
-        grid-template-areas: 
-            'logo logo logo' 'number number number' 'name exp-m exp-y';
-    
-    }
-    
-    .name-display {
-        grid-area: name;
-        height: 1rem;
-    }
-    .number-display {
-        grid-area: number;
-        height: 1rem;
-    }
-    .exp-m-display {
-        grid-area: exp-m;
-        height: 1rem;
-    }
-    .exp-y-display {
-        grid-area: exp-y;
-        height: 1rem;
-    }
-    
-    .logo {
-        display: flex;
-        align-items: center;
-    }
-    
-    .white-circle {
-        grid-area: logo;
-        height: 2rem;
-        width: 2rem;
-        background-color: white;
-        border-radius: 100%;
-    }
-    
-    .empty-circle {
-        grid-area:logo;
-        height: .75rem;
-        width: .75rem;
-        border-style: solid;
-        border-width: 2px;
-        border-radius: 100%;
-        margin-left: 1rem;
-    }
-    
-    
-    .card-back {
-        background-image: url('images/bg-card-back.png');
-        background-size: cover;
-        z-index: 0;
-        height: 7rem; 
-        width: 14rem;
-        position: fixed;
-        padding: 1rem;
-        margin: 2rem 1rem 0rem 5rem;
-        border-radius: .6rem;
-        align-content: center;
-    }
-    
-    .cvc-display {
-        margin: 1.8rem 0.4rem 0 0;
-        float: right;
-        font-size: 1rem;
-    }
-    
-    .card-form-container {
-        background-color: white;
-        margin: 15rem 0 0 0;
-    }
-    
-    form {
-        display: grid;
-        margin: 6rem 2rem 5rem 2rem;
-        justify-content: center;
-        gap: 1rem
-    }
-    
-    input {
-        border-radius: .3rem;
-        padding: .4rem;
-        border-color: hsl(270, 3%, 87%);
-        border-style: solid;
-    }
-    
-    input:active {
-        border-image: linear-gradient(
-            hsl(249, 99%, 64%), hsl(278, 94%, 30%)
-        ) 1 100%;
-    
-    }
-    
-    label {
-        color: hsl(278, 66%, 36%)
-    }
-    
-    .error-message {
-        color: hsl(0, 100%, 66%);
-    }
-    
-    .err {
-        border: 1px solid #de0000;
-    }
 }
