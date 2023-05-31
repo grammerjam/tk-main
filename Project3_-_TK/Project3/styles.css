@@ -13,6 +13,7 @@ button  {
 .background {
     background-image: url("images/bg-main-mobile.png");
     background-size: cover;
+    height: 31.6em;
 }
 
 .page-container {
@@ -108,14 +109,25 @@ button  {
 
 .card-form-container {
     background-color: white;
-    margin: 15rem 0 0 0;
+    margin: 0 0 1em 0;
+    height: 31.6em;
+    width: 50em;
+    position: absolute;
+    right: 0;
+    float: right;
+    display: block;
 }
 
 form {
-    display: grid;
-    margin: 6rem 2rem 5rem 2rem;
+    margin: 5rem auto 5rem auto;
     justify-content: center;
-    gap: 1rem
+    gap: 1rem;
+    width: 20em;
+}
+
+label {
+    color: hsl(278, 66%, 36%);
+    display: block;
 }
 
 input {
@@ -123,6 +135,35 @@ input {
     padding: .4rem;
     border-color: hsl(270, 3%, 87%);
     border-style: solid;
+    width: 25em;
+    margin: 1em auto 1em auto;
+}
+
+.exp-field {
+    display: inline-block;
+    width: 9.59em;
+}
+
+.exp-field > input {
+    border-radius: .3rem;
+    padding: .4rem;
+    border-color: hsl(270, 3%, 87%);
+    border-style: solid;
+    width: 5em;
+}
+
+.cvc-field {
+    display: inline-block;
+    width: 4.7em;
+    margin-left: 1em;
+}
+
+.cvc-field > input {
+    border-radius: .3rem;
+    padding: .4rem;
+    border-color: hsl(270, 3%, 87%);
+    border-style: solid;
+    width: 5em;
 }
 
 input:active {
@@ -132,8 +173,10 @@ input:active {
 
 }
 
-label {
-    color: hsl(278, 66%, 36%)
+button {
+    display: block;
+    margin: 1em auto 1em auto;
+    width: 26em;
 }
 
 .error-message {
