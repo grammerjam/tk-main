@@ -43,15 +43,8 @@
         <form action="" onsubmit="return check()" novalidate>
           <div class="name-field">
             <label for="name">CARDHOLDER NAME</label>
-            <input type="text" id="name" pattern="[A-Za-z]+" placeholder="e.g. Jane Appleseed"
-            onkeyup="document.getElementById('name-output').innerHTML = this.value" required>
-            <div id="c-name" class="error-message"></div>
-          </div>
-          <div class="number-field">
-            <label for="number">CARD NUMBER</label>
-            <input type="text" id="number" pattern="[0-9]{16}" placeholder="e.g. 1234 5678 9123 0000"
-            onkeyup="document.getElementById('number-output').innerHTML = this.value" required>
-            <div id="c-number" class="error-message"></div>
+            <input type="text" id="number" pattern="[0-9]+" placeholder="e.g. 1234 5678 9123 0000"
+            onkeyup="document.getElementById('number-output').innerHTML = this.value">
           </div>
           <div class="exp-field">
             <label for="exp">EXP. DATE (MM/YY)</label>
