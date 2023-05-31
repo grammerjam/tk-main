@@ -219,6 +219,17 @@ label {
     }
     
     /* .name-display {
+        position: fixed;
+        padding: 1rem;
+        margin: 7rem 3rem 0rem 1rem;
+        border-radius: .6rem;
+        display: grid;
+        grid-template-areas: 
+            'logo logo logo' 'number number number' 'name exp-m exp-y';
+        
+    }
+    
+    .name-display {
         grid-area: name;
         height: 1rem;
     }
@@ -246,13 +257,7 @@ label {
         align-items: center;
     } */
     
-    /* .white-circle {
-        grid-area: logo;
-        height: 2rem;
-        width: 2rem;
-        background-color: white;
-        border-radius: 100%;
-    }
+    /* 
     
     .empty-circle {
         grid-area:logo;
@@ -262,6 +267,7 @@ label {
         border-width: 2px;
         border-radius: 100%;
         margin-left: 1rem;
+
     } */
         
     .card-back {
@@ -302,6 +308,8 @@ label {
     } */
     
     /* input {
+  } 
+    input {
         border-radius: .3rem;
         padding: .4rem;
         border-color: hsl(270, 3%, 87%);
@@ -309,6 +317,3 @@ label {
         width: 25em;
         margin: 1em auto 1em auto;
     } */
-    
-
-}
