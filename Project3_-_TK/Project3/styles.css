@@ -184,7 +184,7 @@ button {
     border: 1px solid #de0000;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 375px) {
     body {
         margin: 0;
         font-size: 18px;
