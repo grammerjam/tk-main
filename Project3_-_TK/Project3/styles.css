@@ -49,17 +49,23 @@ button  {
     grid-area: name;
     height: 1rem;
 }
+
 .number-display {
     grid-area: number;
     height: 1rem;
 }
+
 .exp-m-display {
     grid-area: exp-m;
     height: 1rem;
+    width: 2em;
+    margin-left: auto;
 }
+
 .exp-y-display {
     grid-area: exp-y;
     height: 1rem;
+    width: 2em;
 }
 
 .logo {
