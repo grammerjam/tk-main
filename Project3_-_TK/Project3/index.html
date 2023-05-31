@@ -11,38 +11,29 @@
   <div class="background">
     <div class="page-container">
       <div class="card-display-container">
-        <!-- <img src="images/bg-card-front.png" class="front-img" alt=""> -->
-
-        <div class="card-front">
-          <div class="logo">
-            <div class="white-circle"></div>
-            <div class="empty-circle"></div>
-          </div>
-          <div class="name-display">
-            <p class="name-output" id="name-output"></p>
-          </div>
-          <div class="number-display">
-            <p class="number-output" id="number-output"></p>
-          </div>
-          <div class="exp-m-display">
-            <p class="exp-m-output" id="exp-m-output"></p>
-          </div>
-          <div class="exp-y-display">
-            <p class="exp-y-output" id="exp-y-output"></p>
-          </div>
-          
+        <div class="name-display">
+          <p class="name-output" id="name-output"></p>
         </div>
-        <div class="card-back">
-          <div class="cvc-display">
-            <p class="cvc-output" id="cvc-output"></p>
-          </div>
+        <div class="number-display">
+          <p class="number-output" id="number-output"></p>
         </div>
+        <div class="exp-m-display">
+          <p class="exp-m-output" id="exp-m-output"></p>
+        </div>
+        <div class="exp-y-display">
+          <p class="exp-y-output" id="exp-y-output"></p>
+        </div>
+        <div class="cvc-display">
+          <p class="cvc-output" id="cvc-output"></p>
+        </div>
+        some stuff
       </div>
       <!-- TODO:  then work on checks -->
       <div class="card-form-container">
-        <form action="" onsubmit="return check()" novalidate>
+        <form action="">
           <div class="name-field">
             <label for="name">CARDHOLDER NAME</label>
+<<<<<<< HEAD
             <input type="text" id="name" pattern="[A-Za-z]+" placeholder="e.g. Jane Appleseed"
             onkeyup="document.getElementById('name-output').innerHTML = this.value" required>
             <div id="c-name" class="error-message"></div>
@@ -52,6 +43,15 @@
             <input type="text" id="number" pattern="[0-9]{16}" placeholder="e.g. 1234 5678 9123 0000"
             onkeyup="document.getElementById('number-output').innerHTML = this.value" required>
             <div id="c-number" class="error-message"></div>
+=======
+            <input type="text" id="name" placeholder="e.g. Jane Appleseed"
+            onkeyup="document.getElementById('name-output').innerHTML = this.value">
+          </div>
+          <div class="number-field">
+            <label for="number">CARD NUMBER</label>
+            <input type="text" id="number" pattern="[0-9]+" placeholder="e.g. 1234 5678 9123 0000"
+            onkeyup="document.getElementById('number-output').innerHTML = this.value">
+>>>>>>> parent of 42df3e6 (Merge pull request #2 from grammerjam/update)
           </div>
           <div class="exp-field">
             <label for="exp">EXP. DATE (MM/YY)</label>
@@ -66,73 +66,11 @@
             <input type="text" id="cvc" pattern="[0-9]+" maxlength="3" placeholder="e.g. 123"
             onkeyup="document.getElementById('cvc-output').innerHTML = this.value">
           </div>
-          <button class="confirm" type="submit">Confirm</button>
         </form>
       </div>
     </div>
   </div>
 </body>
-<script>
-  // validating name
-  function check() {
-    let valid = true, error = '', field = ''
-    field = document.getElementById('name');
-    error = document.getElementById('c-name');
-    if (!field.checkValidity()) {
-      valid = false;
-      field.classList.add('err');
-      error.innerHTML = "Name may only contain letters A-Z"
-    } else {
-      field.classList.remove("err");
-      error.innerHTML = ''
-    }
-
-    field = document.getElementById("number");
-    error = document.getElementById("c-number");
-    if (!field.checkValidity()) {
-      valid = false;
-      field.classList.add("err");
-      error.innerHTML = "Please enter 16-digit card number";
-    } else {
-      field.classList.remove("err");
-      error.innerHTML = "";
-    }
-
-    field = document.getElementById("exp-m");
-    error = document.getElementById("c-month");
-    if (!field.checkValidity()) {
-      valid = false;
-      field.classList.add("err");
-      error.innerHTML = "Cannot be empty. Enter 2-digit exp. month";
-    } else {
-      field.classList.remove("err");
-      error.innerHTML = "";
-    }
-
-    field = document.getElementById("exp-y");
-    error = document.getElementById("c-year");
-    if (!field.checkValidity()) {
-      valid = false;
-      field.classList.add("err");
-      error.innerHTML = "Cannot be empty. Enter 2-digit exp. year";
-    } else {
-      field.classList.remove("err");
-      error.innerHTML = "";
-    }
-
-    field = document.getElementById("cvc");
-    error = document.getElementById("c-cvc");
-    if (!field.checkValidity()) {
-      valid = false;
-      field.classList.add("err");
-      error.innerHTML = "Cannot be empty. Enter 3-digit CVC";
-    } else {
-      field.classList.remove("err");
-      error.innerHTML = "";
-    }
-    return valid;
-  }
-</script>
 </html>
 <!-- 
 0000 0000 0000 0000

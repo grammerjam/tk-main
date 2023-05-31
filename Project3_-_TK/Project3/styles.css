@@ -1,13 +1,5 @@
 body {
     margin: 0;
-    font-size: 18px;
-}
-
-button  {
-    border-radius: .4rem;
-    padding: .6rem;
-    background-color: hsl(278, 68%, 11%);
-    color: white;
 }
 
 .background {
@@ -22,6 +14,7 @@ button  {
 }
 
 .card-display-container {
+<<<<<<< HEAD
     color: white;
     align-items: center;
 }
@@ -111,6 +104,9 @@ button  {
     margin: 1.8rem 0.4rem 0 0;
     float: right;
     font-size: 1rem;
+=======
+    background-color: aqua;
+>>>>>>> parent of 42df3e6 (Merge pull request #2 from grammerjam/update)
 }
 
 .card-form-container {
@@ -136,6 +132,7 @@ label {
     display: block;
 }
 
+<<<<<<< HEAD
 input {
     border-radius: .3rem;
     padding: .4rem;
@@ -189,6 +186,8 @@ button {
 .err {
     border: 1px solid #de0000;
 }
+=======
+>>>>>>> parent of 42df3e6 (Merge pull request #2 from grammerjam/update)
 
 @media (max-width: 375px) {
     body {
