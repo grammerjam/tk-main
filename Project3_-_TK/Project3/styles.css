@@ -186,11 +186,15 @@ label {
 
 @media (min-width: 375px) {
 
+    .background {
+        height: 100%;
+    }
+
     .page-container {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        /* align-items: center; */
+        /* align-items: center */
     }
     
     /* .card-display-container {
