@@ -9,6 +9,7 @@ button  {
     padding: .6rem;
     background-color: hsl(278, 68%, 11%);
     color: white;
+    grid-area: submit;
 }
 
 .background {
@@ -26,9 +27,6 @@ button  {
     align-items: center;
 }
 
-/* .front-img {
-    float: bottom;
-} */
 .card-front {
     background-image: url('images/bg-card-front.png');
     background-size: cover;
@@ -99,8 +97,6 @@ button  {
     align-content: center;
 }
 
-
-
 .cvc-display {
     margin: 1.8rem 0.4rem 0 0;
     float: right;
@@ -110,36 +106,205 @@ button  {
 .card-form-container {
     background-color: white;
     margin: 15rem 0 0 0;
+    
 }
 
 form {
     display: grid;
-    margin: 6rem 2rem 5rem 2rem;
-    justify-content: center;
-    gap: 1rem
+    margin: 6rem 2rem 5rem 1rem;
+    gap: 1rem;
+    grid-template-areas: 
+    'name name'
+    'number number'
+    'exp cvc'
+    'submit submit';
 }
+
+.name-field {
+    grid-area: name;
+}
+.number-field {
+    grid-area: number;
+}
+.exp-field {
+    grid-area: exp;
+    display: grid;
+    grid-template-areas: 
+    'label label' 'month-year';
+}
+
+.m-y-container {
+    display: flex;
+    margin-left: 0;
+    justify-content: space-evenly;}
+
+label[for='exp'] {
+    grid-area: 'label';
+    
+}
+
+.m-container {
+    margin-right: 2rem;
+    width: 3rem
+}
+.y-container {
+    margin-right: 1rem;
+    width: 4rem
+}
+
+.cvc-field {
+    grid-area: cvc;
+}
+
 
 input {
     border-radius: .3rem;
     padding: .4rem;
     border-color: hsl(270, 3%, 87%);
     border-style: solid;
+    width: 100%;
 }
 
 input:active {
     border-image: linear-gradient(
         hsl(249, 99%, 64%), hsl(278, 94%, 30%)
     ) 1 100%;
-
+    
 }
 
 label {
     color: hsl(278, 66%, 36%)
 }
 
+
 .error-message {
     color: hsl(0, 100%, 66%);
 }
 .err {
     border: 1px solid #de0000;
+}
+
+@media (min-width: 375px) {
+
+    .page-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        /* align-items: center; */
+    }
+    
+    /* .card-display-container {
+        color: white;
+        align-items: center;
+    } */
+    
+    .card-front {
+        /* background-image: url('images/bg-card-front.png');
+        background-size: cover;
+        z-index: 1;
+        height: 7rem; 
+        width: 14rem;
+        position: fixed; */
+        padding: 1rem;
+        margin: 0;
+        /* border-radius: .6rem; */
+        /* display: grid;
+        grid-template-areas: 
+            'logo logo logo' 'number number number' 'name exp-m exp-y';
+         */
+    }
+    
+    /* .name-display {
+        grid-area: name;
+        height: 1rem;
+    }
+    
+    .number-display {
+        grid-area: number;
+        height: 1rem;
+    }
+    
+    .exp-m-display {
+        grid-area: exp-m;
+        height: 1rem;
+        width: 1.5em;
+        margin-left: auto;
+    }
+    
+    .exp-y-display {
+        grid-area: exp-y;
+        height: 1rem;
+        width: 1.5em;
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+    } */
+    
+    /* .white-circle {
+        grid-area: logo;
+        height: 2rem;
+        width: 2rem;
+        background-color: white;
+        border-radius: 100%;
+    }
+    
+    .empty-circle {
+        grid-area:logo;
+        height: .75rem;
+        width: .75rem;
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 100%;
+        margin-left: 1rem;
+    } */
+        
+    .card-back {
+        /* background-image: url('images/bg-card-back.png');
+        background-size: cover; */
+        /* z-index: 0;
+        height: 7rem; 
+        width: 14rem; */
+        /* position: fixed; */
+        padding: 1rem;
+        margin: 2rem 1rem 0rem 5rem;
+        /* border-radius: .6rem;
+        align-content: center; */
+    }
+    
+    /* .cvc-display {
+        margin: 1.8rem 0.4rem 0 0;
+        float: right;
+        font-size: 1rem;
+    } */
+    
+    .card-form-container {
+        background-color: white;
+        height: 100%;
+        margin: 0;
+    }
+    
+    /* form {
+        margin: 5rem auto 5rem auto;
+        justify-content: center;
+        gap: 1rem;
+        width: 20em;
+    } */
+/*     
+    label {
+        color: hsl(278, 66%, 36%);
+        display: block;
+    } */
+    
+    /* input {
+        border-radius: .3rem;
+        padding: .4rem;
+        border-color: hsl(270, 3%, 87%);
+        border-style: solid;
+        width: 25em;
+        margin: 1em auto 1em auto;
+    } */
+    
+
 }
