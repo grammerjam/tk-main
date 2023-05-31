@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-size: 18px;
+    font-family: 'Space Grotesk';
 }
 
 button  {
@@ -142,4 +143,3 @@ label {
 .err {
     border: 1px solid #de0000;
 }
-
