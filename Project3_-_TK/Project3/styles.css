@@ -10,21 +10,28 @@ button  {
     background-color: hsl(278, 68%, 11%);
     color: white;
     grid-area: submit;
+    width: 100%;
 }
 
 .background {
     background-image: url("images/bg-main-mobile.png");
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 21em;
+    height: 500px;
+    position: absolute;
+    z-index: -1;
 }
 
 .page-container {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .card-display-container {
     color: white;
-    align-items: center;
 }
 
 .card-front {
@@ -83,7 +90,6 @@ button  {
     margin-left: 1rem;
 }
 
-
 .card-back {
     background-image: url('images/bg-card-back.png');
     background-size: cover;
@@ -94,7 +100,6 @@ button  {
     padding: 1rem;
     margin: 2rem 1rem 0rem 5rem;
     border-radius: .6rem;
-    align-content: center;
 }
 
 .cvc-display {
@@ -106,12 +111,13 @@ button  {
 .card-form-container {
     background-color: white;
     margin: 15rem 0 0 0;
-    
+    display: flex;
 }
 
 form {
     display: grid;
-    margin: 6rem 2rem 5rem 1rem;
+    width: 16em;
+    margin: 6rem 2rem 5rem 2rem;
     gap: 1rem;
     grid-template-areas: 
     'name name'
@@ -134,9 +140,10 @@ form {
 }
 
 .m-y-container {
-    display: flex;
+    display: inline-flex;
     margin-left: 0;
-    justify-content: space-evenly;}
+    width: 10em;
+}
 
 label[for='exp'] {
     grid-area: 'label';
@@ -154,6 +161,7 @@ label[for='exp'] {
 
 .cvc-field {
     grid-area: cvc;
+    display: inline-block;
 }
 
 
@@ -162,7 +170,7 @@ input {
     padding: .4rem;
     border-color: hsl(270, 3%, 87%);
     border-style: solid;
-    width: 100%;
+    width: 20em;
 }
 
 input:active {
@@ -173,9 +181,21 @@ input:active {
 }
 
 label {
-    color: hsl(278, 66%, 36%)
+    color: hsl(278, 66%, 36%);
+    display: block;
 }
 
+.exp-field > .m-y-container {
+    display: inline-flex;
+}
+
+.exp-field > .m-y-container > .m-container > input, .exp-field > .m-y-container > .y-container > input, .cvc-field > input {
+    width: 5em;
+}
+
+.exp-field > .m-y-container > .y-container > input {
+    margin-left: 1em;
+}
 
 .error-message {
     color: hsl(0, 100%, 66%);
@@ -184,9 +204,9 @@ label {
     border: 1px solid #de0000;
 }
 
-@media (min-width: 375px) {
-
+@media (min-width: 415px) {
     .background {
+        width: 100%;
         height: 100%;
     }
 
@@ -194,31 +214,25 @@ label {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        /* align-items: center */
     }
-    
-    /* .card-display-container {
-        color: white;
-        align-items: center;
-    } */
-    
+
     .card-front {
-        /* background-image: url('images/bg-card-front.png');
-        background-size: cover;
-        z-index: 1;
-        height: 7rem; 
-        width: 14rem;
-        position: fixed; */
         padding: 1rem;
         margin: 0;
-        /* border-radius: .6rem; */
-        /* display: grid;
-        grid-template-areas: 
-            'logo logo logo' 'number number number' 'name exp-m exp-y';
-         */
+        position: absolute;
+        left: 15em;
+        top: 2em;
     }
-    
-    /* .name-display {
+
+    .card-back {
+        padding: 1rem;
+        margin: 0;
+        position: absolute;
+        left: 15em;
+        top: 9em;
+    }
+        
+    .name-display {
         grid-area: name;
         height: 1rem;
     }
@@ -244,71 +258,37 @@ label {
     .logo {
         display: flex;
         align-items: center;
-    } */
-    
-    /* .white-circle {
-        grid-area: logo;
-        height: 2rem;
-        width: 2rem;
-        background-color: white;
-        border-radius: 100%;
     }
-    
-    .empty-circle {
-        grid-area:logo;
-        height: .75rem;
-        width: .75rem;
-        border-style: solid;
-        border-width: 2px;
-        border-radius: 100%;
-        margin-left: 1rem;
-    } */
-        
+            
     .card-back {
-        /* background-image: url('images/bg-card-back.png');
-        background-size: cover; */
-        /* z-index: 0;
-        height: 7rem; 
-        width: 14rem; */
-        /* position: fixed; */
         padding: 1rem;
         margin: 2rem 1rem 0rem 5rem;
-        /* border-radius: .6rem;
-        align-content: center; */
     }
-    
-    /* .cvc-display {
-        margin: 1.8rem 0.4rem 0 0;
-        float: right;
-        font-size: 1rem;
-    } */
-    
+        
     .card-form-container {
-        background-color: white;
-        height: 100%;
         margin: 0;
-    }
-    
-    /* form {
-        margin: 5rem auto 5rem auto;
+        width: 60%;
         justify-content: center;
-        gap: 1rem;
-        width: 20em;
-    } */
-/*     
-    label {
-        color: hsl(278, 66%, 36%);
-        display: block;
-    } */
-    
-    /* input {
-        border-radius: .3rem;
-        padding: .4rem;
-        border-color: hsl(270, 3%, 87%);
-        border-style: solid;
-        width: 25em;
-        margin: 1em auto 1em auto;
-    } */
-    
+    }
 
+    form {
+        justify-items: center;
+        margin: auto;
+    }
+
+    .exp-field, .cvc-field {
+        display: inline-block;
+    }
+
+    .exp-field > .m-y-container {
+        display: inline-flex;
+    }
+
+    .exp-field > .m-y-container > .m-container > input, .exp-field > .m-y-container > .y-container > input, .cvc-field > input {
+        width: 5em;
+    }
+
+    .exp-field > .m-y-container > .y-container > input {
+        margin-left: 1em;
+    }
 }
