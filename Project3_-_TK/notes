@@ -4,6 +4,7 @@ cards on a separate div with higher z index.
 cards are separate divs with cards as background images
 
 TODO: 
-
-
-    -format dispay area to look like card
+-navbar 
+-footer
+-complete state pages
+-card formats
