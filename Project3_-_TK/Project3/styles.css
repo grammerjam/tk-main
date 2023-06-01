@@ -281,24 +281,12 @@ label {
         margin: 1em auto 1em auto;
     }
     
-    .exp-field {
+    .exp-field, .cvc-field {
         display: inline-block;
     }
-    
-    .exp-field > input {
-        border-radius: .3rem;
-        padding: .4rem;
-        border-color: hsl(270, 3%, 87%);
-        border-style: solid;
-        width: 5em;
-    }
-    
-    .cvc-field {
+        
+    .cvc-field > input, .exp-field > input {
         display: inline-block;
-        margin-left: 1em;
-    }
-    
-    .cvc-field > input {
         border-radius: .3rem;
         padding: .4rem;
         border-color: hsl(270, 3%, 87%);
@@ -310,7 +298,6 @@ label {
         border-image: linear-gradient(
             hsl(249, 99%, 64%), hsl(278, 94%, 30%)
         ) 1 100%;
-    
     }
 
     button {
