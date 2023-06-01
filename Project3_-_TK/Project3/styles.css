@@ -22,6 +22,12 @@ button  {
     height: 500px;
     position: absolute;
     z-index: -1;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 21em;
+    height: 500px;
+    position: absolute;
+    z-index: -1;
 }
 
 .page-container {
@@ -118,6 +124,8 @@ form {
     display: grid;
     width: 16em;
     margin: 6rem 2rem 5rem 2rem;
+    width: 16em;
+    margin: 6rem 2rem 5rem 2rem;
     gap: 1rem;
     grid-template-areas: 
     'name name'
@@ -141,9 +149,11 @@ form {
 
 .m-y-container {
     display: inline-flex;
+    display: inline-flex;
     margin-left: 0;
     width: 10em;
 }
+
 
 label[for='exp'] {
     grid-area: 'label';
@@ -171,6 +181,7 @@ input {
     border-color: hsl(270, 3%, 87%);
     border-style: solid;
     width: 20em;
+    width: 20em;
 }
 
 input:active {
@@ -191,8 +202,21 @@ label {
 
 .exp-field > .m-y-container > .m-container > input, .exp-field > .m-y-container > .y-container > input, .cvc-field > input {
     width: 5em;
+    color: hsl(278, 66%, 36%);
+    display: block;
 }
 
+.exp-field > .m-y-container {
+    display: inline-flex;
+}
+
+.exp-field > .m-y-container > .m-container > input, .exp-field > .m-y-container > .y-container > input, .cvc-field > input {
+    width: 5em;
+}
+
+.exp-field > .m-y-container > .y-container > input {
+    margin-left: 1em;
+}
 .exp-field > .m-y-container > .y-container > input {
     margin-left: 1em;
 }
@@ -203,6 +227,7 @@ label {
 .err {
     border: 1px solid #de0000;
 }
+
 
 @media (min-width: 415px) {
     .background {
@@ -215,6 +240,7 @@ label {
         flex-direction: row;
         justify-content: space-between;
     }
+
 
     .card-front {
         padding: 1rem;
@@ -229,9 +255,20 @@ label {
         margin: 0;
         position: absolute;
         left: 15em;
+        top: 2em;
+    }
+
+    .card-back {
+        padding: 1rem;
+        margin: 0;
+        position: absolute;
+        left: 15em;
+        top: 9em;
+        position: absolute;
+        left: 15em;
         top: 9em;
     }
-        
+                
     .name-display {
         grid-area: name;
         height: 1rem;
@@ -260,10 +297,12 @@ label {
         align-items: center;
     }
             
+            
     .card-back {
         padding: 1rem;
         margin: 2rem 1rem 0rem 5rem;
     }
+        
         
     .card-form-container {
         margin: 0;
