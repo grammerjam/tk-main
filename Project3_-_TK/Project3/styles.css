@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-size: 18px;
+    font-family: 'Space Grotesk';
 }
 
 button  {
@@ -8,6 +9,7 @@ button  {
     padding: .6rem;
     background-color: hsl(278, 68%, 11%);
     color: white;
+    grid-area: submit;
 }
 
 .background {
@@ -25,9 +27,6 @@ button  {
     align-items: center;
 }
 
-/* .front-img {
-    float: bottom;
-} */
 .card-front {
     background-image: url('images/bg-card-front.png');
     background-size: cover;
@@ -98,8 +97,6 @@ button  {
     align-content: center;
 }
 
-
-
 .cvc-display {
     margin: 1.8rem 0.4rem 0 0;
     float: right;
@@ -109,32 +106,76 @@ button  {
 .card-form-container {
     background-color: white;
     margin: 15rem 0 0 0;
+    
 }
 
 form {
     display: grid;
-    margin: 6rem 2rem 5rem 2rem;
-    justify-content: center;
-    gap: 1rem
+    margin: 6rem 2rem 5rem 1rem;
+    gap: 1rem;
+    grid-template-areas: 
+    'name name'
+    'number number'
+    'exp cvc'
+    'submit submit';
 }
+
+.name-field {
+    grid-area: name;
+}
+.number-field {
+    grid-area: number;
+}
+.exp-field {
+    grid-area: exp;
+    display: grid;
+    grid-template-areas: 
+    'label label' 'month-year';
+}
+
+.m-y-container {
+    display: flex;
+    margin-left: 0;
+    justify-content: space-evenly;}
+
+label[for='exp'] {
+    grid-area: 'label';
+    
+}
+
+.m-container {
+    margin-right: 2rem;
+    width: 3rem
+}
+.y-container {
+    margin-right: 1rem;
+    width: 4rem
+}
+
+.cvc-field {
+    grid-area: cvc;
+}
+
 
 input {
     border-radius: .3rem;
     padding: .4rem;
     border-color: hsl(270, 3%, 87%);
     border-style: solid;
+    width: 100%;
 }
 
 input:active {
     border-image: linear-gradient(
         hsl(249, 99%, 64%), hsl(278, 94%, 30%)
     ) 1 100%;
-
+    
 }
 
 label {
     color: hsl(278, 66%, 36%)
 }
+
 
 .error-message {
     color: hsl(0, 100%, 66%);
@@ -144,36 +185,40 @@ label {
 }
 
 @media (min-width: 375px) {
-    body {
-        margin: 0;
-        font-size: 18px;
-    }
-        
+
     .background {
-        background-image: url("images/bg-main-mobile.png");
-        background-size: cover;
-        height: 31.6em;
+        height: 100%;
     }
-    
+
     .page-container {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
+        /* align-items: center */
     }
     
-    .card-display-container {
+    /* .card-display-container {
         color: white;
         align-items: center;
-    }
-    
-    /* .front-img {
-        float: bottom;
     } */
+    
     .card-front {
-        background-image: url('images/bg-card-front.png');
+        /* background-image: url('images/bg-card-front.png');
         background-size: cover;
         z-index: 1;
         height: 7rem; 
         width: 14rem;
+        position: fixed; */
+        padding: 1rem;
+        margin: 0;
+        /* border-radius: .6rem; */
+        /* display: grid;
+        grid-template-areas: 
+            'logo logo logo' 'number number number' 'name exp-m exp-y';
+         */
+    }
+    
+    /* .name-display {
         position: fixed;
         padding: 1rem;
         margin: 7rem 3rem 0rem 1rem;
@@ -210,15 +255,9 @@ label {
     .logo {
         display: flex;
         align-items: center;
-    }
+    } */
     
-    .white-circle {
-        grid-area: logo;
-        height: 2rem;
-        width: 2rem;
-        background-color: white;
-        border-radius: 100%;
-    }
+    /* 
     
     .empty-circle {
         grid-area:logo;
@@ -228,50 +267,48 @@ label {
         border-width: 2px;
         border-radius: 100%;
         margin-left: 1rem;
-    }
+
+    } */
         
     .card-back {
-        background-image: url('images/bg-card-back.png');
-        background-size: cover;
-        z-index: 0;
+        /* background-image: url('images/bg-card-back.png');
+        background-size: cover; */
+        /* z-index: 0;
         height: 7rem; 
-        width: 14rem;
-        position: fixed;
+        width: 14rem; */
+        /* position: fixed; */
         padding: 1rem;
         margin: 2rem 1rem 0rem 5rem;
-        border-radius: .6rem;
-        align-content: center;
+        /* border-radius: .6rem;
+        align-content: center; */
     }
     
-    .cvc-display {
+    /* .cvc-display {
         margin: 1.8rem 0.4rem 0 0;
         float: right;
         font-size: 1rem;
-    }
+    } */
     
     .card-form-container {
         background-color: white;
-        margin: 0 0 1em 0;
-        height: 31.6em;
-        width: 50em;
-        position: absolute;
-        right: 0;
-        float: right;
-        display: block;
+        height: 100%;
+        margin: 0;
     }
     
-    form {
+    /* form {
         margin: 5rem auto 5rem auto;
         justify-content: center;
         gap: 1rem;
         width: 20em;
-    }
-    
+    } */
+/*     
     label {
         color: hsl(278, 66%, 36%);
         display: block;
-    }
+    } */
     
+    /* input {
+  } 
     input {
         border-radius: .3rem;
         padding: .4rem;
@@ -279,6 +316,7 @@ label {
         border-style: solid;
         width: 25em;
         margin: 1em auto 1em auto;
+<<<<<<< HEAD
     }
     
     .exp-field, .cvc-field {
@@ -318,3 +356,6 @@ label {
         border: 1px solid #de0000;
     }
 }
+=======
+    } */
+>>>>>>> 2c29bfdb48d40bdcd9215634467b6ffaa2f2f9eb
