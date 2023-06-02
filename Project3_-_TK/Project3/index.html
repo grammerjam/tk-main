@@ -1,169 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk">
-  <title>Project 3 -  STACKMONSTERS</title>
-</head>
-<body>
-  <nav class="navbar">
-    STACKMONSTERS!
-  </nav>
-  <div class="background">
-    <div class="page-container">
-      <div class="card-display-container">
-        <div class="card-front">
-          <div class="logo">
-            <div class="white-circle"></div>
-            <div class="empty-circle"></div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk">
+    <script src="functions.js" async></script>
+    <title>Project 3 -  STACKMONSTERS</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      STACKMONSTERS!
+    </nav>
+    <div class="background">
+      <div class="page-container">
+        <div class="card-display-container">
+          <div class="card-front">
+            <div class="logo">
+              <div class="white-circle"></div>
+              <div class="empty-circle"></div>
+            </div>
+            <div class="name-display">
+              <p class="name-output" id="name-output"></p>
+            </div>
+            <div class="number-display">
+              <p class="number-output" id="number-output"></p>
+            </div>
+            <div class="exp-m-display">
+              <p class="exp-m-output" id="exp-m-output"></p>
+            </div>
+            <div class="exp-y-display">
+              <p class="exp-y-output" id="exp-y-output"></p>
+            </div>
           </div>
-          <div class="name-display">
-            <p class="name-output" id="name-output"></p>
-          </div>
-          <div class="number-display">
-            <p class="number-output" id="number-output"></p>
-          </div>
-          <div class="exp-m-display">
-            <p class="exp-m-output" id="exp-m-output"></p>
-          </div>
-          <div class="exp-y-display">
-            <p class="exp-y-output" id="exp-y-output"></p>
+          <div class="card-back">
+            <div class="cvc-display">
+              <p class="cvc-output" id="cvc-output"></p>
+            </div>
           </div>
         </div>
-        <div class="card-back">
-          <div class="cvc-display">
-            <p class="cvc-output" id="cvc-output"></p>
-          </div>
-        </div>
-      </div>
-      <div class="card-form-container" id="form-container">
-        <form action="" onsubmit="return onSuccess()" novalidate>
-          <div class="name-field">
-            <label for="name">CARDHOLDER NAME</label>
-            <input type="text" id="name" pattern="^[A-Za-z -]+$" placeholder="e.g. Jane Appleseed"
-            onkeyup="document.getElementById('name-output').innerHTML = this.value" required>
-            <div id="c-name" class="error-message"></div>
-          </div>
-          <div class="number-field">
-            <label for="number">CARD NUMBER</label>
-            <input type="text" id="number" pattern="[0-9]{16}"  maxlength="16" placeholder="e.g. 1234 5678 9123 0000"
-            onkeyup="document.getElementById('number-output').innerHTML = this.value" required>
-            <div id="c-number" class="error-message"></div>
-          </div>
-            <div class="exp-field">
-              <label for="exp">EXP. DATE (MM/YY)</label>
-              <div class="m-y-container">
-                <div class="m-container">
-                  <input type="text" id="exp-m" pattern="[0-3][0-9]" maxlength="2" placeholder="MM"
-                  onkeyup="document.getElementById('exp-m-output').innerHTML = this.value">
-                  <div id="c-month" class="error-message"></div>
-                </div>
-                <div class="y-container">
-                  <input type="text" id="exp-y" pattern="[0-9]{2}" maxlength="2" placeholder="YY"
-                  onkeyup="document.getElementById('exp-y-output').innerHTML = this.value">
-                  <div id="c-year" class="error-message"></div>
+        <div class="card-form-container" id="form-container">
+          <form action="" onsubmit="return onSuccess()" novalidate>
+            <div class="name-field">
+              <label for="name">CARDHOLDER NAME</label>
+              <input type="text" id="name" pattern="^[A-Za-z -]+$" defaultValue="null" placeholder="e.g. Jane Appleseed"
+              onkeyup="document.getElementById('name-output').innerHTML = this.value" required>
+              <div id="c-name" class="error-message"></div>
+            </div>
+            <div class="number-field">
+              <label for="number">CARD NUMBER</label>
+              <input type="text" id="number" pattern="[0-9]{16}" defaultValue="null" maxlength="16" placeholder="e.g. 1234 5678 9123 0000"
+              onkeyup="document.getElementById('number-output').innerHTML = this.value" required>
+              <div id="c-number" class="error-message"></div>
+            </div>
+              <div class="exp-field">
+                <label for="exp">EXP. DATE (MM/YY)</label>
+                <div class="m-y-container">
+                  <div class="m-container">
+                    <input type="text" id="exp-m" pattern="[0-3][0-9]" maxlength="2" placeholder="MM"
+                    onkeyup="document.getElementById('exp-m-output').innerHTML = this.value">
+                    <div id="c-month" class="error-message"></div>
+                  </div>
+                  <div class="y-container">
+                    <input type="text" id="exp-y" pattern="[0-9]{2}" maxlength="2" placeholder="YY"
+                    onkeyup="document.getElementById('exp-y-output').innerHTML = this.value">
+                    <div id="c-year" class="error-message"></div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="cvc-field">
-              <label for="cvc">CVC</label>
-              <input type="text" id="cvc" pattern="[0-9]{3}" maxlength="3" placeholder="e.g. 123"
-              onkeyup="document.getElementById('cvc-output').innerHTML = this.value">
-              <div id="c-cvc" class="error-message"></div>
-            </div>
-          <button class="confirm" type="submit">Confirm</button>
-        </form>
-      </div>
-      <div class="no-success" id="success-container">
-        <div class="success-message">
-          <img src="images/icon-complete.svg" alt="">
-          <h1 style="color: hsl(278, 68%, 11%)">THANK YOU!</h1>
-          <p>We've added your card details</p>
-          <button type="submit" onclick=location.reload()>CONTINUE</button>
+              <div class="cvc-field">
+                <label for="cvc">CVC</label>
+                <input type="text" id="cvc" pattern="[0-9]{3}" maxlength="3" placeholder="e.g. 123"
+                onkeyup="document.getElementById('cvc-output').innerHTML = this.value">
+                <div id="c-cvc" class="error-message"></div>
+              </div>
+            <button class="confirm" type="submit">Confirm</button>
+          </form>
+        </div>
+        <div class="no-success" id="success-container">
+          <div class="success-message">
+            <img src="images/icon-complete.svg" alt="">
+            <h1 style="color: hsl(278, 68%, 11%)">THANK YOU!</h1>
+            <p>We've added your card details</p>
+            <button type="submit" onclick=location.reload()>CONTINUE</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <footer>
-    Start Date/Time: 05/28/23 1200ET
-  </footer>
-</body>
-<script>
-  // validating fields
-  function check() {
-    let valid = true, error = '', field = ''
-    field = document.getElementById('name');
-    error = document.getElementById('c-name');
-    if (!field.checkValidity()) {
-      valid = false;
-      field.classList.add('err');
-      error.innerHTML = "Name may only contain letters A-Z"
-    } else {
-      field.classList.remove("err");
-      error.innerHTML = ''
-    }
-
-    field = document.getElementById("number");
-    error = document.getElementById("c-number");
-    if (!field.checkValidity()) {
-      valid = false;
-      field.classList.add("err");
-      error.innerHTML = "Please enter 16-digit card number";
-    } else {
-      field.classList.remove("err");
-      error.innerHTML = "";
-    }
-
-    field = document.getElementById("exp-m");
-    error = document.getElementById("c-month");
-    if (!field.checkValidity()) {
-      valid = false;
-      field.classList.add("err");
-      error.innerHTML = "Cannot be empty. Enter 2-digit exp. month";
-    } else {
-      field.classList.remove("err");
-      error.innerHTML = "";
-    }
-
-    field = document.getElementById("exp-y");
-    error = document.getElementById("c-year");
-    if (!field.checkValidity()) {
-      valid = false;
-      field.classList.add("err");
-      error.innerHTML = "Cannot be empty. Enter 2-digit exp. year";
-    } else {
-      field.classList.remove("err");
-      error.innerHTML = "";
-    }
-
-    field = document.getElementById("cvc");
-    error = document.getElementById("c-cvc");
-    if (!field.checkValidity()) {
-      valid = false;
-      field.classList.add("err");
-      error.innerHTML = "Cannot be empty. Enter 3-digit CVC";
-    } else {
-      field.classList.remove("err");
-      error.innerHTML = "";
-    }
-    return valid;
-  }
-
-  function onSuccess() {
-    let result = check();
-    let form = document.getElementById("form-container")
-    let success = document.getElementById("success-container")
-    if (result === true) {
-      form.className = "no-form-container";
-      success.className = "success-container"
-    };
-    event.preventDefault();
-    return form
-  }
-</script>
+    <footer>
+      Start Date/Time: 05/28/23 1200ET
+    </footer>
+  </body>
 </html>
 <!-- 
 0000 0000 0000 0000
