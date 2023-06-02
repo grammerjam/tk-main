@@ -135,6 +135,24 @@ button  {
     display: flex;
 }
 
+.no-form-container{
+    display: none;
+}
+
+.success-container {
+    background-color: white;
+    text-align: center;
+    margin: 15rem 0 0 0;
+}
+
+.success-message {
+    margin: 20% 10%;
+}
+
+.no-success {
+    display: none;
+}
+
 form {
     display: grid;
     margin: 20% auto auto auto;
@@ -183,7 +201,6 @@ label[for='exp'] {
 
 .cvc-field {
     grid-area: cvc;
-    display: inline-block;
 }
 
 
@@ -234,6 +251,8 @@ label {
 
 .error-message {
     color: hsl(0, 100%, 66%);
+    font-size: small;
+    display: flex;
 }
 .err {
     border: 1px solid #de0000;
