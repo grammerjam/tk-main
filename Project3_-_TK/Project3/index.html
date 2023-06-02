@@ -6,9 +6,12 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk">
-  <title>Project 3 -  Team Name</title>
+  <title>Project 3 -  STACKMONSTERS</title>
 </head>
 <body>
+  <nav class="navbar">
+    STACKMONSTERS!
+  </nav>
   <div class="background">
     <div class="page-container">
       <div class="card-display-container">
@@ -29,7 +32,6 @@
           <div class="exp-y-display">
             <p class="exp-y-output" id="exp-y-output"></p>
           </div>
-          
         </div>
         <div class="card-back">
           <div class="cvc-display">
@@ -37,8 +39,8 @@
           </div>
         </div>
       </div>
-      <div class="card-form-container">
-        <form action="" onsubmit="return check()" novalidate>
+      <div class="card-form-container" id="form-container">
+        <form action="" onsubmit="return onSuccess()" novalidate>
           <div class="name-field">
             <label for="name">CARDHOLDER NAME</label>
             <input type="text" id="name" pattern="^[A-Za-z -]+$" placeholder="e.g. Jane Appleseed"
@@ -75,11 +77,22 @@
           <button class="confirm" type="submit">Confirm</button>
         </form>
       </div>
+      <div class="no-success" id="success-container">
+        <div class="success-message">
+          <img src="images/icon-complete.svg" alt="">
+          <h1 style="color: hsl(278, 68%, 11%)">THANK YOU!</h1>
+          <p>We've added your card details</p>
+          <button type="submit" onclick=location.reload()>CONTINUE</button>
+        </div>
+      </div>
     </div>
   </div>
+  <footer>
+    Start Date/Time: 05/28/23 1200ET
+  </footer>
 </body>
 <script>
-  // validating name
+  // validating fields
   function check() {
     let valid = true, error = '', field = ''
     field = document.getElementById('name');
@@ -137,6 +150,18 @@
       error.innerHTML = "";
     }
     return valid;
+  }
+
+  function onSuccess() {
+    let result = check();
+    let form = document.getElementById("form-container")
+    let success = document.getElementById("success-container")
+    if (result === true) {
+      form.className = "no-form-container";
+      success.className = "success-container"
+    };
+    event.preventDefault();
+    return form
   }
 </script>
 </html>

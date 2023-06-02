@@ -1,3 +1,23 @@
+nav {
+    background-color: hsl(292, 68%, 11%);
+    color: rgb(223, 175, 112);
+    padding: .5em;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+}
+
+footer {
+    background-color: hsl(260, 42%, 20%);
+    color: rgb(223, 175, 112);
+    padding: .5em;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
 body {
     margin: 0;
     font-size: 18px;
@@ -10,7 +30,7 @@ button  {
     background-color: hsl(278, 68%, 11%);
     color: white;
     grid-area: submit;
-    width: 21em;
+    width: 100%;
 }
 
 .background {
@@ -18,8 +38,7 @@ button  {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 21em;
-    height: 500px;
+    width: 100%;
     position: absolute;
     z-index: -1;
 }
@@ -27,11 +46,13 @@ button  {
 .page-container {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .card-display-container {
     color: white;
-    align-items: center;
+    justify-content: center;
+    display: flex
 }
 
 .card-front {
@@ -42,7 +63,7 @@ button  {
     width: 14rem;
     position: fixed;
     padding: 1rem;
-    margin: 7rem 3rem 0rem 1rem;
+    margin: 7rem 3rem 0rem 0rem;
     border-radius: .6rem;
     display: grid;
     grid-template-areas: 
@@ -98,9 +119,8 @@ button  {
     width: 14rem;
     position: fixed;
     padding: 1rem;
-    margin: 2rem 1rem 0rem 5rem;
+    margin: 2rem 2rem 0rem 5rem;
     border-radius: .6rem;
-    align-content: center;
 }
 
 .cvc-display {
@@ -112,13 +132,32 @@ button  {
 .card-form-container {
     background-color: white;
     margin: 15rem 0 0 0;
+    display: flex;
+}
+
+.no-form-container{
+    display: none;
+}
+
+.success-container {
+    background-color: white;
+    text-align: center;
+    margin: 15rem 0 0 0;
+}
+
+.success-message {
+    margin: 20% 10%;
+}
+
+.no-success {
+    display: none;
 }
 
 form {
     display: grid;
-    width: 16em;
-    margin: 6rem 2rem 5rem 2rem;
-    gap: 1rem;
+    margin: 20% auto auto auto;
+    width: auto;
+    gap: 2rem;
     grid-template-areas: 
     'name name'
     'number number'
@@ -141,13 +180,14 @@ form {
 
 .m-y-container {
     display: inline-flex;
+    display: inline-flex;
     margin-left: 0;
     width: 10em;
 }
 
+
 label[for='exp'] {
     grid-area: 'label';
-    
 }
 
 .m-container {
@@ -161,8 +201,6 @@ label[for='exp'] {
 
 .cvc-field {
     grid-area: cvc;
-    width: 10em;
-    display: inline-block;
 }
 
 
@@ -171,7 +209,7 @@ input {
     padding: .4rem;
     border-color: hsl(270, 3%, 87%);
     border-style: solid;
-    width: 20em;
+    width: 96%;
 }
 
 input:active {
@@ -192,14 +230,29 @@ label {
 
 .exp-field > .m-y-container > .m-container > input, .exp-field > .m-y-container > .y-container > input, .cvc-field > input {
     width: 5em;
+    color: hsl(278, 66%, 36%);
+    display: block;
 }
 
+.exp-field > .m-y-container {
+    display: inline-flex;
+}
+
+.exp-field > .m-y-container > .m-container > input, .exp-field > .m-y-container > .y-container > input, .cvc-field > input {
+    width: 5em;
+}
+
+.exp-field > .m-y-container > .y-container > input {
+    margin-left: 1em;
+}
 .exp-field > .m-y-container > .y-container > input {
     margin-left: 1em;
 }
 
 .error-message {
     color: hsl(0, 100%, 66%);
+    font-size: small;
+    display: flex;
 }
 .err {
     border: 1px solid #de0000;
@@ -207,7 +260,6 @@ label {
 
 @media (min-width: 415px) {
     .background {
-        width: 1280px;
         height: 100%;
     }
 
@@ -217,22 +269,26 @@ label {
         justify-content: space-between;
     }
 
+    .card-display-container {
+        align-items:center;
+        width: 35%;
+        /* overflow: visible; */
+    }
+
     .card-front {
-        padding: 1rem;
         margin: 0;
-        position: absolute;
-        left: 15em;
-        top: 2em;
+        position: fixed;
+        left: 3em;
+        top: 11em;
     }
 
     .card-back {
-        padding: 1rem;
         margin: 0;
-        position: absolute;
-        left: 15em;
-        top: 9em;
+        position: fixed;
+        bottom: 11em;
+        left: 8em
     }
-        
+                
     .name-display {
         grid-area: name;
         height: 1rem;
@@ -259,44 +315,21 @@ label {
     .logo {
         display: flex;
         align-items: center;
-    }
-            
-    .card-back {
-        padding: 1rem;
-        margin: 2rem 1rem 0rem 5rem;
-    }
+    }   
         
     .card-form-container {
-        background-color: white;
-        height: 569px;
         margin: 0;
-        width: 45em;
+        width: 65%;
     }
 
     form {
-        margin: 2em auto 2em auto ;
-        width: 22em;
-    }
-
-    label {
-        display: block;
-    }
-
-    input {
-
-        border-radius: .3rem;
-        padding: .4rem;
-        border-color: hsl(270, 3%, 87%);
-        border-style: solid;
-        width: 25em;
-        margin: 1em auto 1em auto;
-        width: 20em;
-        margin-bottom: 1em;
+        margin: auto;
+        width: auto;
+        height: auto
     }
 
     .exp-field, .cvc-field {
         display: inline-block;
-        width: 10em;
     }
 
     .exp-field > .m-y-container {
@@ -309,9 +342,5 @@ label {
 
     .exp-field > .m-y-container > .y-container > input {
         margin-left: 1em;
-    }
-
-    button {
-        width: 22em;
     }
 }
