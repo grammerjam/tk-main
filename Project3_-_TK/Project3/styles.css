@@ -31,6 +31,7 @@ button  {
     color: white;
     grid-area: submit;
     width: 100%;
+    margin-bottom: 2.50em;
 }
 
 .background {
@@ -61,7 +62,7 @@ button  {
     z-index: 1;
     height: 7rem; 
     width: 14rem;
-    position: fixed;
+    position: absolute;
     padding: 1rem;
     margin: 7rem 3rem 0rem 0rem;
     border-radius: .6rem;
@@ -82,6 +83,8 @@ button  {
 .exp-m-display {
     grid-area: exp-m;
     height: 1rem;
+    text-align: right;
+    margin-right: .3rem;
 }
 .exp-y-display {
     grid-area: exp-y;
@@ -117,11 +120,13 @@ button  {
     z-index: 0;
     height: 7rem; 
     width: 14rem;
-    position: fixed;
+    position: absolute;
     padding: 1rem;
     margin: 2rem 2rem 0rem 5rem;
     border-radius: .6rem;
 }
+
+
 
 .cvc-display {
     margin: 1.8rem 0.4rem 0 0;
@@ -258,7 +263,7 @@ label {
     border: 1px solid #de0000;
 }
 
-@media (min-width: 415px) {
+@media (min-width: 800px) {
     .background {
         height: 100%;
     }
@@ -278,15 +283,15 @@ label {
     .card-front {
         margin: 0;
         position: fixed;
-        left: 3em;
-        top: 11em;
+        left: 14em;
+        top: 7em;
     }
 
     .card-back {
         margin: 0;
         position: fixed;
-        bottom: 11em;
-        left: 8em
+        bottom: 6em;
+        left: 16em;
     }
                 
     .name-display {
@@ -343,4 +348,19 @@ label {
     .exp-field > .m-y-container > .y-container > input {
         margin-left: 1em;
     }
+
+    .success-container {
+        margin: auto;
+        width: 70%;
+        justify-content: center;
+        display: flex
+    }
+    
+    .success-message {
+        margin: 20% 10%;
+    }
+    
+    .no-success {
+        display: none;
+    }    
 }
