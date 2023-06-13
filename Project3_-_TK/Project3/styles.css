@@ -83,6 +83,8 @@ button  {
 .exp-m-display {
     grid-area: exp-m;
     height: 1rem;
+    text-align: right;
+    margin-right: .3rem;
 }
 .exp-y-display {
     grid-area: exp-y;
@@ -123,6 +125,8 @@ button  {
     margin: 2rem 2rem 0rem 5rem;
     border-radius: .6rem;
 }
+
+
 
 .cvc-display {
     margin: 1.8rem 0.4rem 0 0;

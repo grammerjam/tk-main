@@ -45,6 +45,24 @@ function check() {
       error.innerHTML = "";
     }
 
+    let month = document.getElementById("exp-m");
+    let year = document.getElementById("exp-y");
+    let expDate = new Date();
+    let today = new Date();
+    expDate.setFullYear(year, month)
+    console.log(expDate)
+    console.log(today)
+    if (expDate < today) {
+      valid = false;
+      field.classList.add("err");
+      error.innerHTML = "Card expired.";
+    } else {
+      field.classList.remove("err");
+      error.innerHTML = "";
+    }
+
+// TODO: finish expiration validation. expDate is logging 'date is invalid'
+
     field = document.getElementById("cvc");
     error = document.getElementById("c-cvc");
     if (!field.checkValidity()) {
