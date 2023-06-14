@@ -1,0 +1,142 @@
+.page_container {
+    display: block;
+    background-color: white;
+    /* margin-top: -1.25em; */ /*Uncomment when Nav is commplete*/
+    width: 65%;
+    height: 100%;
+    right: 0;
+    position: absolute;
+    height: auto;
+    border: .012em solid black;
+    text-align: center;
+    font-size: 1.15em;
+    font-family: 'Space Grotesk';
+}
+/*Form design*/
+.paymentConfirmation_form {
+    width: 50%;
+    margin: 21.1% auto 21.1% auto;
+    text-align: center;
+}
+.paymentConfirmation_form > img {
+    height: 4em;
+    width: 4em;
+}
+.paymentConfirmation_form > h1 {
+    color: hsl(278, 68%, 11%);
+}
+.paymentConfirmation_form > p {
+    color: grey;
+    font-size: 1.25em;
+    margin-bottom: 2em;
+}
+.paymentConfirmation_form > button  {
+    display: block;
+    border-radius: .4rem;
+    padding: .6rem;
+    background-color: hsl(278, 68%, 11%);
+    color: white;
+    grid-area: submit;
+    width: 70%;
+    margin: 0 auto 2.50em auto;
+}
+.paymentConfirmation_form > button:hover  {
+    background-color: hsl(249, 99%, 64%);
+}
+/*Card Design*/
+.card-display-container {
+    display: inline-flex;
+    float: left;
+    height: 30em;
+    width: 35em;
+    left: 15em;
+    top: 12em;
+    position: absolute;
+}
+.card-display-container p {
+    color: white;
+    font-size: 1.25em;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.card-display-container > .card-front {
+    background-image: url('../../images/bg-card-front.png');
+    background-size: cover;
+    z-index: 1;
+    height: 9em; 
+    width: 20em;
+    position: absolute;
+    left: 6.6em;
+    bottom: 18em;
+    padding: 1rem;
+    margin: 7rem 3rem 0rem 0rem;
+    border-radius: .6rem;
+    display: grid;
+    grid-template-areas: 
+        'logo logo logo' 'number number number' 'name exp-m exp-y';
+}
+
+.card-display-container > .card-front > .name-display {
+    grid-area: name;
+    height: 1rem;
+}
+.card-display-container > .card-front > .number-display {
+    grid-area: number;
+    height: 1rem;
+}
+.card-display-container > .card-front > .exp-m-display {
+    grid-area: exp-m;
+    height: 1rem;
+}
+.card-display-container > .card-front > .exp-y-display {
+    grid-area: exp-y;
+    height: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.white-circle {
+    grid-area: logo;
+    height: 2rem;
+    width: 2rem;
+    background-color: white;
+    border-radius: 100%;
+}
+
+.empty-circle {
+    grid-area:logo;
+    height: .75rem;
+    width: .75rem;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 100%;
+    margin-left: 1rem;
+}
+
+.card-display-container > .card-back {
+    background-image: url('../../images/bg-card-back.png');
+    background-size: cover;
+    z-index: 0;
+    height: 9em; 
+    width: 20em;
+    position: absolute;
+    bottom: 4em;
+    left: 3em;
+    padding: 1rem;
+    margin: 2rem 2rem 0rem 5rem;
+    border-radius: .6rem;
+}
+
+.card-display-container > .card-back > .cvc-display {
+    margin: 1.6rem 0.5rem 0 0;
+    float: right;
+    font-size: 1rem;
+}
+
+.card-form-container {
+    background-color: white;
+    margin: 15rem 0 0 0;
+    display: flex;
+}
