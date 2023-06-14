@@ -37,43 +37,45 @@ const CardInfo = () => {
                         CARDHOLDER NUMBER:
                         <input name='cardHolderNumber' className='cardHolderNumber' type='text' pattern='[0-9]{16}' maxLength="16" placeholder='e.g. 1234 5678 9123 0000' autoComplete='off' required defaultValue={number} onChange={(e) => setNumber(e.target.value)}/>
                     </label>
-                    <label className='cardHolderExpDateLabel'>
-                        EXP. DATE (MM/YY):
-                        <div>
-                            <input name='cardHolderExpMonth' className='cardHolderExpMonth' type='text' placeholder='MM' pattern="[0-9]{2}" maxLength="2" autoComplete='off' required defaultValue={expMonth} onChange={(e) => setExpMonth(e.target.value)}/>
-                            <input name='cardHolderExpYear' className='cardHolderExpYear' type='text' placeholder='YY' pattern="[0-9]{2}" maxLength="2" autoComplete='off' required defaultValue={expYear} onChange={(e) => setExpYear(e.target.value)}/>
-                        </div>
-                    </label>
-                    <label className='cardHolderCVCLabel'>
-                        CVC:
-                        <input name='cardHolderCVCMonth' className='cardHolderCVCMonth' type='text' placeholder='e.g 123' pattern="[0-9]{3}" maxLength="3" autoComplete='off' required defaultValue={cvc} onChange={(e) => setCVC(e.target.value)}/>
-                    </label>
+                    <div className="expAndCvcBox">
+                        <label className='cardHolderExpDateLabel'>
+                            EXP. DATE (MM/YY):
+                            <div style={{display: 'flex'}}>
+                                <input name='cardHolderExpMonth' className='cardHolderExpMonth' type='text' placeholder='MM' pattern="[0][0-9]||[1][0-2]" maxLength="2" autoComplete='off' required defaultValue={expMonth} onChange={(e) => setExpMonth(e.target.value)}/>
+                                <input name='cardHolderExpYear' className='cardHolderExpYear' type='text' placeholder='YY' pattern="[0-9]{2}" maxLength="2" autoComplete='off' required defaultValue={expYear} onChange={(e) => setExpYear(e.target.value)}/>
+                            </div>
+                        </label>
+                        <label className='cardHolderCVCLabel'>
+                            CVC:
+                            <input name='cardHolderCVCMonth' className='cardHolderCVCMonth' type='text' placeholder='e.g 123' pattern="[0-9]{3}" maxLength="3" autoComplete='off' required defaultValue={cvc} onChange={(e) => setCVC(e.target.value)}/>
+                        </label>
+                    </div>
                     <button type="submit" onClick={validationCheck}>CONFIRM</button>
                     <p>{errorMessage}</p>
                 </form>
             </div>
-            <div class="card-display-container">
-                <div class="card-front">
-                    <div class="logo">
-                    <div class="white-circle"></div>
-                    <div class="empty-circle"></div>
+            <div className="card-display-container">
+                <div className="card-front">
+                    <div className="logo">
+                        <div className="white-circle"></div>
+                        <div className="empty-circle"></div>
                     </div>
-                    <div class="name-display">
-                    <p class="name-output" id="name-output">{name}</p>
+                    <div className="name-display">
+                        <p className="name-output" id="name-output">{name}</p>
                     </div>
-                    <div class="number-display">
-                    <p class="number-output" id="number-output">{number}</p>
+                    <div className="number-display">
+                        <p className="number-output" id="number-output">{number}</p>
                     </div>
-                    <div class="exp-m-display">
-                    <p class="exp-m-output" id="exp-m-output">{expMonth}</p>
+                    <div className="exp-m-display">
+                        <p className="exp-m-output" id="exp-m-output">{expMonth}</p>
                     </div>
-                    <div class="exp-y-display">
-                    <p class="exp-y-output" id="exp-y-output">{expYear}</p>
+                    <div className="exp-y-display">
+                        <p className="exp-y-output" id="exp-y-output">{expYear}</p>
                     </div>
                 </div>
-                <div class="card-back">
-                    <div class="cvc-display">
-                    <p class="cvc-output" id="cvc-output">{cvc}</p>
+                <div className="card-back">
+                    <div className="cvc-display">
+                        <p className="cvc-output" id="cvc-output">{cvc}</p>
                     </div>
                 </div>
             </div>

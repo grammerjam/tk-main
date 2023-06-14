@@ -1,20 +1,20 @@
 .page_container {
-    display: block;
+    display: flex;
     background-color: white;
     /* margin-top: -1.25em; */ /*Uncomment when Nav is commplete*/
     width: 65%;
     height: 100%;
-    right: 0;
-    position: absolute;
-    border: .012em solid black;
-    text-align: center;
     font-size: 1.15em;
     font-family: 'Space Grotesk';
 }
 /*Form design*/
 .cardInfo_form {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     width: 50%;
-    margin: 28% auto 28% auto;
+    margin: auto
 }
 .cardInfo_form > label {
     text-align: left;
@@ -27,7 +27,7 @@
     border: 0.15em solid lightgray;
     border-radius: 0.40em;
     height: 1.50em;
-    width: 20em;
+    width: 100%;
     margin-bottom: 1.25em;
 }
 .cardInfo_form > label > input:focus {
@@ -39,43 +39,54 @@
     font-family:Arial, Helvetica, sans-serif;
     padding-left: 1em;
 }
-.cardInfo_form > .cardHolderExpDateLabel {
+.cardInfo_form > .expAndCvcBox > .cardHolderExpDateLabel {
     text-align: left;
     display: block;
     color: rgb(108, 31, 152);
     float: left;
     margin-right: 2em;
 }
-.cardInfo_form > .cardHolderExpDateLabel > div {
+.cardInfo_form > .expAndCvcBox > .cardHolderExpDateLabel > div {
     display: block;
 }
-.cardInfo_form > .cardHolderExpDateLabel > div > input {
+.cardInfo_form > .expAndCvcBox > .cardHolderExpDateLabel > div > input {
     display: inline-block;
     outline: none;
     border: 0.15em solid lightgray;
     border-radius: 0.40em;
     height: 1.50em;
-    width: 4em;
+    width: 25%;
     margin-right: 0.50em;
     margin-bottom: 1.25em;
 }
-.cardInfo_form > .cardHolderExpDateLabel > div > input:focus {
+.cardInfo_form > .expAndCvcBox > .cardHolderExpDateLabel > div > input:focus {
     outline: none;
     border: 0.15em solid rgb(96, 5, 178);
 }
-.cardInfo_form > .cardHolderExpDateLabel > div > input::placeholder {
+.cardInfo_form > .expAndCvcBox > .cardHolderExpDateLabel > div > input::placeholder {
     font-size: 1em;
     font-family:Arial, Helvetica, sans-serif;
 }
-.cardInfo_form > .cardHolderCVCLabel {
+.cardInfo_form > .expAndCvcBox > .cardHolderCVCLabel {
     text-align: left;
     display: block;
     color: rgb(108, 31, 152);
     float: left;
 }
-.cardInfo_form > .cardHolderCVCLabel > input {
-    width: 8em;
+.cardInfo_form > .expAndCvcBox > .cardHolderCVCLabel > input {
+    width: 100%;
+    border: 0.15em solid lightgray;
+    border-radius: 0.40em;
+    height: 1.50em;
+    width: 100%;
+    margin-bottom: 1.25em;
 }
+
+.expAndCvcBox {
+    display: flex;
+    width: 100%;
+}
+
 .cardInfo_form > button  {
     display: block;
     border-radius: .4rem;
@@ -83,7 +94,7 @@
     background-color: hsl(278, 68%, 11%);
     color: white;
     grid-area: submit;
-    width: 70%;
+    width: 100%;
     margin-bottom: 2.50em;
 }
 .cardInfo_form > button:hover  {

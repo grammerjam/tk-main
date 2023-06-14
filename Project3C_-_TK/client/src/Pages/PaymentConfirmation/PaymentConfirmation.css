@@ -40,7 +40,7 @@
     background-color: hsl(278, 68%, 11%);
     color: white;
     grid-area: submit;
-    width: 70%;
+    width: 100%;
     margin: 0 auto 2.50em auto;
 }
 .paymentConfirmation_form > button:hover  {

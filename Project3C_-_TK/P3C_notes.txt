@@ -1,0 +1,8 @@
+ummmmm so. Thigns could get broken down into components rather than having everything justifyout here like it is. 
+Thats the point of react, right? ok, so components:
+app is a box. 
+    app breaks down into
+    - form component
+    - success page component
+    - card container is one component that updates onChange from props passed in through form component
+    
