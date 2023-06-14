@@ -90,6 +90,13 @@
 .cardInfo_form > button:hover  {
     background-color: hsl(249, 99%, 64%);
 }
+.cardInfo_form > p {
+    text-align: left;
+    font-size: 1.50em;
+    font-family: 'Space Grotesk';
+    margin-left: 1em;
+    color: red;
+}
 /*Remove up and down arrow in number field*/
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

@@ -1,18 +1,28 @@
 import React, { useState } from 'react';
 import './CardInfo.css';
 import { useNavigate } from 'react-router-dom';
+import ExpirationCheck from '../../Functions/ExpirationCheck';
+import CardDisplayInfo from '../../Functions/setCardDisplayInfo';
 
 const CardInfo = () => {
     const navigate = useNavigate();
-    const[name, setName] = useState(null);
-    const[number, setNumber] = useState(null);
-    const[expMonth, setExpMonth] = useState(null);
-    const[expYear, setExpYear] = useState(null);
-    const[cvc, setCVC] = useState(null);
+    const [name, setName] = useState(null);
+    const [number, setNumber] = useState(null);
+    const [expMonth, setExpMonth] = useState(null);
+    const [expYear, setExpYear] = useState(null);
+    const [cvc, setCVC] = useState(null);
+    const [errorMessage, setErrorMessage] = useState(null);
 
     const validationCheck = () => {
-        //Navigate to confirmation page if validation is positive.
-        navigate('/PaymentConfirmation');
+        const isExpired = ExpirationCheck(expMonth, expYear);
+
+        if (isExpired){
+            setErrorMessage("Please enter nonexpired card!");
+        }
+        else {
+            CardDisplayInfo.SetCardInfo(name, number, expMonth, expYear, cvc);
+            navigate('/PaymentConfirmation');
+        }
     }
 
     return (
@@ -39,6 +49,7 @@ const CardInfo = () => {
                         <input name='cardHolderCVCMonth' className='cardHolderCVCMonth' type='text' placeholder='e.g 123' pattern="[0-9]{3}" maxLength="3" autoComplete='off' required defaultValue={cvc} onChange={(e) => setCVC(e.target.value)}/>
                     </label>
                     <button type="submit" onClick={validationCheck}>CONFIRM</button>
+                    <p>{errorMessage}</p>
                 </form>
             </div>
             <div class="card-display-container">

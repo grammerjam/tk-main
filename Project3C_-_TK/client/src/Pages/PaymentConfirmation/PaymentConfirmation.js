@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import './PaymentConfirmation.css';
 import { useNavigate } from 'react-router-dom';
 import checkMark from '../../images/icon-complete.svg';
+import CardDisplayInfo from '../../Functions/setCardDisplayInfo';
 
 const PaymentConfirmation = () => {
     const navigate = useNavigate();
-    const[name, setName] = useState(null);
-    const[number, setNumber] = useState(null);
-    const[expMonth, setExpMonth] = useState(null);
-    const[expYear, setExpYear] = useState(null);
-    const[cvc, setCVC] = useState(null);
+    const name = CardDisplayInfo.GetCardInfoName();
+    const number = CardDisplayInfo.GetCardInfoNumber();
+    const expMonth = CardDisplayInfo.GetCardInfoMonth();
+    const expYear = CardDisplayInfo.GetCardInfoYear();
+    const cvc = CardDisplayInfo.GetCardInfoCVC();
 
     const redirect = () => {
         //Navigate to confirmation page if validation is positive.
