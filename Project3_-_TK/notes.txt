@@ -1,0 +1,9 @@
+take the input from the date fields and verify them. 
+if month is < 01 or > 12, throw error.
+year: 
+    edge case: a card has a 100-year life span and years like '21 
+    would still be valid. basically just don't need a check here
+
+TODO: 
+
+
