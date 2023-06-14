@@ -1,12 +1,11 @@
 .page_container {
-    display: block;
+    display: flex;
     background-color: white;
-    /* margin-top: -1.25em; */ /*Uncomment when Nav is commplete*/
+    /* margin-top: -1.25em; */ /*Uncomment when Nav is commplete */
     width: 65%;
     height: 100%;
     right: 0;
     position: absolute;
-    height: auto;
     border: .012em solid black;
     text-align: center;
     font-size: 1.15em;
@@ -14,9 +13,13 @@
 }
 /*Form design*/
 .paymentConfirmation_form {
-    width: 50%;
-    margin: 21.1% auto 21.1% auto;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    
 }
 .paymentConfirmation_form > img {
     height: 4em;

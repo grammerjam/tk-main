@@ -6,7 +6,6 @@
     height: 100%;
     right: 0;
     position: absolute;
-    height: auto;
     border: .012em solid black;
     text-align: center;
     font-size: 1.15em;
@@ -42,7 +41,7 @@
 }
 .cardInfo_form > .cardHolderExpDateLabel {
     text-align: left;
-    display: inline-block;
+    display: block;
     color: rgb(108, 31, 152);
     float: left;
     margin-right: 2em;
@@ -70,7 +69,7 @@
 }
 .cardInfo_form > .cardHolderCVCLabel {
     text-align: left;
-    display: inline-block;
+    display: block;
     color: rgb(108, 31, 152);
     float: left;
 }
@@ -151,6 +150,7 @@ input[type=number] {
 .card-display-container > .card-front > .exp-m-display {
     grid-area: exp-m;
     height: 1rem;
+    text-align: right;
 }
 .card-display-container > .card-front > .exp-y-display {
     grid-area: exp-y;

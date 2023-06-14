@@ -31,7 +31,7 @@ const CardInfo = () => {
                 <form className='cardInfo_form'>
                     <label className='cardHolderNameLabel'>
                         CARDHOLDER NAME:
-                        <input name='cardHolderName' className='cardHolderName' type='text' placeholder='e.g. Jane Appleseed' autoComplete='name' required defaultValue={name} onChange={(e) => setName(e.target.value)}/>
+                        <input name='cardHolderName' className='cardHolderName' type='text' placeholder='e.g. Jane Appleseed' pattern='[a-zA-Z]+' maxLength='24' autoComplete='name' required defaultValue={name} onChange={(e) => setName(e.target.value)}/>
                     </label>
                     <label className='cardHolderNumberLabel'>
                         CARDHOLDER NUMBER:
