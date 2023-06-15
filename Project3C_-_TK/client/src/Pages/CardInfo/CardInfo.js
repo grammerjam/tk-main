@@ -36,6 +36,28 @@ const CardInfo = () => {
 
     return (
         <>
+            <div className="card-display-container">
+                <div className="card-front">
+                    <div className="logo">
+                        <div className="white-circle"></div>
+                        <div className="empty-circle"></div>
+                    </div>
+                    <div className="name-display">
+                        <p className="name-output" id="name-output">{name}</p>
+                    </div>
+                    <div className="number-display">
+                        <p className="number-output" id="number-output">{number}</p>
+                    </div>
+                    <div className="exp-m-display">
+                        <p className="exp-m-output" id="exp-m-output">{expMonth}/{expYear}</p>
+                    </div>
+                </div>
+                <div className="card-back">
+                    <div className="cvc-display">
+                        <p className="cvc-output" id="cvc-output">{cvc}</p>
+                    </div>
+                </div>
+            </div>
             <div className='page_container'>
                 <form className='cardInfo_form'>
                     {paymentSuccessful ?
@@ -73,28 +95,6 @@ const CardInfo = () => {
                     </>
                     }
                 </form>
-            </div>
-            <div className="card-display-container">
-                <div className="card-front">
-                    <div className="logo">
-                        <div className="white-circle"></div>
-                        <div className="empty-circle"></div>
-                    </div>
-                    <div className="name-display">
-                        <p className="name-output" id="name-output">{name}</p>
-                    </div>
-                    <div className="number-display">
-                        <p className="number-output" id="number-output">{number}</p>
-                    </div>
-                    <div className="exp-m-display">
-                        <p className="exp-m-output" id="exp-m-output">{expMonth}/{expYear}</p>
-                    </div>
-                </div>
-                <div className="card-back">
-                    <div className="cvc-display">
-                        <p className="cvc-output" id="cvc-output">{cvc}</p>
-                    </div>
-                </div>
             </div>
         </>
     );

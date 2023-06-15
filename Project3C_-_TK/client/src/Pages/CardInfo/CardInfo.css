@@ -224,5 +224,25 @@ input[type=number] {
 }
 
 @media (max-width: 800px) {
-    html {background-color: rgb(0, 0, 108);}
+    .page_container{
+        width: 100%;
+        margin: 15em auto 0 auto;
+    }
+    .card-display-container {
+        display: block;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 35%;
+    }
+    .card-display-container > .card-front {
+        position: absolute;
+        left: 3em;
+        bottom: 0;
+    }
+    .card-display-container > .card-back {
+        position: absolute;
+        bottom: 8em;
+        left: 3em;
+    }    
 }

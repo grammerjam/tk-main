@@ -10,7 +10,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path='/' element={<CardInfo/>} />;
-          {/* <Route exact path='/PaymentConfirmation' element={<PaymentConfirmation/>} />; */}
         </Routes>
       </BrowserRouter>
     </>
