@@ -1,3 +1,22 @@
+nav {
+    background-color: hsl(292, 68%, 11%);
+    color: rgb(223, 175, 112);
+    font-size: 1.5em;
+    padding: .3em;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+}
+
+.footer {
+    background-color: hsl(260, 42%, 20%);
+    color: rgb(223, 175, 112);
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 .page_container {
     background-color: white;
     display: flex;
@@ -233,7 +252,6 @@ input[type=number] {
         height: 65%;
         position: absolute;
         top: 35%;
-        bottom: 0;
     }
 
     .cardInfo_form {

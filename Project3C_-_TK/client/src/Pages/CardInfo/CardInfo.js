@@ -37,6 +37,9 @@ const CardInfo = () => {
     return (
         <>
             <div className="big-container">
+                <nav className="navbar">
+                    STACKMONSTERS!
+                </nav>
                 <div className="card-display-container">
                     <div className="card-front">
                         <div className="logo">
@@ -96,6 +99,9 @@ const CardInfo = () => {
                         </>
                         }
                     </form>
+                </div>
+                <div className='footer'>
+                    <p>Start Date/Time: 06/13/23 1200ET</p>
                 </div>
             </div>
         </>
