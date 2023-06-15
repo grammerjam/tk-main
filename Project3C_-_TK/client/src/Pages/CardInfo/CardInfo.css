@@ -1,17 +1,36 @@
+nav {
+    background-color: hsl(292, 68%, 11%);
+    color: rgb(223, 175, 112);
+    font-size: 1.5em;
+    padding: .3em;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+}
+
+.footer {
+    background-color: hsl(260, 42%, 20%);
+    color: rgb(223, 175, 112);
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 .page_container {
     background-color: white;
     display: flex;
     float: right;
-    /* height: 100%; */ /*Doesn't Work*/
-    height: 100vh; /*Works*/
+    height: 100vh; /*Works */
     width: 65%;
+    justify-content: center;
+    align-items: center;
     /* margin-top: -1.25em; */ /*Uncomment when Nav is commplete*/
     font-size: 1.15em;
     font-family: 'Space Grotesk';
 }
 /*Form design*/
 .cardInfo_form {
-    margin: auto;
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -104,7 +123,7 @@
     text-align: left;
     font-size: 1.50em;
     font-family: 'Space Grotesk';
-    margin-left: 1em;
+    margin:auto;
     color: red;
 }
 /*Remove up and down arrow in number field*/
@@ -224,13 +243,22 @@ input[type=number] {
     .big-container {
         display: flex;
         flex-direction: column;
+        height: 100vh;
     }
 
     .page_container{
         order: 2;
         width: 100%;
-        margin: 15em auto 0 auto;
+        height: 65%;
+        position: absolute;
+        top: 35%;
     }
+
+    .cardInfo_form {
+        width: 80%;
+        margin-top: 5%;
+    }
+
     .card-display-container {
         gap: 0;
         order: 1;
