@@ -3,7 +3,6 @@ import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 //Pages
 import CardInfo from './Pages/CardInfo/CardInfo';
-import PaymentConfirmation from './Pages/PaymentConfirmation/PaymentConfirmation';
 
 function App() {
   return (
@@ -11,7 +10,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path='/' element={<CardInfo/>} />;
-          <Route exact path='/PaymentConfirmation' element={<PaymentConfirmation/>} />;
         </Routes>
       </BrowserRouter>
     </>

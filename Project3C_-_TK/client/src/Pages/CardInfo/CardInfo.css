@@ -1,9 +1,11 @@
 .page_container {
-    display: flex;
     background-color: white;
-    /* margin-top: -1.25em; */ /*Uncomment when Nav is commplete*/
+    display: flex;
+    float: right;
+    /* height: 100%; */ /*Doesn't Work*/
+    height: 100vh; /*Works*/
     width: 65%;
-    height: 100%;
+    /* margin-top: -1.25em; */ /*Uncomment when Nav is commplete*/
     font-size: 1.15em;
     font-family: 'Space Grotesk';
 }
@@ -13,7 +15,6 @@
     display: flex;
     flex-direction: column;
     width: 50%;
-    margin: auto
 }
 .cardInfo_form > label {
     text-align: left;
@@ -117,11 +118,26 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance:textfield; /* Firefox */
 }
+/*Payment Confirmation*/
+.cardInfo_form > .paymentConfLogo {
+    height: 4em;
+    width: 4em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cardInfo_form > .paymentConfHeader {
+    color: hsl(278, 68%, 11%);
+}
+.cardInfo_form > .paymentConfMsg {
+    color: grey;
+    font-size: 1.25em;
+    margin-bottom: 2em;
+}
+
 /*Card Design*/
 .card-display-container {
     /* background-color: green; */
     display: inline-flex;
-    float: left;
     height: 30em;
     width: 35em;
     left: 15em;
@@ -209,5 +225,23 @@ input[type=number] {
 }
 
 @media (max-width: 800px) {
-    html {background-color: rgb(0, 0, 108);}
+    .page_container{
+        width: 100%;
+        margin: 15em auto 0 auto;
+    }
+    .card-display-container {
+        display: block;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 35%;
+    }
+    .card-display-container > .card-front {
+        left: 3em;
+        bottom: 0;
+    }
+    .card-display-container > .card-back {
+        bottom: 8em;
+        left: 3em;
+    }    
 }
