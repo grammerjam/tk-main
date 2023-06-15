@@ -1,10 +1,11 @@
 .page_container {
+    background-color: white;
     display: flex;
     float: right;
-    background-color: white;
-    /* margin-top: -1.25em; */ /*Uncomment when Nav is commplete*/
+    /* height: 100%; */ /*Doesn't Work*/
+    height: 100vh; /*Works*/
     width: 65%;
-    height: 100vh;
+    /* margin-top: -1.25em; */ /*Uncomment when Nav is commplete*/
     font-size: 1.15em;
     font-family: 'Space Grotesk';
 }
@@ -236,12 +237,10 @@ input[type=number] {
         height: 35%;
     }
     .card-display-container > .card-front {
-        position: absolute;
         left: 3em;
         bottom: 0;
     }
     .card-display-container > .card-back {
-        position: absolute;
         bottom: 8em;
         left: 3em;
     }    
