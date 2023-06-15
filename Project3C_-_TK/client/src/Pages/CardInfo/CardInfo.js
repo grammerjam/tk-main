@@ -14,10 +14,14 @@ const CardInfo = () => {
 
     const validationCheck = (e) => {
         e.preventDefault();
+
+        if (expMonth < 0 || expMonth > 12) {
+            return setErrorMessage("Expiration Month is not Valid!")
+        }
         const isExpired = ExpirationCheck(expMonth, expYear);
 
         if (isExpired){
-            setErrorMessage("Please enter nonexpired card!");
+            return setErrorMessage("Please enter nonexpired card!");
         }
         else {
             setPaymentSuccessful(true);
