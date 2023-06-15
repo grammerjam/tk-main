@@ -1,9 +1,10 @@
 .page_container {
     display: flex;
+    float: right;
     background-color: white;
     /* margin-top: -1.25em; */ /*Uncomment when Nav is commplete*/
     width: 65%;
-    height: 100%;
+    height: 100vh;
     font-size: 1.15em;
     font-family: 'Space Grotesk';
 }
@@ -13,7 +14,6 @@
     display: flex;
     flex-direction: column;
     width: 50%;
-    margin: auto
 }
 .cardInfo_form > label {
     text-align: left;
@@ -117,11 +117,26 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance:textfield; /* Firefox */
 }
+/*Payment Confirmation*/
+.cardInfo_form > .paymentConfLogo {
+    height: 4em;
+    width: 4em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cardInfo_form > .paymentConfHeader {
+    color: hsl(278, 68%, 11%);
+}
+.cardInfo_form > .paymentConfMsg {
+    color: grey;
+    font-size: 1.25em;
+    margin-bottom: 2em;
+}
+
 /*Card Design*/
 .card-display-container {
     /* background-color: green; */
     display: inline-flex;
-    float: left;
     height: 30em;
     width: 35em;
     left: 15em;

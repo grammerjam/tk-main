@@ -1,57 +1,77 @@
 import React, { useState } from 'react';
 import './CardInfo.css';
-import { useNavigate } from 'react-router-dom';
+import checkMark from '../../images/icon-complete.svg';
 import ExpirationCheck from '../../Functions/ExpirationCheck';
-import CardDisplayInfo from '../../Functions/setCardDisplayInfo';
 
 const CardInfo = () => {
-    const navigate = useNavigate();
     const [name, setName] = useState(null);
     const [number, setNumber] = useState(null);
     const [expMonth, setExpMonth] = useState(null);
     const [expYear, setExpYear] = useState(null);
     const [cvc, setCVC] = useState(null);
     const [errorMessage, setErrorMessage] = useState(null);
+    const [paymentSuccessful, setPaymentSuccessful] = useState(false)
 
-    const validationCheck = () => {
+    const validationCheck = (e) => {
+        e.preventDefault();
         const isExpired = ExpirationCheck(expMonth, expYear);
 
         if (isExpired){
             setErrorMessage("Please enter nonexpired card!");
         }
         else {
-            CardDisplayInfo.SetCardInfo(name, number, expMonth, expYear, cvc);
-            navigate('/PaymentConfirmation');
+            setPaymentSuccessful(true);
         }
+    }
+
+    const resetForm = (e) => {
+        e.preventDefault();
+        setName(null);
+        setNumber(null);
+        setExpMonth(null);
+        setExpYear(null);
+        setCVC(null);
+        setPaymentSuccessful(false);
     }
 
     return (
         <>
             <div className='page_container'>
                 <form className='cardInfo_form'>
-                    <label className='cardHolderNameLabel'>
-                        CARDHOLDER NAME:
-                        <input name='cardHolderName' className='cardHolderName' type='text' placeholder='e.g. Jane Appleseed' pattern='[a-zA-Z]+' maxLength='24' autoComplete='name' required defaultValue={name} onChange={(e) => setName(e.target.value)}/>
-                    </label>
-                    <label className='cardHolderNumberLabel'>
-                        CARDHOLDER NUMBER:
-                        <input name='cardHolderNumber' className='cardHolderNumber' type='text' pattern='[0-9]{16}' maxLength="16" placeholder='e.g. 1234 5678 9123 0000' autoComplete='off' required defaultValue={number} onChange={(e) => setNumber(e.target.value)}/>
-                    </label>
-                    <div className="expAndCvcBox">
-                        <label className='cardHolderExpDateLabel'>
-                            EXP. DATE (MM/YY):
-                            <div style={{display: 'flex'}}>
-                                <input name='cardHolderExpMonth' className='cardHolderExpMonth' type='text' placeholder='MM' pattern="[0][0-9]" maxLength="2" autoComplete='off' required defaultValue={expMonth} onChange={(e) => setExpMonth(e.target.value)}/>
-                                <input name='cardHolderExpYear' className='cardHolderExpYear' type='text' placeholder='YY' pattern="[0-9]{2}" maxLength="2" autoComplete='off' required defaultValue={expYear} onChange={(e) => setExpYear(e.target.value)}/>
-                            </div>
+                    {paymentSuccessful ?
+                    <>
+                        <img className='paymentConfLogo' src={checkMark} alt="" />
+                        <h1 className='paymentConfHeader'>THANK YOU!</h1>
+                        <p className='paymentConfMsg'>We've added your card details</p>
+                        <button type="submit" onClick={e => resetForm(e)}>CONTINUE</button>
+                    </>
+                    :
+                    <>
+                        <label className='cardHolderNameLabel'>
+                            CARDHOLDER NAME:
+                            <input name='cardHolderName' className='cardHolderName' type='text' placeholder='e.g. Jane Appleseed' pattern='^[a-zA-Z]{2,40} [a-zA-Z]{2,40}$' maxLength='24' autoComplete='name' required defaultValue={name} onChange={(e) => setName(e.target.value)}/>
                         </label>
-                        <label className='cardHolderCVCLabel'>
-                            CVC:
-                            <input name='cardHolderCVCMonth' className='cardHolderCVCMonth' type='text' placeholder='e.g 123' pattern="[0-9]{3}" maxLength="3" autoComplete='off' required defaultValue={cvc} onChange={(e) => setCVC(e.target.value)}/>
+                        <label className='cardHolderNumberLabel'>
+                            CARDHOLDER NUMBER:
+                            <input name='cardHolderNumber' className='cardHolderNumber' type='text' pattern='[0-9]{16}' maxLength="16" placeholder='e.g. 1234 5678 9123 0000' autoComplete='off' required defaultValue={number} onChange={(e) => setNumber(e.target.value)}/>
                         </label>
-                    </div>
-                    <button type="submit" onClick={validationCheck}>CONFIRM</button>
-                    <p>{errorMessage}</p>
+                        <div className="expAndCvcBox">
+                            <label className='cardHolderExpDateLabel'>
+                                EXP. DATE (MM/YY):
+                                <div style={{display: 'flex'}}>
+                                    <input name='cardHolderExpMonth' className='cardHolderExpMonth' type='text' placeholder='MM' pattern="[0-9]{2}" maxLength="2" autoComplete='off' required defaultValue={expMonth} onChange={(e) => setExpMonth(e.target.value)}/>
+                                    <input name='cardHolderExpYear' className='cardHolderExpYear' type='text' placeholder='YY' pattern="[0-9]{2}" maxLength="2" autoComplete='off' required defaultValue={expYear} onChange={(e) => setExpYear(e.target.value)}/>
+                                </div>
+                            </label>
+                            <label className='cardHolderCVCLabel'>
+                                CVC:
+                                <input name='cardHolderCVCMonth' className='cardHolderCVCMonth' type='text' placeholder='e.g 123' pattern="[0-9]{3}" maxLength="3" autoComplete='off' required defaultValue={cvc} onChange={(e) => setCVC(e.target.value)}/>
+                            </label>
+                        </div>
+                        <button type="submit" onClick={e => validationCheck(e)}>CONFIRM</button>
+                        <p>{errorMessage}</p>
+                    </>
+                    }
                 </form>
             </div>
             <div className="card-display-container">
