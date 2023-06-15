@@ -136,12 +136,14 @@ input[type=number] {
 
 /*Card Design*/
 .card-display-container {
-    /* background-color: green; */
-    display: inline-flex;
-    height: 30em;
-    width: 35em;
-    left: 15em;
-    top: 12em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    left: 12%;
+    height: 100%;
+    width: 35%;
     position: absolute;
 }
 .card-display-container p {
@@ -155,11 +157,8 @@ input[type=number] {
     z-index: 1;
     height: 9em; 
     width: 20em;
-    position: absolute;
-    left: 6.6em;
-    bottom: 18em;
     padding: 1rem;
-    margin: 7rem 3rem 0rem 0rem;
+    margin-right: 10%;
     border-radius: .6rem;
     display: grid;
     grid-template-areas: 
@@ -210,11 +209,8 @@ input[type=number] {
     z-index: 0;
     height: 9em; 
     width: 20em;
-    position: absolute;
-    bottom: 4em;
-    left: 3em;
     padding: 1rem;
-    margin: 2rem 2rem 0rem 5rem;
+    margin-left: 10%;
     border-radius: .6rem;
 }
 
@@ -225,23 +221,31 @@ input[type=number] {
 }
 
 @media (max-width: 800px) {
+    .big-container {
+        display: flex;
+        flex-direction: column;
+    }
+
     .page_container{
+        order: 2;
         width: 100%;
         margin: 15em auto 0 auto;
     }
     .card-display-container {
-        display: block;
-        top: 0;
+        gap: 0;
+        order: 1;
+        width: 100%;
         left: 0;
-        right: 0;
-        height: 35%;
+        height: 50%;
     }
     .card-display-container > .card-front {
-        left: 3em;
-        bottom: 0;
+        top: 38%;
+        position: absolute;
+        order: 2;
     }
     .card-display-container > .card-back {
-        bottom: 8em;
-        left: 3em;
+        top: 10%;
+        position: absolute;
+        order: 1;
     }    
 }
