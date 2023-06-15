@@ -12,7 +12,6 @@
     margin: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     width: 50%;
     margin: auto
 }
@@ -120,6 +119,7 @@ input[type=number] {
 }
 /*Card Design*/
 .card-display-container {
+    /* background-color: green; */
     display: inline-flex;
     float: left;
     height: 30em;
@@ -147,7 +147,7 @@ input[type=number] {
     border-radius: .6rem;
     display: grid;
     grid-template-areas: 
-        'logo logo logo' 'number number number' 'name exp-m exp-y';
+        'logo logo logo' 'number number number' 'name name exp-m';
 }
 
 .card-display-container > .card-front > .name-display {
@@ -162,10 +162,6 @@ input[type=number] {
     grid-area: exp-m;
     height: 1rem;
     text-align: right;
-}
-.card-display-container > .card-front > .exp-y-display {
-    grid-area: exp-y;
-    height: 1rem;
 }
 
 .logo {
@@ -186,7 +182,8 @@ input[type=number] {
     height: .75rem;
     width: .75rem;
     border-style: solid;
-    border-width: 2px;
+    border-color: white;
+    border-width: 1px;
     border-radius: 100%;
     margin-left: 1rem;
 }
@@ -208,11 +205,9 @@ input[type=number] {
 .card-display-container > .card-back > .cvc-display {
     margin: 1.6rem 0.5rem 0 0;
     float: right;
-    font-size: 1rem;
+    font-size: .8rem;
 }
 
-.card-form-container {
-    background-color: white;
-    margin: 15rem 0 0 0;
-    display: flex;
+@media (max-width: 800px) {
+    html {background-color: rgb(0, 0, 108);}
 }

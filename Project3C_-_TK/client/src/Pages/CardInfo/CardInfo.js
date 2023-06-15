@@ -41,7 +41,7 @@ const CardInfo = () => {
                         <label className='cardHolderExpDateLabel'>
                             EXP. DATE (MM/YY):
                             <div style={{display: 'flex'}}>
-                                <input name='cardHolderExpMonth' className='cardHolderExpMonth' type='text' placeholder='MM' pattern="[0][0-9]||[1][0-2]" maxLength="2" autoComplete='off' required defaultValue={expMonth} onChange={(e) => setExpMonth(e.target.value)}/>
+                                <input name='cardHolderExpMonth' className='cardHolderExpMonth' type='text' placeholder='MM' pattern="[0][0-9]" maxLength="2" autoComplete='off' required defaultValue={expMonth} onChange={(e) => setExpMonth(e.target.value)}/>
                                 <input name='cardHolderExpYear' className='cardHolderExpYear' type='text' placeholder='YY' pattern="[0-9]{2}" maxLength="2" autoComplete='off' required defaultValue={expYear} onChange={(e) => setExpYear(e.target.value)}/>
                             </div>
                         </label>
@@ -67,10 +67,7 @@ const CardInfo = () => {
                         <p className="number-output" id="number-output">{number}</p>
                     </div>
                     <div className="exp-m-display">
-                        <p className="exp-m-output" id="exp-m-output">{expMonth}</p>
-                    </div>
-                    <div className="exp-y-display">
-                        <p className="exp-y-output" id="exp-y-output">{expYear}</p>
+                        <p className="exp-m-output" id="exp-m-output">{expMonth}/{expYear}</p>
                     </div>
                 </div>
                 <div className="card-back">
