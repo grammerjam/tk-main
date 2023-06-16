@@ -15,6 +15,18 @@ const CardInfo = () => {
     const validationCheck = (e) => {
         e.preventDefault();
 
+        if (name === null) {
+            return setErrorMessage("All fields must be complete")
+        }
+
+        if (number.length < 16) {
+            return setErrorMessage("Please enter 16-digit card number")
+        }
+
+        if (cvc.length < 3) {
+            return setErrorMessage("Please enter 3-digit CVC")
+        }
+
         if (expMonth <= 0 || expMonth > 12) {
             return setErrorMessage("Expiration Month is not Valid!")
         }
