@@ -14,10 +14,17 @@ const CardInfo = () => {
 
     const validationCheck = (e) => {
         e.preventDefault();
-        
-        //Check for null entries
-        if (name == null || number == null || expMonth == null || expYear == null || cvc == null){
-            return setErrorMessage("All fields must be filled in!")
+
+        if (name === null) {
+            return setErrorMessage("All fields must be complete")
+        }
+
+        if (number.length < 16) {
+            return setErrorMessage("Please enter 16-digit card number")
+        }
+
+        if (cvc.length < 3) {
+            return setErrorMessage("Please enter 3-digit CVC")
         }
         
         //Check for a valid month
