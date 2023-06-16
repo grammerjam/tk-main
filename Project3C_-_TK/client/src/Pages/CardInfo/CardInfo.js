@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './CardInfo.css';
 import checkMark from '../../images/icon-complete.svg';
 import ExpirationCheck from '../../Functions/ExpirationCheck';
+import ValidateCardNumber from '../../Functions/validateCardNumber';
 
 const CardInfo = () => {
     const [name, setName] = useState(null);
@@ -10,7 +11,7 @@ const CardInfo = () => {
     const [expYear, setExpYear] = useState(null);
     const [cvc, setCVC] = useState(null);
     const [errorMessage, setErrorMessage] = useState(null);
-    const [paymentSuccessful, setPaymentSuccessful] = useState(false)
+    const [paymentSuccessful, setPaymentSuccessful] = useState(false);
 
     const validationCheck = (e) => {
         e.preventDefault();
@@ -27,6 +28,13 @@ const CardInfo = () => {
             return setErrorMessage("Please enter 3-digit CVC")
         }
         
+        //Validate Card Number
+        const isValidCard = ValidateCardNumber(number);
+
+        if (!isValidCard){
+            return setErrorMessage("Please enter valid card number!");
+        }
+
         //Check for a valid month
         if (expMonth <= 0 || expMonth > 12) {
             return setErrorMessage("Expiration month is not valid!")
