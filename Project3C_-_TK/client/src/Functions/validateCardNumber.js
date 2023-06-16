@@ -1,5 +1,3 @@
-import React from 'react';
-
 /*
 * Referencing
 * https://learnersbucket.com/examples/javascript/credit-card-validation-in-javascript/
@@ -9,7 +7,7 @@ const validateCardNumber = number => {
     //Check if the number contains only numeric value  
     //and is of between 13 to 19 digits
     const regex = new RegExp("^[0-9]{13,19}$");
-    if (!regex.test(number) || number == '0000000000000000'){
+    if (!regex.test(number) || number === '0000000000000000'){
         return false;
     }
 
@@ -36,7 +34,7 @@ const luhnCheck = val => {
     checksum = checksum + calc;
 
     // Switch the value of j
-    if (j == 1) {
+    if (j === 1) {
         j = 2;
     } else {
         j = 1;
@@ -44,7 +42,7 @@ const luhnCheck = val => {
     }
 
     //Check if it is divisible by 10 or not.
-    return (checksum % 10) == 0;
+    return (checksum % 10) === 0;
 }
 
 export default validateCardNumber;
