@@ -26,10 +26,13 @@ const CardInfo = () => {
         if (cvc.length < 3) {
             return setErrorMessage("Please enter 3-digit CVC")
         }
-
+        
+        //Check for a valid month
         if (expMonth <= 0 || expMonth > 12) {
-            return setErrorMessage("Expiration Month is not Valid!")
+            return setErrorMessage("Expiration month is not valid!")
         }
+        
+        //Check card expiration
         const isExpired = ExpirationCheck(expMonth, expYear);
 
         if (isExpired){
@@ -47,6 +50,7 @@ const CardInfo = () => {
         setExpMonth(null);
         setExpYear(null);
         setCVC(null);
+        setErrorMessage(null);
         setPaymentSuccessful(false);
     }
 
