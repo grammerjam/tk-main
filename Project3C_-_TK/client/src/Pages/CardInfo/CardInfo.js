@@ -14,10 +14,18 @@ const CardInfo = () => {
 
     const validationCheck = (e) => {
         e.preventDefault();
-
-        if (expMonth <= 0 || expMonth > 12) {
-            return setErrorMessage("Expiration Month is not Valid!")
+        
+        //Check for null entries
+        if (name == null || number == null || expMonth == null || expYear == null || cvc == null){
+            return setErrorMessage("All fields must be filled in!")
         }
+        
+        //Check for a valid month
+        if (expMonth <= 0 || expMonth > 12) {
+            return setErrorMessage("Expiration month is not valid!")
+        }
+        
+        //Check card expiration
         const isExpired = ExpirationCheck(expMonth, expYear);
 
         if (isExpired){
@@ -35,6 +43,7 @@ const CardInfo = () => {
         setExpMonth(null);
         setExpYear(null);
         setCVC(null);
+        setErrorMessage(null);
         setPaymentSuccessful(false);
     }
 
