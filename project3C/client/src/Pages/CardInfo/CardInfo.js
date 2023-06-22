@@ -3,7 +3,8 @@ import './CardInfo.css';
 import checkMark from '../../images/icon-complete.svg';
 import ExpirationCheck from '../../Functions/ExpirationCheck';
 import ValidateCardNumber from '../../Functions/validateCardNumber';
-import getData from '../../Functions/Routes'
+// import getData from '../../Functions/Routes';
+import Axios from 'axios';
 
 const CardInfo = () => {
     const [name, setName] = useState(null);
@@ -13,19 +14,25 @@ const CardInfo = () => {
     const [cvc, setCVC] = useState(null);
     const [errorMessage, setErrorMessage] = useState(null);
     const [paymentSuccessful, setPaymentSuccessful] = useState(false);
+    const [allCardsInfo, setAllCardsInfo] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
-    const validationCheck = (e) => {
+    const validationCheck = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
 
         if (name === null) {
+            setIsLoading(false);
             return setErrorMessage("All fields must be complete")
         }
 
         if (number.length < 16) {
+            setIsLoading(false);
             return setErrorMessage("Please enter 16-digit card number")
         }
 
         if (cvc.length < 3) {
+            setIsLoading(false);
             return setErrorMessage("Please enter 3-digit CVC")
         }
         
@@ -33,11 +40,13 @@ const CardInfo = () => {
         const isValidCard = ValidateCardNumber(number);
 
         if (!isValidCard){
+            setIsLoading(false);
             return setErrorMessage("Please enter valid card number!");
         }
 
         //Check for a valid month
         if (expMonth <= 0 || expMonth > 12) {
+            setIsLoading(false);
             return setErrorMessage("Expiration month is not valid!")
         }
         
@@ -45,10 +54,36 @@ const CardInfo = () => {
         const isExpired = ExpirationCheck(expMonth, expYear);
 
         if (isExpired){
+            setIsLoading(false);
             return setErrorMessage("Please enter nonexpired card!");
         }
         else {
-            setPaymentSuccessful(true);
+            const url = 'http://localhost:3001/CardData/addCardDetail';
+            await Axios.post(url, {
+                name : name,
+                number : number,
+                expMonth : expMonth,
+                expYear : expYear,
+                cvc : cvc
+            })
+            .then((response) => {
+                console.log(response.data)
+                if (response.data.statusMessage === "Successful") {
+                    getAllCards();
+                    setPaymentSuccessful(true);
+                }
+                else if (response.data.statusMessage === "Failed") {
+                    setErrorMessage("Payment Unsuccessful!")
+                    setPaymentSuccessful(true);
+                }
+                else if (response.data.errorMessage){
+                    setErrorMessage(response.data.errorMessage);
+                }
+            })
+            .catch((error) => {
+                setErrorMessage('An Error Occured! + \n' + error);
+            });    
+            setIsLoading(false);
         }
     }
 
@@ -63,9 +98,26 @@ const CardInfo = () => {
         setPaymentSuccessful(false);
     }
 
+    const getAllCards = async () => {
+        const url = 'http://localhost:3001/CardData/retrieveAllCards';
+        await Axios.post(url)
+        .then((response) => {
+            if (response.data.errorMessage){
+                setErrorMessage(response.data.errorMessage);
+            }
+            else {
+                setAllCardsInfo(response.data[0]);
+            }
+        })
+        .catch((error) => {
+            setErrorMessage('An Error Occured! + \n' + error);
+        });
+        setIsLoading(false);  
+    }
+
     return (
         <>
-        {getData()}
+        {/* {getData()} */}
             <div className="big-container">
                 <nav className="navbar">
                     STACKMONSTERS!
@@ -94,38 +146,70 @@ const CardInfo = () => {
                 </div>
                 <div className='page_container'>
                     <form className='cardInfo_form'>
-                        {paymentSuccessful ?
+                        {isLoading ?
                         <>
-                            <img className='paymentConfLogo' src={checkMark} alt="" />
-                            <h1 className='paymentConfHeader'>THANK YOU!</h1>
-                            <p className='paymentConfMsg'>We've added your card details</p>
-                            <button type="submit" onClick={e => resetForm(e)}>CONTINUE</button>
+                            <h1 className='paymentConfHeader'>PROCESSING...</h1>
                         </>
                         :
                         <>
-                            <label className='cardHolderNameLabel'>
-                                CARDHOLDER NAME:
-                                <input name='cardHolderName' className='cardHolderName' type='text' placeholder='e.g. Jane Appleseed' pattern='^[a-zA-Z]{2,40} [a-zA-Z]{2,40}$' maxLength='24' autoComplete='name' required defaultValue={name} onChange={(e) => setName(e.target.value)}/>
-                            </label>
-                            <label className='cardHolderNumberLabel'>
-                                CARDHOLDER NUMBER:
-                                <input name='cardHolderNumber' className='cardHolderNumber' type='text' pattern='[0-9]{16}' maxLength="16" placeholder='e.g. 1234 5678 9123 0000' autoComplete='off' required defaultValue={number} onChange={(e) => setNumber(e.target.value)}/>
-                            </label>
-                            <div className="expAndCvcBox">
-                                <label className='cardHolderExpDateLabel'>
-                                    EXP. DATE (MM/YY):
-                                    <div style={{display: 'flex'}}>
-                                        <input name='cardHolderExpMonth' className='cardHolderExpMonth' type='text' placeholder='MM' pattern="[0-9]{2}" maxLength="2" autoComplete='off' required defaultValue={expMonth} onChange={(e) => setExpMonth(e.target.value)}/>
-                                        <input name='cardHolderExpYear' className='cardHolderExpYear' type='text' placeholder='YY' pattern="[0-9]{2}" maxLength="2" autoComplete='off' required defaultValue={expYear} onChange={(e) => setExpYear(e.target.value)}/>
-                                    </div>
+                            {paymentSuccessful ?
+                            <>
+                                <img className='paymentConfLogo' src={checkMark} alt="" />
+                                <h1 className='paymentConfHeader'>THANK YOU!</h1>
+                                <p className='paymentConfMsg'>We've added your card details</p>
+                                <button type="submit" onClick={e => resetForm(e)}>CONTINUE</button>
+                                <br/><br/><br/><br/>
+                                <h1>All Cards</h1>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th>Card ID</th>
+                                            <th>CardHolder Name</th>
+                                            <th>Card Number</th>
+                                            <th>Card Exp Date</th>
+                                            <th>Card Cvc</th>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                    {allCardsInfo.map((cardDetail) => (
+                                        <tr key={cardDetail.cardID}>
+                                            <td>{cardDetail.cardID}</td>
+                                            <td>{cardDetail.cardHolderName}</td>
+                                            <td>{cardDetail.cardHolderNumber}</td>
+                                            <td>{cardDetail.cardHolderExpMonth}/{cardDetail.cardHolderExpYear}</td>
+                                            <td>{cardDetail.cardHolderCVC}</td>
+                                        </tr>
+                                    ))}
+                                    </tbody>
+                                </table>
+                            </>
+                            :
+                            <>
+                                <label className='cardHolderNameLabel'>
+                                    CARDHOLDER NAME:
+                                    <input name='cardHolderName' className='cardHolderName' type='text' placeholder='e.g. Jane Appleseed' pattern='^[a-zA-Z]{2,40} [a-zA-Z]{2,40}$' maxLength='24' autoComplete='name' required defaultValue={name} onChange={(e) => setName(e.target.value)}/>
                                 </label>
-                                <label className='cardHolderCVCLabel'>
-                                    CVC:
-                                    <input name='cardHolderCVCMonth' className='cardHolderCVCMonth' type='text' placeholder='e.g 123' pattern="[0-9]{3}" maxLength="3" autoComplete='off' required defaultValue={cvc} onChange={(e) => setCVC(e.target.value)}/>
+                                <label className='cardHolderNumberLabel'>
+                                    CARDHOLDER NUMBER:
+                                    <input name='cardHolderNumber' className='cardHolderNumber' type='text' pattern='[0-9]{16}' maxLength="16" placeholder='e.g. 1234 5678 9123 0000' autoComplete='off' required defaultValue={number} onChange={(e) => setNumber(e.target.value)}/>
                                 </label>
-                            </div>
-                            <button type="submit" onClick={e => validationCheck(e)}>CONFIRM</button>
-                            <p>{errorMessage}</p>
+                                <div className="expAndCvcBox">
+                                    <label className='cardHolderExpDateLabel'>
+                                        EXP. DATE (MM/YY):
+                                        <div style={{display: 'flex'}}>
+                                            <input name='cardHolderExpMonth' className='cardHolderExpMonth' type='text' placeholder='MM' pattern="[0-9]{2}" maxLength="2" autoComplete='off' required defaultValue={expMonth} onChange={(e) => setExpMonth(e.target.value)}/>
+                                            <input name='cardHolderExpYear' className='cardHolderExpYear' type='text' placeholder='YY' pattern="[0-9]{2}" maxLength="2" autoComplete='off' required defaultValue={expYear} onChange={(e) => setExpYear(e.target.value)}/>
+                                        </div>
+                                    </label>
+                                    <label className='cardHolderCVCLabel'>
+                                        CVC:
+                                        <input name='cardHolderCVCMonth' className='cardHolderCVCMonth' type='text' placeholder='e.g 123' pattern="[0-9]{3}" maxLength="3" autoComplete='off' required defaultValue={cvc} onChange={(e) => setCVC(e.target.value)}/>
+                                    </label>
+                                </div>
+                                <button type="submit" onClick={e => validationCheck(e)}>CONFIRM</button>
+                                <p>{errorMessage}</p>
+                            </>
+                            }
                         </>
                         }
                     </form>

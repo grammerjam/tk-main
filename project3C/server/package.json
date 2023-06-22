@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-mysql-session": "^3.0.0",
+    "express-session": "^1.17.3",
+    "mysql2": "^3.4.0",
+    "nodemon": "^2.0.22"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "name": "server",
+  "version": "2.0.22",
+  "description": "Catching Souls",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "devStart": "nodemon index.js"
+  }
+}
