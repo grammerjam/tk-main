@@ -26,7 +26,13 @@ const Dashboard = () => {
         setIsLoading(false);  
     }
 
-    
+    const deleteCard = async (cardID) => {
+        console.log(cardID)
+    }
+
+    const updateCard = async (cardID) => {
+        console.log(cardID)
+    }
 
   return (
     <>
@@ -60,6 +66,8 @@ const Dashboard = () => {
                     ))}
                     </tbody>
                 </table>
+                <button className='updateDelete' onClick={updateCard}>Update</button>
+                <button className='updateDelete' onClick={deleteCard}>Delete</button>
         </div>
     </>
   )

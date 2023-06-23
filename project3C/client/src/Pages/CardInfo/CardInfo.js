@@ -126,7 +126,7 @@ const CardInfo = () => {
         let block3 = '';
         let block4 = '';
         let formatted = '';
-
+//Checking provider type---------------------------------
         if (typeCheck.length === 2) {
             typeCheck = parseInt(typeCheck);
             if (typeCheck >=40 && typeCheck <= 49) {
@@ -142,6 +142,7 @@ const CardInfo = () => {
             }
         }
         setProvider(cType)
+//Spacing the numbers------------------------------------
         block1 = numString.substring(0,4)
         if (block1.length === 4) {
             block1 = block1 + ' ';
@@ -167,7 +168,7 @@ const CardInfo = () => {
         if (cType === 'Invalid') {
             block1 = 'Invalid card number'
         }
-
+        
         formatted = block1 + block2 + block3 + block4;
         setFormattedNumber(formatted)
     }
