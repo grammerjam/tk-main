@@ -4,6 +4,7 @@ import checkMark from '../../images/icon-complete.svg';
 import ExpirationCheck from '../../Functions/ExpirationCheck';
 import ValidateCardNumber from '../../Functions/validateCardNumber';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const CardInfo = () => {
     const [name, setName] = useState(null);
@@ -65,7 +66,7 @@ const CardInfo = () => {
                 number : number,
                 expMonth : expMonth,
                 expYear : expYear,
-                cvc : cvc
+                cvc : cvc,
             })
             .then((response) => {
                 console.log(response.data)
@@ -136,6 +137,8 @@ const CardInfo = () => {
                 cType = 'Discover';
             } else if (typeCheck === 34 || typeCheck === 37) {
                 cType = 'AMEX';
+            } else {
+                cType = 'Invalid';
             }
         }
         setProvider(cType)
@@ -157,9 +160,12 @@ const CardInfo = () => {
         if (cType === 'AMEX') {
             block2 = numString.substring(4,10);
             if (block2.length === 6) {
-                block2 = block2 + ' ';
+                block2 = block2 + '   ';
             }
             block3 = numString.substring(10,15)
+        }
+        if (cType === 'Invalid') {
+            block1 = 'Invalid card number'
         }
 
         formatted = block1 + block2 + block3 + block4;
@@ -170,7 +176,8 @@ const CardInfo = () => {
         <>
             <div className="big-container">
                 <nav className="navbar">
-                    STACKMONSTERS!
+                    <strong>STACKMONSTERS!</strong>
+                    <Link to='/savedCards' className='navLink'>Saved Cards</Link>
                 </nav>
                 <div className="card-display-container">
                     <div className="card-front">
@@ -209,29 +216,6 @@ const CardInfo = () => {
                                 <p className='paymentConfMsg'>We've added your card details</p>
                                 <button type="submit" onClick={e => resetForm(e)}>CONTINUE</button>
                                 <br/><br/><br/><br/>
-                                <h1>All Cards</h1>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <th>Card ID</th>
-                                            <th>CardHolder Name</th>
-                                            <th>Card Number</th>
-                                            <th>Card Exp Date</th>
-                                            <th>Card Cvc</th>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                    {allCardsInfo.map((cardDetail) => (
-                                        <tr key={cardDetail.cardID}>
-                                            <td>{cardDetail.cardID}</td>
-                                            <td>{cardDetail.cardHolderName}</td>
-                                            <td>{cardDetail.cardHolderNumber}</td>
-                                            <td>{cardDetail.cardHolderExpMonth}/{cardDetail.cardHolderExpYear}</td>
-                                            <td>{cardDetail.cardHolderCVC}</td>
-                                        </tr>
-                                    ))}
-                                    </tbody>
-                                </table>
                             </>
                             :
                             <>

@@ -1,0 +1,14 @@
+.tableContainer {
+    background-color: white;
+    margin: 5%;
+    color: black;
+    height: 100%;
+}
+
+ul {
+    list-style-type:none;
+}
+
+li {
+    width: 100%;
+}
