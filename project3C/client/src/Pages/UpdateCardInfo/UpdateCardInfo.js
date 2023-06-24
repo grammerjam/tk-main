@@ -1,23 +1,50 @@
-import React, { useState } from 'react';
-import './CardInfo.css';
+import React, { useEffect, useState } from 'react';
+import './UpdateCardInfo.css';
 import checkMark from '../../images/icon-complete.svg';
 import ExpirationCheck from '../../Functions/ExpirationCheck';
 import ValidateCardNumber from '../../Functions/validateCardNumber';
 import Axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
-const CardInfo = () => {
-    const [name, setName] = useState(null);
-    const [number, setNumber] = useState(null);
-    const [formattedNumber, setFormattedNumber] = useState('0000 0000 0000 0000');
-    const [expMonth, setExpMonth] = useState(null);
-    const [expYear, setExpYear] = useState(null);
-    const [cvc, setCVC] = useState(null);
-    const [provider, setProvider] = useState(null)
+const UpdateCardInfo = () => {
+    const CardID = useParams();
+    const navigate = useNavigate();
+    const [name, setName] = useState('');
+    const [number, setNumber] = useState('');
+    const [formattedNumber, setFormattedNumber] = useState('');
+    const [expMonth, setExpMonth] = useState('');
+    const [expYear, setExpYear] = useState('');
+    const [cvc, setCVC] = useState('');
+    const [provider, setProvider] = useState('')
     const [errorMessage, setErrorMessage] = useState(null);
-    const [paymentSuccessful, setPaymentSuccessful] = useState(false);
-    const [allCardsInfo, setAllCardsInfo] = useState([]);
+    const [paymentUpdateSuccessful, setPaymentUpdateSuccessful] = useState(false);
+    const [cardInfo, setCardInfo] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        setErrorMessage(null);
+
+        const url = 'http://localhost:3001/CardData/retrieveCardInfo';
+        Axios.post(url, {CardID : CardID})
+        .then((response) => {
+            if (response.data.errorMessage){
+                setErrorMessage(response.data.errorMessage);
+            }
+            else {
+                setName(response.data.cardHolderName);
+                setNumber(response.data.cardHolderNumber);
+                setExpMonth(response.data.cardHolderExpMonth);
+                setExpYear(response.data.cardHolderExpYear);
+                setCVC(response.data.cardHolderCVC);
+                setProvider(response.data.cardHolderProvider);
+                ccFormat(response.data.cardHolderNumber);
+            }
+        })
+        .catch((error) => {
+            setErrorMessage(<>An Error Occured! <br/> {error.message}</>);
+        });
+        setIsLoading(false);  
+    }, []);
 
     const validationCheck = async (e) => {
         e.preventDefault();
@@ -60,8 +87,9 @@ const CardInfo = () => {
             return setErrorMessage("Please enter nonexpired card!");
         }
         else {
-            const url = 'http://localhost:3001/CardData/addCardDetail';
+            const url = 'http://localhost:3001/CardData/updateCardDetail';
             await Axios.post(url, {
+                cardID : CardID,
                 name : name,
                 number : number,
                 expMonth : expMonth,
@@ -72,19 +100,19 @@ const CardInfo = () => {
             .then((response) => {
                 console.log(response.data)
                 if (response.data.statusMessage === "Successful") {
-                    getAllCards();
-                    setPaymentSuccessful(true);
+                    setPaymentUpdateSuccessful(true);
+                    navigate('/savedCards');
                 }
                 else if (response.data.statusMessage === "Failed") {
                     setErrorMessage("Payment Unsuccessful!")
-                    setPaymentSuccessful(true);
+                    setPaymentUpdateSuccessful(false);
                 }
                 else if (response.data.errorMessage){
                     setErrorMessage(response.data.errorMessage);
                 }
             })
             .catch((error) => {
-                setErrorMessage(<>An Error Occured! <br/> {error.message}</>);
+                setErrorMessage('An Error Occured! + \n' + error);
             });    
             setIsLoading(false);
         }
@@ -98,24 +126,7 @@ const CardInfo = () => {
         setExpYear(null);
         setCVC(null);
         setErrorMessage(null);
-        setPaymentSuccessful(false);
-    }
-
-    const getAllCards = async () => {
-        const url = 'http://localhost:3001/CardData/retrieveAllCards';
-        await Axios.post(url)
-        .then((response) => {
-            if (response.data.errorMessage){
-                setErrorMessage(response.data.errorMessage);
-            }
-            else {
-                setAllCardsInfo(response.data[0]);
-            }
-        })
-        .catch((error) => {
-            setErrorMessage(<>An Error Occured! <br/> {error.message}</>);
-        });
-        setIsLoading(false);  
+        setPaymentUpdateSuccessful(false);
     }
 
     function ccFormat(e) {
@@ -211,11 +222,11 @@ const CardInfo = () => {
                         </>
                         :
                         <>
-                            {paymentSuccessful ?
+                            {paymentUpdateSuccessful ?
                             <>
                                 <img className='paymentConfLogo' src={checkMark} alt="" />
-                                <h1 className='paymentConfHeader'>THANK YOU!</h1>
-                                <p className='paymentConfMsg'>We've added your card details</p>
+                                <h1 className='paymentConfHeader'>Payment Updated!</h1>
+                                <p className='paymentConfMsg'>We've updated your card details</p>
                                 <button type="submit" onClick={e => resetForm(e)}>CONTINUE</button>
                             </>
                             :
@@ -257,4 +268,4 @@ const CardInfo = () => {
     );
 }
 
-export default CardInfo;
+export default UpdateCardInfo;

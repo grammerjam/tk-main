@@ -40,9 +40,78 @@ router.post('/addCardDetail', async (req, res) => {
   const cvc = req.body.cvc;
 
   try {
-    const uploadCardStatus = await db.query('INSERT INTO cardstorage (cardHolderName, cardHolderNumber, cardHolderExpMonth, cardHolderExpYear, cardHolderCVC) VALUES (?, ?, ?, ?, ?)', [name, number, expMonth, expYear, cvc]);
+    const checkDuplicate = await db.query('SELECT * FROM cardstorage WHERE cardHolderNumber = ?', [number]);
 
-    if (uploadCardStatus[0].affectedRows > 0) {
+    if (typeof checkDuplicate[0][0] !== 'undefined') {
+      return res.json({ errorMessage: 'Card already exists!' });
+    }
+    else {
+      const uploadCardStatus = await db.query('INSERT INTO cardstorage (cardHolderName, cardHolderNumber, cardHolderExpMonth, cardHolderExpYear, cardHolderCVC) VALUES (?, ?, ?, ?, ?)', [name, number, expMonth, expYear, cvc]);
+      
+      if (uploadCardStatus[0].affectedRows > 0) {
+        return res.json({statusMessage: "Successful"});
+      }
+    }
+    return res.json({statusMessage: "Failed"});
+  }
+  catch (err) {
+    return res.json({ errorMessage: 'A Server Error Occured!' });
+  }
+});
+
+router.post('/retrieveCardInfo', async (req, res) => {
+  const cardID = req.body.CardID.CardID;
+
+  try {
+    const uploadCardStatus = await db.query('SELECT * FROM cardstorage WHERE cardID = ?', [cardID]);
+
+    if (typeof uploadCardStatus[0][0] !== 'undefined') {
+      return res.send(uploadCardStatus[0][0]);
+    }
+    return res.json({errorMessage: "Card Not Found"});
+  }
+  catch (err) {
+    return res.json({ errorMessage: 'A Server Error Occured!' });
+  }
+});
+
+router.post('/updateCardDetail', async (req, res) => {
+  const cardID = req.body.cardID.CardID;
+  const name = req.body.name;
+  const number = req.body.number;
+  const expMonth = req.body.expMonth;
+  const expYear = req.body.expYear;
+  const cvc = req.body.cvc;
+  const provider = req.body.provider
+
+  try {
+    const checkDuplicate = await db.query('SELECT * FROM cardstorage WHERE cardHolderNumber = ?', [number]);
+
+    if (typeof checkDuplicate[0][0] === 'undefined' || parseInt(checkDuplicate[0][0].cardID) === parseInt(cardID)) {
+      const uploadCardStatus = await db.query('UPDATE cardstorage SET cardHolderName = ?, cardHolderNumber = ?, cardHolderExpMonth = ?, cardHolderExpYear = ?, cardHolderCVC = ?, cardHolderProvider = ? WHERE cardID = ?', [name, number, expMonth, expYear, cvc, provider, cardID]);
+      console.log(uploadCardStatus[0])
+      if (uploadCardStatus[0].affectedRows > 0) {
+        return res.json({statusMessage: "Successful"});
+      }
+    }
+    else if (typeof checkDuplicate[0][0] !== 'undefined'){
+      return res.json({ errorMessage: 'Card already exists!' });
+    }
+    return res.json({statusMessage: "Failed"});
+  }
+  catch (err) {
+    console.log(err)
+    return res.json({ errorMessage: 'A Server Error Occured!' });
+  }
+});
+
+router.post('/deleteCardDetail', async (req, res) => {
+  const cardID = req.body.cardID;
+
+  try {
+    const deleteCardStatus = await db.query('DELETE FROM cardstorage WHERE cardID = ?', [cardID]);
+
+    if (deleteCardStatus[0].affectedRows > 0) {
       return res.json({statusMessage: "Successful"});
     }
     return res.json({statusMessage: "Failed"});
@@ -51,6 +120,7 @@ router.post('/addCardDetail', async (req, res) => {
     return res.json({ errorMessage: 'A Server Error Occured!' });
   }
 });
+
 
 router.post('/retrieveAllCards', async (req, res) => {
   try {

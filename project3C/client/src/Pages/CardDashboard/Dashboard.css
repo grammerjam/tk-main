@@ -21,10 +21,13 @@ tr:hover {
 
 
 th {
+    cursor: default;
+    background-color:silver;
     padding: 1%;
 }
 
 td {
+    cursor: pointer;
     padding: 1%;
 }
 
