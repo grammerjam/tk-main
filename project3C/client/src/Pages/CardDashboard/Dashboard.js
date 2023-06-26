@@ -33,7 +33,6 @@ const Dashboard = () => {
                 let sorted = [];
                 if (asc) {
                     for (let i = result.length-1; i >= 0; i--) {
-                        console.log(result[i])
                         sorted.push(result[i])
                     }
                     setAllCardsInfo(sorted);
@@ -48,8 +47,6 @@ const Dashboard = () => {
             setErrorMessage(<>An Error Occured! <br/> {error.message}</>);
         });
         setIsLoading(false);  
-        console.log(allCardsInfo);
-        console.log(asc)
     }
 
     const updateCard = async (CardID) => {
