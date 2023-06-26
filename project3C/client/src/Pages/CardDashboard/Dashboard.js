@@ -10,6 +10,7 @@ const Dashboard = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        setIsLoading(true);
         const url = 'http://localhost:3001/CardData/retrieveAllCards';
         
         Axios.post(url)
@@ -19,7 +20,6 @@ const Dashboard = () => {
             }
             else {
                 setAllCardsInfo(response.data[0]);
-                console.log(allCardsInfo)
             }
         })
         .catch((error) => {
@@ -38,25 +38,28 @@ const Dashboard = () => {
         let isOk = window.confirm("Are you sure you want to delete card id " + cardID + "?");
 
         if (isOk) {
+            setIsLoading(true);
             await Axios.post(url, {cardID : cardID})
             .then((response) => {
                 if (response.data.statusMessage === "Successful") {
                     setErrorMessage("Deletion Successful");
                     setTimeout(() => {
                         window.location.reload();
+                        setIsLoading(false);
                     }, 2000);
                 }
                 else if (response.data.statusMessage === "Failed"){
                     setErrorMessage("Deletion Unsuccessful");
+                    setIsLoading(false);
                 }
                 else if (response.data.errorMessage){
                     setErrorMessage(response.data.errorMessage);
+                    setIsLoading(false);
                 }
             })
             .catch((error) => {
                 setErrorMessage(<>An Error Occured! <br/> {error.message}</>);
             });
-            setIsLoading(false);
         }
     }
 
@@ -91,8 +94,10 @@ const Dashboard = () => {
                             <td>{cardDetail.cardHolderExpMonth}/{cardDetail.cardHolderExpYear}</td>
                             <td>{cardDetail.cardHolderCVC}</td>
                             <td>{cardDetail.cardHolderProvider}</td>
-                            <td><button className='updateDelete' onClick={() => updateCard(cardDetail.cardID)}>Update</button></td>
-                            <td><button className='updateDelete' onClick={() => deleteCard(cardDetail.cardID)}>Delete</button></td>
+                            {isLoading && <td><button className='updateDelete' style = {{backgroundColor : "rgb(139, 0, 139)"}} disabled>Update</button></td>}
+                            {!isLoading && <td><button className='updateDelete' onClick={() => updateCard(cardDetail.cardID)}>Update</button></td>}
+                            {isLoading && <td><button className='updateDelete' style = {{backgroundColor : "rgb(139, 0, 139)"}} disabled>Delete</button></td>}
+                            {!isLoading && <td><button className='updateDelete' onClick={() => deleteCard(cardDetail.cardID)}>Delete</button></td>}
                         </tr>
                     ))}
                     </tbody>

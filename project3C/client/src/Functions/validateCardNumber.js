@@ -3,7 +3,7 @@
 * https://learnersbucket.com/examples/javascript/credit-card-validation-in-javascript/
 */
 
-const validateCardNumber = number => {
+const validateCardNumber = (number) => {
     //Check if the number contains only numeric value  
     //and is of between 13 to 19 digits
     const regex = new RegExp("^[0-9]{13,19}$");

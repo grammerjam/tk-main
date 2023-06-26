@@ -98,13 +98,12 @@ const UpdateCardInfo = () => {
                 provider : provider,
             })
             .then((response) => {
-                console.log(response.data)
                 if (response.data.statusMessage === "Successful") {
                     setPaymentUpdateSuccessful(true);
                     navigate('/savedCards');
                 }
                 else if (response.data.statusMessage === "Failed") {
-                    setErrorMessage("Payment Unsuccessful!")
+                    setErrorMessage("Payment Update Unsuccessful!")
                     setPaymentUpdateSuccessful(false);
                 }
                 else if (response.data.errorMessage){

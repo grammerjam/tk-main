@@ -38,6 +38,7 @@ router.post('/addCardDetail', async (req, res) => {
   const expMonth = req.body.expMonth;
   const expYear = req.body.expYear;
   const cvc = req.body.cvc;
+  const provider = req.body.provider
 
   try {
     const checkDuplicate = await db.query('SELECT * FROM cardstorage WHERE cardHolderNumber = ?', [number]);
@@ -46,7 +47,7 @@ router.post('/addCardDetail', async (req, res) => {
       return res.json({ errorMessage: 'Card already exists!' });
     }
     else {
-      const uploadCardStatus = await db.query('INSERT INTO cardstorage (cardHolderName, cardHolderNumber, cardHolderExpMonth, cardHolderExpYear, cardHolderCVC) VALUES (?, ?, ?, ?, ?)', [name, number, expMonth, expYear, cvc]);
+      const uploadCardStatus = await db.query('INSERT INTO cardstorage (cardHolderName, cardHolderNumber, cardHolderExpMonth, cardHolderExpYear, cardHolderCVC, cardHolderProvider) VALUES (?, ?, ?, ?, ?, ?)', [name, number, expMonth, expYear, cvc, provider]);
       
       if (uploadCardStatus[0].affectedRows > 0) {
         return res.json({statusMessage: "Successful"});

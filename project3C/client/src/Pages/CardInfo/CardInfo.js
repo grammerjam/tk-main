@@ -4,9 +4,10 @@ import checkMark from '../../images/icon-complete.svg';
 import ExpirationCheck from '../../Functions/ExpirationCheck';
 import ValidateCardNumber from '../../Functions/validateCardNumber';
 import Axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const CardInfo = () => {
+    const navigate = useNavigate();
     const [name, setName] = useState(null);
     const [number, setNumber] = useState(null);
     const [formattedNumber, setFormattedNumber] = useState('0000 0000 0000 0000');
@@ -16,10 +17,10 @@ const CardInfo = () => {
     const [provider, setProvider] = useState(null)
     const [errorMessage, setErrorMessage] = useState(null);
     const [paymentSuccessful, setPaymentSuccessful] = useState(false);
-    const [allCardsInfo, setAllCardsInfo] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
     const validationCheck = async (e) => {
+        setErrorMessage(null);
         e.preventDefault();
         setIsLoading(true);
 
@@ -70,14 +71,13 @@ const CardInfo = () => {
                 provider : provider,
             })
             .then((response) => {
-                console.log(response.data)
                 if (response.data.statusMessage === "Successful") {
-                    getAllCards();
                     setPaymentSuccessful(true);
+                    navigate('/savedCards');
                 }
                 else if (response.data.statusMessage === "Failed") {
                     setErrorMessage("Payment Unsuccessful!")
-                    setPaymentSuccessful(true);
+                    setPaymentSuccessful(false);
                 }
                 else if (response.data.errorMessage){
                     setErrorMessage(response.data.errorMessage);
@@ -99,23 +99,6 @@ const CardInfo = () => {
         setCVC(null);
         setErrorMessage(null);
         setPaymentSuccessful(false);
-    }
-
-    const getAllCards = async () => {
-        const url = 'http://localhost:3001/CardData/retrieveAllCards';
-        await Axios.post(url)
-        .then((response) => {
-            if (response.data.errorMessage){
-                setErrorMessage(response.data.errorMessage);
-            }
-            else {
-                setAllCardsInfo(response.data[0]);
-            }
-        })
-        .catch((error) => {
-            setErrorMessage(<>An Error Occured! <br/> {error.message}</>);
-        });
-        setIsLoading(false);  
     }
 
     function ccFormat(e) {
@@ -141,8 +124,8 @@ const CardInfo = () => {
             } else {
                 cType = 'Invalid';
             }
+            setProvider(cType)
         }
-        setProvider(cType)
 //Spacing the numbers------------------------------------
         block1 = numString.substring(0,4)
         if (block1.length === 4) {
