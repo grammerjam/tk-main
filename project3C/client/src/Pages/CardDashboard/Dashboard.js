@@ -14,7 +14,7 @@ const Dashboard = () => {
         setIsLoading(true);
         sortingOption('cardID')
         setIsLoading(false);  
-    }, [sortingOption]);
+    }, []);
 
     const sortingOption = async (sortOption) => {
         setIsLoading(true);
