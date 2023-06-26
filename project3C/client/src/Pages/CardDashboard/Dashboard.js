@@ -11,12 +11,6 @@ const Dashboard = () => {
     const [asc, setAsc] = useState(false)
     let sortOption
 
-    useEffect(() => {
-        setIsLoading(true);
-        sortingOption(sortOption)
-        setIsLoading(false);  
-    }, [sortOption]);
-
     const sortingOption = async (sortOption = 'cardID') => {
         setIsLoading(true);
         setAllCardsInfo([]);
@@ -49,6 +43,12 @@ const Dashboard = () => {
         });
         setIsLoading(false);  
     }
+
+    useEffect(() => {
+        setIsLoading(true);
+        sortingOption(sortOption)
+        setIsLoading(false);  
+    }, [sortingOption]);
 
     const updateCard = async (CardID) => {
         navigate(`/updateCardId/${CardID}`);
