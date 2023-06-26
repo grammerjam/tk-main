@@ -18,7 +18,6 @@ const UpdateCardInfo = () => {
     const [provider, setProvider] = useState('')
     const [errorMessage, setErrorMessage] = useState(null);
     const [paymentUpdateSuccessful, setPaymentUpdateSuccessful] = useState(false);
-    const [cardInfo, setCardInfo] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
@@ -44,7 +43,7 @@ const UpdateCardInfo = () => {
             setErrorMessage(<>An Error Occured! <br/> {error.message}</>);
         });
         setIsLoading(false);  
-    }, []);
+    }, [CardID]);
 
     const validationCheck = async (e) => {
         e.preventDefault();
