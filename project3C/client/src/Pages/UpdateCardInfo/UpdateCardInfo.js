@@ -111,7 +111,7 @@ const UpdateCardInfo = () => {
                 }
             })
             .catch((error) => {
-                setErrorMessage('An Error Occured! + \n' + error);
+                setErrorMessage(<>An Error Occured! <br/> {error.message}</>);
             });    
             setIsLoading(false);
         }

@@ -23,7 +23,7 @@ const Dashboard = () => {
             }
         })
         .catch((error) => {
-            setErrorMessage('An Error Occured! + \n' + error);
+            setErrorMessage(<>An Error Occured! <br/> {error.message}</>);
         });
         setIsLoading(false);  
     }, []);
@@ -81,6 +81,7 @@ const Dashboard = () => {
                             <th>Card Exp Date</th>
                             <th>Card Cvc</th>
                             <th>Card Provider</th>
+                            <th>Card Saved Date</th>
                             <th>Update Card</th>
                             <th>Delete Card</th>
                         </tr>
@@ -94,6 +95,7 @@ const Dashboard = () => {
                             <td>{cardDetail.cardHolderExpMonth}/{cardDetail.cardHolderExpYear}</td>
                             <td>{cardDetail.cardHolderCVC}</td>
                             <td>{cardDetail.cardHolderProvider}</td>
+                            <td>{cardDetail.cardSavedDate}</td>
                             {isLoading && <td><button className='updateDelete' style = {{backgroundColor : "rgb(139, 0, 139)"}} disabled>Update</button></td>}
                             {!isLoading && <td><button className='updateDelete' onClick={() => updateCard(cardDetail.cardID)}>Update</button></td>}
                             {isLoading && <td><button className='updateDelete' style = {{backgroundColor : "rgb(139, 0, 139)"}} disabled>Delete</button></td>}

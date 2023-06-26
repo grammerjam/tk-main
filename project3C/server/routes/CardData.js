@@ -40,6 +40,11 @@ router.post('/addCardDetail', async (req, res) => {
   const cvc = req.body.cvc;
   const provider = req.body.provider
 
+  const currentDate = new Date();
+  const currentMonth = currentDate.getMonth() + 1;
+  const currentYear = currentDate.getFullYear() % 100;
+  const formattedDate = currentMonth + "/" + currentYear
+
   try {
     const checkDuplicate = await db.query('SELECT * FROM cardstorage WHERE cardHolderNumber = ?', [number]);
 
@@ -47,7 +52,7 @@ router.post('/addCardDetail', async (req, res) => {
       return res.json({ errorMessage: 'Card already exists!' });
     }
     else {
-      const uploadCardStatus = await db.query('INSERT INTO cardstorage (cardHolderName, cardHolderNumber, cardHolderExpMonth, cardHolderExpYear, cardHolderCVC, cardHolderProvider) VALUES (?, ?, ?, ?, ?, ?)', [name, number, expMonth, expYear, cvc, provider]);
+      const uploadCardStatus = await db.query('INSERT INTO cardstorage (cardHolderName, cardHolderNumber, cardHolderExpMonth, cardHolderExpYear, cardHolderCVC, cardHolderProvider, cardSavedDate) VALUES (?, ?, ?, ?, ?, ?, ?)', [name, number, expMonth, expYear, cvc, provider, formattedDate]);
       
       if (uploadCardStatus[0].affectedRows > 0) {
         return res.json({statusMessage: "Successful"});
@@ -85,12 +90,16 @@ router.post('/updateCardDetail', async (req, res) => {
   const cvc = req.body.cvc;
   const provider = req.body.provider
 
+  const currentDate = new Date();
+  const currentMonth = currentDate.getMonth() + 1;
+  const currentYear = currentDate.getFullYear() % 100;
+  const formattedDate = currentMonth + "/" + currentYear
+
   try {
     const checkDuplicate = await db.query('SELECT * FROM cardstorage WHERE cardHolderNumber = ?', [number]);
 
     if (typeof checkDuplicate[0][0] === 'undefined' || parseInt(checkDuplicate[0][0].cardID) === parseInt(cardID)) {
-      const uploadCardStatus = await db.query('UPDATE cardstorage SET cardHolderName = ?, cardHolderNumber = ?, cardHolderExpMonth = ?, cardHolderExpYear = ?, cardHolderCVC = ?, cardHolderProvider = ? WHERE cardID = ?', [name, number, expMonth, expYear, cvc, provider, cardID]);
-      console.log(uploadCardStatus[0])
+      const uploadCardStatus = await db.query('UPDATE cardstorage SET cardHolderName = ?, cardHolderNumber = ?, cardHolderExpMonth = ?, cardHolderExpYear = ?, cardHolderCVC = ?, cardHolderProvider = ?, cardSavedDate = ? WHERE cardID = ?', [name, number, expMonth, expYear, cvc, provider, formattedDate, cardID]);
       if (uploadCardStatus[0].affectedRows > 0) {
         return res.json({statusMessage: "Successful"});
       }
@@ -101,7 +110,6 @@ router.post('/updateCardDetail', async (req, res) => {
     return res.json({statusMessage: "Failed"});
   }
   catch (err) {
-    console.log(err)
     return res.json({ errorMessage: 'A Server Error Occured!' });
   }
 });
