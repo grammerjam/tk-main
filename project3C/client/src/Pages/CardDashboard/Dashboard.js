@@ -8,6 +8,7 @@ const Dashboard = () => {
     const [allCardsInfo, setAllCardsInfo] = useState([]);
     const [errorMessage, setErrorMessage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [asc, setAsc] = useState(false)
 
     useEffect(() => {
         setIsLoading(true);
@@ -28,13 +29,27 @@ const Dashboard = () => {
                 setErrorMessage(response.data.errorMessage);
             }
             else {
-                setAllCardsInfo(response.data[0]);
+                let result = response.data[0];
+                let sorted = [];
+                if (asc) {
+                    for (let i = result.length-1; i >= 0; i--) {
+                        console.log(result[i])
+                        sorted.push(result[i])
+                    }
+                    setAllCardsInfo(sorted);
+                    setAsc(false);
+                } else {
+                    setAllCardsInfo(result);
+                    setAsc(true)
+                }
             }
         })
         .catch((error) => {
             setErrorMessage(<>An Error Occured! <br/> {error.message}</>);
         });
         setIsLoading(false);  
+        console.log(allCardsInfo);
+        console.log(asc)
     }
 
     const updateCard = async (CardID) => {
