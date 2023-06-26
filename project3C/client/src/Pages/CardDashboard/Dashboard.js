@@ -9,14 +9,15 @@ const Dashboard = () => {
     const [errorMessage, setErrorMessage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [asc, setAsc] = useState(false)
+    let sortOption
 
     useEffect(() => {
         setIsLoading(true);
-        sortingOption('cardID')
+        sortingOption(sortOption)
         setIsLoading(false);  
-    }, []);
+    }, [sortOption]);
 
-    const sortingOption = async (sortOption) => {
+    const sortingOption = async (sortOption = 'cardID') => {
         setIsLoading(true);
         setAllCardsInfo([]);
         const url = 'http://localhost:3001/CardData/retrieveAllCardsSorted';
