@@ -11,20 +11,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        const url = 'http://localhost:3001/CardData/retrieveAllCards';
-        
-        Axios.post(url)
-        .then((response) => {
-            if (response.data.errorMessage){
-                setErrorMessage(response.data.errorMessage);
-            }
-            else {
-                setAllCardsInfo(response.data[0]);
-            }
-        })
-        .catch((error) => {
-            setErrorMessage(<>An Error Occured! <br/> {error.message}</>);
-        });
+        sortingOption('cardID')
         setIsLoading(false);  
     }, []);
 
