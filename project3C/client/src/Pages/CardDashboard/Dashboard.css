@@ -26,6 +26,11 @@ th {
     padding: 1%;
 }
 
+th:hover {
+    cursor: pointer;
+    background-color: gray;
+}
+
 td {
     cursor: pointer;
     padding: 1%;
