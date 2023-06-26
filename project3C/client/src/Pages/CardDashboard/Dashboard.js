@@ -28,6 +28,28 @@ const Dashboard = () => {
         setIsLoading(false);  
     }, []);
 
+    const sortingOption = async (sortOption) => {
+        setIsLoading(true);
+        setAllCardsInfo([]);
+        const url = 'http://localhost:3001/CardData/retrieveAllCardsSorted';
+        
+        Axios.post(url, {
+            sortOption : sortOption
+        })
+        .then((response) => {
+            if (response.data.errorMessage){
+                setErrorMessage(response.data.errorMessage);
+            }
+            else {
+                setAllCardsInfo(response.data[0]);
+            }
+        })
+        .catch((error) => {
+            setErrorMessage(<>An Error Occured! <br/> {error.message}</>);
+        });
+        setIsLoading(false);  
+    }
+
     const updateCard = async (CardID) => {
         navigate(`/updateCardId/${CardID}`);
     }
@@ -75,13 +97,13 @@ const Dashboard = () => {
                 <table>
                     <tbody>
                         <tr>
-                            <th>Card ID</th>
-                            <th>CardHolder Name</th>
-                            <th>Card Number</th>
-                            <th>Card Exp Date</th>
-                            <th>Card Cvc</th>
-                            <th>Card Provider</th>
-                            <th>Card Saved Date</th>
+                            <th onClick={() => sortingOption('cardID')}>Card ID</th>
+                            <th onClick={() => sortingOption('cardHolderName')}>CardHolder Name</th>
+                            <th onClick={() => sortingOption('cardHolderNumber')}>Card Number</th>
+                            <th onClick={() => sortingOption('cardHolderExpMonth')}>Card Exp Date</th>
+                            <th onClick={() => sortingOption('cardHolderCVC')}>Card Cvc</th>
+                            <th onClick={() => sortingOption('cardHolderProvider')}>Card Provider</th>
+                            <th onClick={() => sortingOption('cardSavedDate')}>Card Saved Date</th>
                             <th>Update Card</th>
                             <th>Delete Card</th>
                         </tr>

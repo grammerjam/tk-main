@@ -141,5 +141,43 @@ router.post('/retrieveAllCards', async (req, res) => {
   } catch (error) {
     return res.json({ errorMessage: 'A Server Error Occured!' });
   }
-})
+});
+
+router.post('/retrieveAllCardsSorted', async (req, res) => {
+  let allCards = null;
+  const sortOption = req.body.sortOption
+  
+  try {
+    switch (sortOption) {
+
+    case 'cardID':
+      allCards = await db.query('SELECT * FROM cardstorage ORDER BY cardID');
+      break;
+    case 'cardHolderName':
+      allCards = await db.query('SELECT * FROM cardstorage ORDER BY cardHolderName');
+      break;
+    case 'cardHolderNumber':
+      allCards = await db.query('SELECT * FROM cardstorage ORDER BY cardHolderNumber');
+      break;
+    case 'cardHolderExpMonth':
+      allCards = await db.query('SELECT * FROM cardstorage ORDER BY cardHolderExpMonth');
+      break;
+    case 'cardHolderCVC':
+      allCards = await db.query('SELECT * FROM cardstorage ORDER BY cardHolderCVC');
+      break;
+    case 'cardHolderProvider':
+      allCards = await db.query('SELECT * FROM cardstorage ORDER BY cardHolderProvider');
+      break
+    case 'cardSavedDate':
+      allCards = await db.query('SELECT * FROM cardstorage ORDER BY cardSavedDate');
+      break
+    }
+
+    if (typeof allCards !== 'undefined') {
+      return res.send(allCards);
+    }
+  } catch (error) {
+    return res.json({ errorMessage: 'A Server Error Occured!' });
+  }
+});
 module.exports = router;
