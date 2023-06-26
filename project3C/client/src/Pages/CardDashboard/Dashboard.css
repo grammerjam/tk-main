@@ -1,0 +1,55 @@
+.tableContainer {
+    background-color: white;
+    margin: 10% 5% 10% 5%;
+    color: black;
+    border-radius:.4rem;
+}
+
+h1 {
+    padding-top: 5%;
+}
+
+table {
+    width: 90%;
+    margin: auto;
+    padding: 2% 0 2% 0;
+}
+
+tr:hover {
+    background-color: rgb(212, 212, 212);
+}
+
+
+th {
+    cursor: default;
+    background-color:silver;
+    padding: 1%;
+}
+
+td {
+    cursor: pointer;
+    padding: 1%;
+}
+
+ul {
+    list-style-type:none;
+}
+
+li {
+    width: 100%;
+}
+
+button {
+    border-radius: .4rem;
+    padding: .2rem;
+    background-color: hsl(278, 68%, 16%);
+    color: white;
+}
+
+.updateDelete {
+    margin: 3%
+}
+
+button:hover {
+    background-color: hsl(278, 65%, 33%);
+}
