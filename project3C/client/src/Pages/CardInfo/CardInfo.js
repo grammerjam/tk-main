@@ -61,7 +61,7 @@ const CardInfo = () => {
             return setErrorMessage("Please enter nonexpired card!");
         }
         else {
-            const url = 'http://localhost:3001/CardData/addCardDetail';
+            const url = process.env.REACT_APP_Backend_URL + '/CardData/addCardDetail';
             await Axios.post(url, {
                 name : name,
                 number : number,
