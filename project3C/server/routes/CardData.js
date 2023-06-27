@@ -41,9 +41,7 @@ router.post('/addCardDetail', async (req, res) => {
   const provider = req.body.provider
 
   const currentDate = new Date();
-  const currentMonth = currentDate.getMonth() + 1;
-  const currentYear = currentDate.getFullYear() % 100;
-  const formattedDate = currentMonth + "/" + currentYear
+  const formattedDate = (currentDate.getMonth() + 1) + "/" + (currentDate.getFullYear() % 100);
 
   try {
     const checkDuplicate = await db.query('SELECT * FROM cardstorage WHERE cardHolderNumber = ?', [number]);
@@ -91,9 +89,7 @@ router.post('/updateCardDetail', async (req, res) => {
   const provider = req.body.provider
 
   const currentDate = new Date();
-  const currentMonth = currentDate.getMonth() + 1;
-  const currentYear = currentDate.getFullYear() % 100;
-  const formattedDate = currentMonth + "/" + currentYear
+  const formattedDate = (currentDate.getMonth() + 1) + "/" + (currentDate.getFullYear() % 100);
 
   try {
     const checkDuplicate = await db.query('SELECT * FROM cardstorage WHERE cardHolderNumber = ?', [number]);
