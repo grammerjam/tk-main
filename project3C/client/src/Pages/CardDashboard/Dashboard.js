@@ -48,7 +48,8 @@ const Dashboard = () => {
         setIsLoading(true);
         sortingOption(sortOption)
         setIsLoading(false);  
-    }, [sortingOption]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const updateCard = async (CardID) => {
         navigate(`/updateCardId/${CardID}`);
