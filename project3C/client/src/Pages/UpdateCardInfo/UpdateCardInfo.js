@@ -23,7 +23,7 @@ const UpdateCardInfo = () => {
     useEffect(() => {
         setErrorMessage(null);
 
-        const url = process.env.REACT_APP_Backend_URL + '/CardData/retrieveCardInfo';
+        const url = process.env.REACT_APP_Backend_URL+'/CardData/retrieveCardInfo';
         Axios.post(url, {CardID : CardID})
         .then((response) => {
             if (response.data.errorMessage){
@@ -86,7 +86,7 @@ const UpdateCardInfo = () => {
             return setErrorMessage("Please enter nonexpired card!");
         }
         else {
-            const url = process.env.REACT_APP_Backend_URL + '/CardData/updateCardDetail';
+            const url = process.env.REACT_APP_Backend_URL+'/CardData/updateCardDetail';
             await Axios.post(url, {
                 cardID : CardID,
                 name : name,

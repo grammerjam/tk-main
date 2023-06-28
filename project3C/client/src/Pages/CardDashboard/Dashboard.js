@@ -14,7 +14,7 @@ const Dashboard = () => {
     const sortingOption = async (sortOption = 'cardID') => {
         setIsLoading(true);
         setAllCardsInfo([]);
-        const url = process.env.REACT_APP_Backend_URL + '/CardData/retrieveAllCardsSorted';
+        const url = process.env.REACT_APP_Backend_URL+'/CardData/retrieveAllCardsSorted';
         
         Axios.post(url, {
             sortOption : sortOption
@@ -56,7 +56,7 @@ const Dashboard = () => {
     }
 
     const deleteCard = async (cardID) => {
-        const url = process.env.REACT_APP_Backend_URL + '/CardData/deleteCardDetail';
+        const url = process.env.REACT_APP_Backend_URL+'/CardData/deleteCardDetail';
 
         let isOk = window.confirm("Are you sure you want to delete card id " + cardID + "?");
 
