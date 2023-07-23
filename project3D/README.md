@@ -13,7 +13,7 @@ You should be able to:
 ## Deployment:
 
 You will:
-- Access the AWS account provided to you
+- Create and access a new AWS account
 - Create a new RDS database
 - Create an EC2 instance (t2.micro)
 - Access the EC2 instance via SSH
