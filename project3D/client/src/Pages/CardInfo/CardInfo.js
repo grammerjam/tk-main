@@ -233,7 +233,7 @@ const CardInfo = () => {
                     </form>
                 </div>
                 <div className='footer'>
-                    <p>Start Date/Time: 06/21/23 2000ET</p>
+                    <p>Start Date/Time: 07/27/23 2000ET</p>
                 </div>
             </div>
         </>
