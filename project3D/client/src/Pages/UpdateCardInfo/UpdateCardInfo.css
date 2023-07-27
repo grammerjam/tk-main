@@ -1,0 +1,270 @@
+.footer {
+    background-color: hsl(260, 42%, 20%);
+    color: rgb(223, 175, 112);
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.page_container {
+    background-color: white;
+    display: flex;
+    float: right;
+    height: 100vh; /*Works */
+    width: 65%;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: -1.25em; */
+    font-size: 1.15em;
+    font-family: 'Space Grotesk';
+}
+/*Form design*/
+.cardInfo_form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.cardInfo_form > label {
+    text-align: left;
+    display: block;
+    color: rgb(108, 31, 152);
+}
+.cardInfo_form > label > input {
+    display: block;
+    outline: none;
+    border: 0.15em solid lightgray;
+    border-radius: 0.40em;
+    height: 1.50em;
+    width: 100%;
+    margin-bottom: 1.25em;
+}
+.cardInfo_form > label > input:focus {
+    outline: none;
+    border: 0.15em solid rgb(96, 5, 178);   
+}
+.cardInfo_form > label > input::placeholder {
+    font-size: 1em;
+    font-family:Arial, Helvetica, sans-serif;
+    padding-left: 1em;
+}
+.cardInfo_form > .expAndCvcBox > .cardHolderExpDateLabel {
+    text-align: left;
+    display: block;
+    color: rgb(108, 31, 152);
+    float: left;
+    margin-right: 2em;
+}
+.cardInfo_form > .expAndCvcBox > .cardHolderExpDateLabel > div {
+    display: block;
+}
+.cardInfo_form > .expAndCvcBox > .cardHolderExpDateLabel > div > input {
+    display: inline-block;
+    outline: none;
+    border: 0.15em solid lightgray;
+    border-radius: 0.40em;
+    height: 1.50em;
+    width: 25%;
+    margin-right: 0.50em;
+    margin-bottom: 1.25em;
+}
+.cardInfo_form > .expAndCvcBox > .cardHolderExpDateLabel > div > input:focus {
+    outline: none;
+    border: 0.15em solid rgb(96, 5, 178);
+}
+.cardInfo_form > .expAndCvcBox > .cardHolderExpDateLabel > div > input::placeholder {
+    font-size: 1em;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.cardInfo_form > .expAndCvcBox > .cardHolderCVCLabel {
+    text-align: left;
+    display: block;
+    color: rgb(108, 31, 152);
+    float: left;
+}
+.cardInfo_form > .expAndCvcBox > .cardHolderCVCLabel > input {
+    width: 100%;
+    border: 0.15em solid lightgray;
+    border-radius: 0.40em;
+    height: 1.50em;
+    width: 100%;
+    margin-bottom: 1.25em;
+}
+
+.expAndCvcBox {
+    display: flex;
+    width: 100%;
+}
+
+.cardInfo_form > button  {
+    display: block;
+    border-radius: .4rem;
+    padding: .6rem;
+    background-color: hsl(278, 68%, 11%);
+    color: white;
+    grid-area: submit;
+    width: 100%;
+    margin-bottom: 2.50em;
+}
+.cardInfo_form > button:hover  {
+    background-color: hsl(278, 65%, 33%);
+}
+.cardInfo_form > p {
+    text-align: left;
+    font-size: 1.50em;
+    font-family: 'Space Grotesk';
+    margin:auto;
+    color: red;
+}
+/*Remove up and down arrow in number field*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+/*Payment Confirmation*/
+.cardInfo_form > .paymentConfLogo {
+    height: 4em;
+    width: 4em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cardInfo_form > .paymentConfHeader {
+    color: hsl(278, 68%, 11%);
+}
+.cardInfo_form > .paymentConfMsg {
+    color: grey;
+    font-size: 1.25em;
+    margin-bottom: 2em;
+}
+
+/*Card Design*/
+.card-display-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    left: 12%;
+    height: 100%;
+    width: 35%;
+    position: absolute;
+}
+.card-display-container p {
+    color: white;
+    font-size: 1.25em;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.card-display-container > .card-front {
+    background-image: url('../../images/bg-card-front.png');
+    background-size: cover;
+    z-index: 1;
+    height: 9em; 
+    width: 20em;
+    padding: 1rem;
+    margin-right: 10%;
+    border-radius: .6rem;
+    display: grid;
+    grid-template-areas: 
+        'logo logo logo' 'number number number' 'name name exp-m';
+}
+
+.card-display-container > .card-front > .name-display {
+    grid-area: name;
+    height: 1rem;
+}
+.card-display-container > .card-front > .number-display {
+    grid-area: number;
+    height: 1rem;
+}
+.card-display-container > .card-front > .exp-m-display {
+    grid-area: exp-m;
+    height: 1rem;
+    text-align: right;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.white-circle {
+    grid-area: logo;
+    height: 2rem;
+    width: 2rem;
+    background-color: white;
+    border-radius: 100%;
+}
+
+.empty-circle {
+    grid-area:logo;
+    height: .75rem;
+    width: .75rem;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    border-radius: 100%;
+    margin-left: 1rem;
+}
+
+.card-display-container > .card-back {
+    background-image: url('../../images/bg-card-back.png');
+    background-size: cover;
+    z-index: 0;
+    height: 9em; 
+    width: 20em;
+    padding: 1rem;
+    margin-left: 10%;
+    border-radius: .6rem;
+}
+
+.card-display-container > .card-back > .cvc-display {
+    margin: 1.6rem 0.5rem 0 0;
+    float: right;
+    font-size: .8rem;
+}
+
+@media (max-width: 800px) {
+    .big-container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .page_container{
+        order: 2;
+        width: 100%;
+        height: 65%;
+        position: absolute;
+        top: 35%;
+    }
+
+    .cardInfo_form {
+        width: 80%;
+        margin-top: 5%;
+    }
+
+    .card-display-container {
+        gap: 0;
+        order: 1;
+        width: 100%;
+        top: 2em;
+        left: 0;
+        height: 50%;
+    }
+    .card-display-container > .card-front {
+        top: 38%;
+        position: absolute;
+        order: 2;
+    }
+    .card-display-container > .card-back {
+        top: 10%;
+        position: absolute;
+        order: 1;
+    }    
+}

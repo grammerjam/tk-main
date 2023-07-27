@@ -1,0 +1,72 @@
+.tableContainer {
+    background-color: white;
+    margin: 10% 5% 10% 5%;
+    color: black;
+    border-radius:.4rem;
+}
+
+h1 {
+    padding-top: 5%;
+}
+
+table {
+    width: 90%;
+    margin: auto;
+    padding: 2% 0 2% 0;
+}
+
+tr:hover {
+    background-color: rgb(212, 212, 212);
+}
+
+
+th {
+    cursor: default;
+    background-color:silver;
+    padding: 1%;
+}
+
+th:hover {
+    cursor: pointer;
+    background-color: gray;
+}
+
+td {
+    cursor: pointer;
+    padding: 1%;
+}
+
+ul {
+    list-style-type:none;
+}
+
+li {
+    width: 100%;
+}
+
+button {
+    border-radius: .4rem;
+    padding: .2rem;
+    background-color: hsl(278, 68%, 16%);
+    color: white;
+}
+
+.updateDelete {
+    margin: 3%
+}
+
+button:hover {
+    background-color: hsl(278, 65%, 33%);
+}
+
+@media (max-width: 800px) {
+    th:first-child, td:first-child, th:nth-child(4), td:nth-child(4), th:nth-child(5), td:nth-child(5), th:nth-child(6), td:nth-child(6), th:nth-child(7), td:nth-child(7) {
+        display: none;
+    }  
+    th:nth-child(2), td:nth-child(2) {
+        width: 6em;
+    }  
+    th:nth-child(3), td:nth-child(3) {
+        width: 8em;
+    }  
+}
