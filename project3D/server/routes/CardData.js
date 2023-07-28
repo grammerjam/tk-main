@@ -57,6 +57,7 @@ router.post('/addCardDetail', async (req, res) => {
     return res.json({statusMessage: "Failed"});
   }
   catch (err) {
+    console.log(err);
     return res.json({ errorMessage: 'A Server Error Occured!' });
   }
 });
