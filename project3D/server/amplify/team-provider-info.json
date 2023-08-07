@@ -1,0 +1,35 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-server-dev-141154-authRole",
+      "UnauthRoleArn": "arn:aws:iam::946460601990:role/amplify-server-dev-141154-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::946460601990:role/amplify-server-dev-141154-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-server-dev-141154-deployment",
+      "UnauthRoleName": "amplify-server-dev-141154-unauthRole",
+      "StackName": "amplify-server-dev-141154",
+      "StackId": "arn:aws:cloudformation:us-east-1:946460601990:stack/amplify-server-dev-141154/e4a58230-354d-11ee-b04e-0a7752e6f897",
+      "AmplifyAppId": "dgw6qww6g2uxm"
+    },
+    "categories": {
+      "function": {
+        "serverabeb6add": {
+          "dbHost": "project3-db.c8ozusi6s20t.us-east-1.rds.amazonaws.com",
+          "dbPort": "3306",
+          "dbUser": "admin",
+          "dbPass": "PyfFDrrxU7TiGmCEhLMD",
+          "dbData": "card_data_schema",
+          "sshHost": "ec2-44-204-163-126.compute-1.amazonaws.com",
+          "sshPort": "22",
+          "sshUser": "ec2-user",
+          "secretsPathAmplifyAppId": "dgw6qww6g2uxm",
+          "deploymentBucketName": "amplify-server-dev-141154-deployment",
+          "s3Key": "amplify-builds/serverabeb6add-336279574734334b6154-build.zip"
+        }
+      },
+      "api": {
+        "serverapi": {}
+      }
+    }
+  }
+}

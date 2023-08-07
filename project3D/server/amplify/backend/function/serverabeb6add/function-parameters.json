@@ -1,0 +1,41 @@
+{
+  "permissions": {},
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "dbHost",
+      "environmentVariableName": "DB_Host"
+    },
+    {
+      "cloudFormationParameterName": "dbPort",
+      "environmentVariableName": "DB_Port"
+    },
+    {
+      "cloudFormationParameterName": "dbUser",
+      "environmentVariableName": "DB_User"
+    },
+    {
+      "cloudFormationParameterName": "dbPass",
+      "environmentVariableName": "DB_Pass"
+    },
+    {
+      "cloudFormationParameterName": "dbData",
+      "environmentVariableName": "DB_Data"
+    },
+    {
+      "cloudFormationParameterName": "sshHost",
+      "environmentVariableName": "SSH_Host"
+    },
+    {
+      "cloudFormationParameterName": "sshPort",
+      "environmentVariableName": "SSH_Port"
+    },
+    {
+      "cloudFormationParameterName": "sshUser",
+      "environmentVariableName": "SSH_User"
+    }
+  ],
+  "secretNames": [
+    "adminsecret"
+  ]
+}

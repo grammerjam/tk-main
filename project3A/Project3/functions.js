@@ -61,8 +61,6 @@ function check() {
       error.innerHTML = "";
     }
 
-// TODO: finish expiration validation. expDate is logging 'date is invalid'
-
     field = document.getElementById("cvc");
     error = document.getElementById("c-cvc");
     if (!field.checkValidity()) {

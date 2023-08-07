@@ -2,6 +2,8 @@ import './Dashboard.css'
 import { Link, useNavigate } from 'react-router-dom'
 import Axios from 'axios';
 import { useEffect, useState } from 'react';
+// require('dotenv').config();
+
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -14,16 +16,19 @@ const Dashboard = () => {
     const sortingOption = async (sortOption = 'cardID') => {
         setIsLoading(true);
         setAllCardsInfo([]);
-        const url = process.env.REACT_APP_Backend_URL+'/CardData/retrieveAllCardsSorted';
-        
+        const url = 'https://project3-db.c8ozusi6s20t.us-east-1.rds.amazonaws.com';
+        console.log(url)
+
         Axios.post(url, {
-            sortOption : sortOption
+            sortOption : sortOption,
         })
         .then((response) => {
             if (response.data.errorMessage){
                 setErrorMessage(response.data.errorMessage);
+                console.log("the if failed")
             }
             else {
+                console.log('we got data')
                 let result = response.data[0];
                 let sorted = [];
                 if (asc) {
@@ -40,16 +45,17 @@ const Dashboard = () => {
         })
         .catch((error) => {
             setErrorMessage(<>An Error Occured! <br/> {error.message}</>);
+            console.log('error message section')
         });
         setIsLoading(false);  
     }
 
-    useEffect(() => {
-        setIsLoading(true);
-        sortingOption(sortOption)
-        setIsLoading(false);  
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    // useEffect(() => {
+    //     setIsLoading(true);
+    //     sortingOption(sortOption)
+    //     setIsLoading(false);  
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
 
     const updateCard = async (CardID) => {
         navigate(`/updateCardId/${CardID}`);

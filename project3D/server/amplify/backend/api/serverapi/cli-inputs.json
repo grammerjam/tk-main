@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/carddata": {
+      "name": "/carddata",
+      "lambdaFunction": "serverabeb6add",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
