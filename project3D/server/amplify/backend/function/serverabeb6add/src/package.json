@@ -8,6 +8,7 @@
     "@types/aws-lambda": "^8.10.92"
   },
   "dependencies": {
+    "@aws-amplify/cli": "^12.2.3",
     "aws-amplify": "^5.3.6"
   }
 }
