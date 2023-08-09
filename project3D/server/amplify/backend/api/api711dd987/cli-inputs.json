@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/cardData": {
+      "name": "/cardData",
+      "lambdaFunction": "cardHandler",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

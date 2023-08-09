@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@aws-amplify/cli": "^12.2.3",
     "aws-amplify": "^5.3.6",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",

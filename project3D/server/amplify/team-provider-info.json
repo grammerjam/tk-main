@@ -31,5 +31,26 @@
         "serverapi": {}
       }
     }
+  },
+  "backend": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-server-backend-162959-authRole",
+      "UnauthRoleArn": "arn:aws:iam::946460601990:role/amplify-server-backend-162959-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::946460601990:role/amplify-server-backend-162959-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-server-backend-162959-deployment",
+      "UnauthRoleName": "amplify-server-backend-162959-unauthRole",
+      "StackName": "amplify-server-backend-162959",
+      "StackId": "arn:aws:cloudformation:us-east-1:946460601990:stack/amplify-server-backend-162959/58ce5e70-362a-11ee-9fd2-0a591cac9dbf",
+      "AmplifyAppId": "dgw6qww6g2uxm"
+    },
+    "categories": {
+      "function": {
+        "serverabeb6add": {
+          "secretsPathAmplifyAppId": "dgw6qww6g2uxm"
+        },
+        "cardHandler": {}
+      }
+    }
   }
 }
