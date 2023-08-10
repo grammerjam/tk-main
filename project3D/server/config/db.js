@@ -1,8 +1,7 @@
 const { createPool } = require('mysql2/promise');
-const { createSSHTunnel } = require ('./sshTunnel');
+const mysql = require('mysql2');
 require('dotenv').config();
 
-const { srcAddr, srcPort } = createSSHTunnel();
 
 const db = createPool({
     host: process.env.DB_Host,

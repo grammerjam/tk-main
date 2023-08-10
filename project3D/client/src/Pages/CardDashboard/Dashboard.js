@@ -94,39 +94,39 @@ const Dashboard = () => {
         </nav>
         <div className='tableContainer'>
             <h1>All Cards</h1>
-                <h2>{errorMessage}</h2>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th onClick={() => sortingOption('cardID')}>Card ID</th>
-                            <th onClick={() => sortingOption('cardHolderName')}>CardHolder Name</th>
-                            <th onClick={() => sortingOption('cardHolderNumber')}>Card Number</th>
-                            <th onClick={() => sortingOption('cardHolderExpMonth')}>Card Exp Date</th>
-                            <th onClick={() => sortingOption('cardHolderCVC')}>Card Cvc</th>
-                            <th onClick={() => sortingOption('cardHolderProvider')}>Card Provider</th>
-                            <th onClick={() => sortingOption('cardSavedDate')}>Card Saved Date</th>
-                            <th>Update Card</th>
-                            <th>Delete Card</th>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                    {allCardsInfo.map((cardDetail) => (
-                        <tr key={cardDetail.cardID}>
-                            <td>{cardDetail.cardID}</td>
-                            <td>{cardDetail.cardHolderName}</td>
-                            <td>{cardDetail.cardHolderNumber}</td>
-                            <td>{cardDetail.cardHolderExpMonth}/{cardDetail.cardHolderExpYear}</td>
-                            <td>{cardDetail.cardHolderCVC}</td>
-                            <td>{cardDetail.cardHolderProvider}</td>
-                            <td>{cardDetail.cardSavedDate}</td>
-                            {isLoading && <td><button className='updateDelete' style = {{backgroundColor : "rgb(139, 0, 139)"}} disabled>Update</button></td>}
-                            {!isLoading && <td><button className='updateDelete' onClick={() => updateCard(cardDetail.cardID)}>Update</button></td>}
-                            {isLoading && <td><button className='updateDelete' style = {{backgroundColor : "rgb(139, 0, 139)"}} disabled>Delete</button></td>}
-                            {!isLoading && <td><button className='updateDelete' onClick={() => deleteCard(cardDetail.cardID)}>Delete</button></td>}
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
+            <h2>{errorMessage}</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <th onClick={() => sortingOption('cardID')}>Card ID</th>
+                        <th onClick={() => sortingOption('cardHolderName')}>CardHolder Name</th>
+                        <th onClick={() => sortingOption('cardHolderNumber')}>Card Number</th>
+                        <th onClick={() => sortingOption('cardHolderExpMonth')}>Card Exp Date</th>
+                        <th onClick={() => sortingOption('cardHolderCVC')}>Card Cvc</th>
+                        <th onClick={() => sortingOption('cardHolderProvider')}>Card Provider</th>
+                        <th onClick={() => sortingOption('cardSavedDate')}>Card Saved Date</th>
+                        <th>Update Card</th>
+                        <th>Delete Card</th>
+                    </tr>
+                </tbody>
+                <tbody>
+                {allCardsInfo.map((cardDetail) => (
+                    <tr key={cardDetail.cardID}>
+                        <td>{cardDetail.cardID}</td>
+                        <td>{cardDetail.cardHolderName}</td>
+                        <td>{cardDetail.cardHolderNumber}</td>
+                        <td>{cardDetail.cardHolderExpMonth}/{cardDetail.cardHolderExpYear}</td>
+                        <td>{cardDetail.cardHolderCVC}</td>
+                        <td>{cardDetail.cardHolderProvider}</td>
+                        <td>{cardDetail.cardSavedDate}</td>
+                        {isLoading && <td><button className='updateDelete' style = {{backgroundColor : "rgb(139, 0, 139)"}} disabled>Update</button></td>}
+                        {!isLoading && <td><button className='updateDelete' onClick={() => updateCard(cardDetail.cardID)}>Update</button></td>}
+                        {isLoading && <td><button className='updateDelete' style = {{backgroundColor : "rgb(139, 0, 139)"}} disabled>Delete</button></td>}
+                        {!isLoading && <td><button className='updateDelete' onClick={() => deleteCard(cardDetail.cardID)}>Delete</button></td>}
+                    </tr>
+                ))}
+                </tbody>
+            </table>
         </div>
     </>
   )

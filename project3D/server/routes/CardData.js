@@ -172,6 +172,7 @@ router.post('/retrieveAllCardsSorted', async (req, res) => {
       return res.send(allCards);
     }
   } catch (error) {
+    console.log(error)
     return res.json({ errorMessage: 'A Server Error Occured!' });
   }
 });
