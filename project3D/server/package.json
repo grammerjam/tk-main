@@ -1,5 +1,6 @@
-{
+{ 
   "dependencies": {
+    "@babel/node":"^7.22.10",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -12,6 +13,7 @@
     "mysql2": "^3.4.0",
     "nodemon": "^2.0.22",
     "path": "^0.12.7",
+    "semver":"^7.5.4",
     "ssh2": "^1.14.0",
     "tunnel-ssh": "^5.1.1"
   },
