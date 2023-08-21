@@ -28,4 +28,4 @@ As soon as you have set the server up and it is running properly, inform us. If 
 
 *Happy DevOping!*
 
-**Drop-Dead Date: Monday 9 AM EST**
+**Drop-Dead Date: Monday 900 AM EST**
