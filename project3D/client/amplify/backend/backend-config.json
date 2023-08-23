@@ -1,0 +1,43 @@
+{
+  "api": {
+    "api99ebf717": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "project3dstackmonste119a4516"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "project3dstackmonste119a4516": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_project3dstackmonste119a4516_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "project3dstackmonste119a4516"
+        }
+      ]
+    },
+    "AMPLIFY_function_project3dstackmonste119a4516_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "project3dstackmonste119a4516"
+        }
+      ]
+    }
+  }
+}

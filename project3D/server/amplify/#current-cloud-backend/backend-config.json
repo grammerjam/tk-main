@@ -1,0 +1,116 @@
+{
+  "api": {
+    "serverapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "serverabeb6add"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "serverabeb6add": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_serverabeb6add_dbData": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "serverabeb6add"
+        }
+      ]
+    },
+    "AMPLIFY_function_serverabeb6add_dbHost": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "serverabeb6add"
+        }
+      ]
+    },
+    "AMPLIFY_function_serverabeb6add_dbPass": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "serverabeb6add"
+        }
+      ]
+    },
+    "AMPLIFY_function_serverabeb6add_dbPort": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "serverabeb6add"
+        }
+      ]
+    },
+    "AMPLIFY_function_serverabeb6add_dbUser": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "serverabeb6add"
+        }
+      ]
+    },
+    "AMPLIFY_function_serverabeb6add_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "serverabeb6add"
+        }
+      ]
+    },
+    "AMPLIFY_function_serverabeb6add_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "serverabeb6add"
+        }
+      ]
+    },
+    "AMPLIFY_function_serverabeb6add_secretsPathAmplifyAppId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "serverabeb6add"
+        }
+      ]
+    },
+    "AMPLIFY_function_serverabeb6add_sshHost": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "serverabeb6add"
+        }
+      ]
+    },
+    "AMPLIFY_function_serverabeb6add_sshPort": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "serverabeb6add"
+        }
+      ]
+    },
+    "AMPLIFY_function_serverabeb6add_sshUser": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "serverabeb6add"
+        }
+      ]
+    }
+  }
+}

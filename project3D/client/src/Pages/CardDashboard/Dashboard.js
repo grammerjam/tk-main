@@ -14,7 +14,8 @@ const Dashboard = () => {
     const sortingOption = async (sortOption = 'cardID') => {
         setIsLoading(true);
         setAllCardsInfo([]);
-        const url = process.env.REACT_APP_Backend_URL+'/CardData/retrieveAllCardsSorted';
+        // const url = process.env.REACT_APP_Backend_URL+'/CardData/retrieveAllCardsSorted';
+        const url = 'https://28zs9236q7.execute-api.us-east-1.amazonaws.com/staging/CardData/retrieveAllCardsSorted'
         
         Axios.post(url, {
             sortOption : sortOption

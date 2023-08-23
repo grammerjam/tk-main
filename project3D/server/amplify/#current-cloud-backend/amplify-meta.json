@@ -1,0 +1,71 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-server-dev-141154-authRole",
+      "UnauthRoleArn": "arn:aws:iam::946460601990:role/amplify-server-dev-141154-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::946460601990:role/amplify-server-dev-141154-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-server-dev-141154-deployment",
+      "UnauthRoleName": "amplify-server-dev-141154-unauthRole",
+      "StackName": "amplify-server-dev-141154",
+      "StackId": "arn:aws:cloudformation:us-east-1:946460601990:stack/amplify-server-dev-141154/e4a58230-354d-11ee-b04e-0a7752e6f897",
+      "AmplifyAppId": "dgw6qww6g2uxm"
+    }
+  },
+  "function": {
+    "serverabeb6add": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [],
+      "lastBuildTimeStamp": "2023-08-07T18:43:36.946Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2023-08-07T18:43:37.022Z",
+      "distZipFilename": "serverabeb6add-336279574734334b6154-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-server-dev-141154-deployment",
+        "s3Key": "amplify-builds/serverabeb6add-336279574734334b6154-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-server-dev-141154-deployment/amplify-cfn-templates/function/serverabeb6add-cloudformation-template.json",
+        "logicalId": "functionserverabeb6add"
+      },
+      "lastPushTimeStamp": "2023-08-07T18:45:12.453Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::946460601990:role/serverLambdaRole139457b3-dev",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:946460601990:function:serverabeb6add-dev",
+        "Name": "serverabeb6add-dev",
+        "LambdaExecutionRole": "serverLambdaRole139457b3-dev"
+      },
+      "lastPushDirHash": "tpOGU0fUBQXTFrbOF/bDHVimiXE="
+    }
+  },
+  "api": {
+    "serverapi": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "serverabeb6add",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ],
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-server-dev-141154-deployment/amplify-cfn-templates/api/serverapi-cloudformation-template.json",
+        "logicalId": "apiserverapi"
+      },
+      "lastPushTimeStamp": "2023-08-07T18:45:12.453Z",
+      "output": {
+        "ApiName": "serverapi",
+        "RootUrl": "https://c8xf0ei92e.execute-api.us-east-1.amazonaws.com/dev",
+        "ApiId": "c8xf0ei92e"
+      },
+      "lastPushDirHash": "WXOptvu1e3Q+dPCAW4SZbXoweE0="
+    }
+  }
+}

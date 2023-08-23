@@ -1,0 +1,26 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplify6b53c2eed9ef4-staging-151444-authRole",
+      "UnauthRoleArn": "arn:aws:iam::946460601990:role/amplify-amplify6b53c2eed9ef4-staging-151444-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::946460601990:role/amplify-amplify6b53c2eed9ef4-staging-151444-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-amplify6b53c2eed9ef4-staging-151444-deployment",
+      "UnauthRoleName": "amplify-amplify6b53c2eed9ef4-staging-151444-unauthRole",
+      "StackName": "amplify-amplify6b53c2eed9ef4-staging-151444",
+      "StackId": "arn:aws:cloudformation:us-east-1:946460601990:stack/amplify-amplify6b53c2eed9ef4-staging-151444/241ccc70-3535-11ee-84df-0ec627c350bb",
+      "AmplifyAppId": "d3hoa26qhfhl3y"
+    },
+    "categories": {
+      "function": {
+        "project3dstackmonste119a4516": {
+          "deploymentBucketName": "amplify-amplify6b53c2eed9ef4-staging-151444-deployment",
+          "s3Key": "amplify-builds/project3dstackmonste119a4516-7851327832734b497943-build.zip"
+        }
+      },
+      "api": {
+        "api99ebf717": {}
+      }
+    }
+  }
+}
