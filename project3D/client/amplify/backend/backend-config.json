@@ -1,5 +1,19 @@
 {
   "api": {
+    "api88d68e1e": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "project3dstackmonstee79bd204"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "api99ebf717": {
       "dependsOn": [
         {
@@ -20,6 +34,28 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "project3dstackmonstee79bd204": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "project3dstackmonste119a4516"
+        },
+        {
+          "attributes": [
+            "ApiName",
+            "ApiId"
+          ],
+          "category": "api",
+          "resourceName": "api99ebf717"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
@@ -36,6 +72,38 @@
         {
           "category": "function",
           "resourceName": "project3dstackmonste119a4516"
+        }
+      ]
+    },
+    "AMPLIFY_function_project3dstackmonstee79bd204_dbUser": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "project3dstackmonstee79bd204"
+        }
+      ]
+    },
+    "AMPLIFY_function_project3dstackmonstee79bd204_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "project3dstackmonstee79bd204"
+        }
+      ]
+    },
+    "AMPLIFY_function_project3dstackmonstee79bd204_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "project3dstackmonstee79bd204"
+        }
+      ]
+    },
+    "AMPLIFY_function_project3dstackmonstee79bd204_secretsPathAmplifyAppId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "project3dstackmonstee79bd204"
         }
       ]
     }

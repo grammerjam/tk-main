@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/items": {
+      "name": "/items",
+      "lambdaFunction": "project3dstackmonstee79bd204",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

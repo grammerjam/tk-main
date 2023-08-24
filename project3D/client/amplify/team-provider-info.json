@@ -16,10 +16,17 @@
         "project3dstackmonste119a4516": {
           "deploymentBucketName": "amplify-amplify6b53c2eed9ef4-staging-151444-deployment",
           "s3Key": "amplify-builds/project3dstackmonste119a4516-7851327832734b497943-build.zip"
+        },
+        "project3dstackmonstee79bd204": {
+          "dbUser": "admin",
+          "secretsPathAmplifyAppId": "d3hoa26qhfhl3y",
+          "deploymentBucketName": "amplify-amplify6b53c2eed9ef4-staging-151444-deployment",
+          "s3Key": "amplify-builds/project3dstackmonstee79bd204-4f5838576577376b4670-build.zip"
         }
       },
       "api": {
-        "api99ebf717": {}
+        "api99ebf717": {},
+        "api88d68e1e": {}
       }
     }
   }

@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "function": {
+      "project3dstackmonste119a4516": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    },
+    "api": {
+      "api99ebf717": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "dbUser",
+      "environmentVariableName": "DB_User"
+    }
+  ],
+  "secretNames": [
+    "secret"
+  ]
+}
